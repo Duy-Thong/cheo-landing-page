@@ -55,9 +55,9 @@ Tài liệu này định nghĩa toàn bộ quy chuẩn, triết lý và các đi
   - Quy ước hình thể: phải có ảnh động thái hoặc nhịp trống gõ minh họa.
   - Làn điệu hát xướng: phải có âm sắc nhạc cụ hoặc audio phát nghe thử.
 
-### ❌ 7. Tuyệt đối không lạm dụng dấu trích dẫn (No Quote Abuse)
-- Không tùy tiện đóng mở ngoặc kép `“...”` ở tiêu đề phụ, câu dẫn giải hay văn phong tường thuật đời thường.
-- Mỗi trang chỉ giữ tối đa 1 dải danh ngôn toàn cảnh (panoramic callout) đắt giá nhất của nghệ nhân tiền nhân để tạo nốt lắng đọng.
+### ❌ 7. Tuyệt đối không lạm dụng và spam trích dẫn (No Quote Abuse / No Inline Quote Box Spam)
+- **Cấm chèn các hộp trích dẫn lặt vặt chen giữa các đoạn văn**: Không tạo các khung trích dẫn nhỏ (`border-l-2`, `bg-amber-950/20`) rải rác bên trong bài tự sự làm đứt gãy mạch đọc và spam trích dẫn rời rạc làm nhòe chủ đề chính.
+- **Chỉ giữ 1 dải danh ngôn toàn cảnh**: Mỗi trang chỉ giữ tối đa 1 dải danh ngôn toàn cảnh (panoramic callout band) duy nhất nằm giữa hoặc cuối trang để tạo nhịp thở thị giác. Mọi suy nghĩ, chia sẻ của nghệ nhân hay nhân vật phải được hòa nhập tự nhiên thành một phần của bài viết tự sự.
 
 ### ❌ 8. Tuyệt đối không gán ảnh lung tung, sai ngữ cảnh (No Random Mismatched Assets)
 - **Cấm nhét ảnh bừa bãi chỉ để cho có ảnh**: Không được tùy tiện lấy ảnh không liên quan (ảnh chân dung ám xanh, ảnh ma-nơ-canh bảo tàng không rõ bối cảnh, ảnh sai động tác) nhét vào thẻ quy ước hay vai mẫu.
@@ -70,6 +70,19 @@ Tài liệu này định nghĩa toàn bộ quy chuẩn, triết lý và các đi
   - **1 Đoạn văn tự sự cô đọng, đi thẳng vào hồn cốt tác phẩm** (khoảng 2-3 câu, tối đa 50-60 từ), giàu chất thơ và cảm xúc.
   - **Trực quan hóa trọng tâm**: Đi kèm ảnh tư liệu hoặc nút nghe âm thanh trực tiếp.
   - **Tuyệt đối không bôi thêm các dòng nhãn phụ** như `Khúc ...`, `Bối cảnh: ...`, hay trích dẫn rời rạc khi không cần thiết. Giữ không gian thoáng đãng để người xem tập trung cảm nhận.
+
+### ❌ 10. Tuyệt đối không xả thuộc tính chi tiết vụn vặt lên thẻ/khối tự sự ở mặt trang tổng quan (No Detail Dump on Surface Cards)
+- **Cấm liệt kê thông số kỹ thuật trên thẻ bề mặt**: Trên các thẻ danh sách hoặc khối 2 cột so le ở mặt trang tổng quan (Overview list / Split grids), **tuyệt đối không nhét thêm các dòng thông số chi tiết** như `Chất liệu cổ truyền: ...`, `Phụ kiện đặc trưng: ...`, `Kỹ thuật diễn tấu: ...`, `Cấu tạo: ...`.
+- **Phân định rõ bề mặt và chiều sâu**:
+  - **Mặt trang tổng quan**: Cực kỳ tinh giản và thoáng đãng — chỉ gồm **1 Ảnh tư liệu + 1 Tiêu đề chính + 1 Phụ đề/Phân vai ngắn + 1 Đoạn văn tự sự cô đọng (2-3 câu) + 1 Nút bấm chuyển vào chi tiết**.
+  - **Chi tiết chuyên sâu (Detailed View / Modal)**: Bấm vào nút chuyển tiếp để bung mở đầy đủ các thông số chi tiết (chất liệu dệt may, phụ kiện, triết lý ngũ hành, lối diễn, âm thanh minh họa). Ngăn ngừa hoàn toàn việc làm rối mắt và quá tải thông tin cho người xem ngay từ trang ngoài.
+
+### ❌ 11. Tuyệt đối không chồng chéo nhiều kiểu chữ/phụ đề dưới cùng một tiêu đề (No Typography Stacking Overload)
+- **Cấm xếp chồng 4-5 font style khác nhau**: Không xếp chồng liên tiếp: Tiêu đề chữ đứng + Tiêu đề phụ ngắt dòng màu vàng in nghiêng + Khối phụ đề in nghiêng gạch viền bên trái (`border-l-2`) + Chữ Drop-Cap + Đoạn văn phụ. Việc này làm rối mắt thị giác dữ dội và gây mệt mỏi nhận thức.
+- **Thống nhất tiêu đề Hero trang trọng**:
+  - Chỉ dùng **1 Tiêu đề chính duy nhất (`h1`)** rõ ràng, đồng nhất một phong cách typographic (`font-serif font-bold text-white`).
+  - Không bôi chữ nghiêng màu mè (`span italic text-amber-400`) lửng lơ trong tiêu đề.
+  - Loại bỏ hoàn toàn các dải subtitle in nghiêng có đường viền gạch dọc bên trái (`border-l-2`) xếp ngay dưới tiêu đề. Phía dưới tiêu đề chính đi thẳng trực tiếp vào đoạn văn tự sự cô đọng.
 
 ---
 
@@ -99,14 +112,15 @@ Tài liệu này định nghĩa toàn bộ quy chuẩn, triết lý và các đi
 
 Mọi trang giới thiệu hoặc chuyên đề phải áp dụng kiến trúc bố cục nhịp nhàng sau:
 
-### 1. Split-Screen Hero Banner (2 cột rộng mở)
-- **Tỉ lệ**: Grid 12 cột (`lg:grid-cols-12 gap-10 lg:gap-14`).
-- **Cột trái (7 cột)**:
-  - Tiêu đề chính lớn (`text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-stone-100`).
-  - Lời đề từ in nghiêng dẫn nhập (`text-lg sm:text-xl text-amber-200/90 italic border-l-2 border-amber-500/60 pl-5`).
-  - Đoạn văn mở đầu có chữ cái đầu lớn (Drop Cap: `first-letter:text-5xl first-letter:font-bold first-letter:text-amber-400`).
-- **Cột phải (5 cột)**:
-  - Khung ảnh nghệ thuật khổ dọc hoặc tỉ lệ vàng có bo góc lớn (`rounded-3xl`), viền mộc (`border-stone-800`), bóng đổ chiều sâu (`shadow-2xl`) và chú thích ảnh mờ đục trang trọng bên dưới.
+### 1. Full-Bleed Cinema Overlay Hero Banner (Tràn viền chiều ngang 100%)
+- **Bố cục tràn viền (Full-Bleed Horizontal)**: Sử dụng margin âm (`-mx-6 sm:-mx-10 lg:-mx-12 -mt-10 sm:-mt-14 w-[calc(100%+3rem)] sm:w-[calc(100%+5rem)] lg:w-[calc(100%+6rem)]`) để khung hero tràn qua khoảng đệm lề, tiếp xúc trực tiếp hai mép màn hình.
+- **Tỉ lệ & Chiều cao**: `min-h-[380px] sm:min-h-[460px] lg:min-h-[520px] relative overflow-hidden flex items-end`.
+- **Background Cinema**:
+  - Ảnh tư liệu lớn phủ 100% diện tích (`absolute inset-0 w-full h-full object-cover filter brightness-[0.6] contrast-105`).
+  - Lớp dải phủ gradient tối mềm mại (`bg-gradient-to-t from-stone-950 via-stone-950/70 via-50% to-stone-950/20`).
+- **Nội dung đè trực tiếp lên mặt ảnh (Overlaid Content)**:
+  - Tiêu đề chính lớn (`h1` `text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white drop-shadow-md`).
+  - Đoạn văn mở đầu cô đọng 2-3 câu có chữ cái đầu lớn (Drop Cap: `first-letter:text-4xl first-letter:font-bold first-letter:text-amber-400 drop-shadow`).
 
 ### 2. Dòng chảy câu chuyện so le (Alternating 2-Column Split Grids)
 Thay vì xếp dọc 1 hàng chữ rồi đến 1 ảnh, chia thành các khối 2 cột so le:

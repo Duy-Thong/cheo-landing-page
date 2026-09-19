@@ -144,45 +144,25 @@ export const BackstageArtWidget: React.FC<BackstageArtWidgetProps> = ({ onNaviga
   return (
     <article className="text-left space-y-20 sm:space-y-28 animate-in fade-in duration-500 w-full font-serif">
       {/* =========================================================================
-          1. SPLIT-SCREEN HERO BANNER (12 CỘT RỘNG MỞ)
+          1. WIDE LANDSCAPE CINEMA HERO BANNER (ẢNH NGANG PANORAMA KHỔ RỘNG)
       ========================================================================= */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b border-stone-800/80 pb-14 sm:pb-20">
-        {/* Cột trái: Tiêu đề lớn & Đoạn tự sự mở đầu */}
-        <div className="lg:col-span-7 space-y-6">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-stone-100 tracking-tight leading-[1.15]">
-            Công Phu Sau Màn Nhung <br className="hidden sm:inline" />
-            <span className="text-amber-400 italic">Tâm Hồn Người Nghệ Sĩ</span>
+      {/* ── 1. CINEMA OVERLAY HERO BANNER (100VW FULL VIEWPORT WIDTH & COMPACT HEIGHT) ── */}
+      <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-10 sm:-mt-14 overflow-hidden shadow-2xl border-b border-stone-800 bg-stone-950 h-[280px] sm:h-[340px] lg:h-[380px] flex items-end group mb-12 sm:mb-16">
+        <img
+          src="/images/artist_hoa_tam.jpg"
+          alt="NSND Hoa Tâm — Cây đại thụ sân khấu Chèo cổ truyền"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.55] contrast-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/65 to-stone-950/15" />
+
+        <div className="relative z-10 w-full max-w-7xl 2xl:max-w-[1620px] mx-auto px-6 sm:px-10 lg:px-12 pb-6 sm:pb-8 space-y-2.5">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight drop-shadow-md">
+            Công Phu Sau Màn Nhung &amp; Tâm Hồn Nghệ Sĩ
           </h1>
-
-          <p className="text-lg sm:text-xl text-amber-200/90 font-light italic leading-relaxed border-l-2 border-amber-500/60 pl-5">
-            Phía sau ánh hào quang rực rỡ của chiếu chèo sân đình là hàng chục năm thầm lặng khổ luyện, nơi mồ hôi và nước mắt hòa cùng phấn son để dâng hiến cho đời những vai diễn để đời.
+          <p className="text-xs sm:text-sm lg:text-base text-stone-200 font-serif font-light leading-relaxed drop-shadow max-w-4xl">
+            <span className="float-left text-3xl sm:text-4xl font-serif font-bold text-amber-400 leading-none pr-2.5 pt-0.5">N</span>
+            gười xưa có câu: “Thao trường đổ mồ hôi, chiến trường bớt đổ máu”. Với người nghệ sĩ Chèo cổ truyền, câu nói ấy ứng nghiệm vào từng giờ từng phút sau cánh màn nhung rêu phong. Manh chiếu sân đình tuy hẹp nhưng đòi hỏi ngón nghề uyên bác khôn lường: một câu hát nảy hạt phải đổi bằng mười năm rèn giọng; một bước đi chữ Đinh phải tập từ thuở ngón chân còn trần trụi bám vào thềm đình rêu xanh.
           </p>
-
-          <div className="space-y-4 text-stone-300 font-light text-base sm:text-lg leading-relaxed pt-2">
-            <p className="first-letter:text-5xl sm:first-letter:text-6xl first-letter:font-bold first-letter:text-amber-400 first-letter:mr-3 first-letter:float-left first-letter:leading-none">
-              Người xưa có câu: “Thao trường đổ mồ hôi, chiến trường bớt đổ máu”. Với người nghệ sĩ Chèo cổ truyền, câu nói ấy ứng nghiệm vào từng giờ từng phút sau cánh màn nhung rêu phong. Manh chiếu sân đình tuy hẹp nhưng đòi hỏi ngón nghề uyên bác khôn lường: một câu hát nảy hạt phải đổi bằng mười năm rèn giọng; một bước đi chữ Đinh phải tập từ thuở ngón chân còn trần trụi bám vào thềm đình rêu xanh.
-            </p>
-            <p className="text-stone-400 text-sm sm:text-base">
-              Nơi hậu trường mộc mạc, mùi dầu tràm hòa quyện cùng mùi sáp phấn cổ truyền và khói hương trầm bái Tổ. Ở đó, người nghệ sĩ trút bỏ mọi âu lo đời thường để hóa thân trọn vẹn vào nỗi oan khiên của Thị Kính, khát vọng của Thị Mầu, hay tiếng cười trào lộng của anh Hề.
-            </p>
-          </div>
-        </div>
-
-        {/* Cột phải: Khung ảnh tư liệu khổ lớn */}
-        <div className="lg:col-span-5">
-          <figure className="relative rounded-3xl overflow-hidden border border-stone-800/90 bg-stone-950 shadow-2xl group">
-            <div className="aspect-[4/5] sm:aspect-[3/4] w-full overflow-hidden relative">
-              <img
-                src="/images/artist_hoa_tam.jpg"
-                alt="NSND Hoa Tâm — Cây đại thụ sân khấu Chèo cổ truyền"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 filter brightness-95 contrast-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/20 to-transparent" />
-            </div>
-            <figcaption className="p-5 sm:p-6 absolute bottom-0 inset-x-0 text-xs sm:text-sm text-stone-300 italic bg-stone-950/80 backdrop-blur-md border-t border-stone-800/60">
-              NSND Hoa Tâm — Biểu tượng tài năng và công phu khổ luyện trọn đời vì nghệ thuật Chèo cổ truyền.
-            </figcaption>
-          </figure>
         </div>
       </section>
 

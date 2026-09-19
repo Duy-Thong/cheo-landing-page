@@ -1561,15 +1561,33 @@ export const CharactersGallery: React.FC<CharactersGalleryProps> = ({
   // GIAO DIỆN DANH SÁCH 5 NHÂN VẬT — MỞ THOÁNG TOÀN CẢNH (1620px)
   // =========================================================================
   return (
-    <div className="space-y-12 text-left w-full">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-6 border-b border-stone-800/60 gap-4">
-        <div>
-          <h2 className="text-3xl sm:text-4xl 2xl:text-5xl font-serif font-bold text-white tracking-tight">
+    <div className="space-y-12 sm:space-y-16 text-left w-full animate-in fade-in duration-300">
+      {/* ── 1. CINEMA OVERLAY HERO BANNER (100VW FULL VIEWPORT WIDTH & COMPACT HEIGHT) ── */}
+      <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-10 sm:-mt-14 overflow-hidden shadow-2xl border-b border-stone-800 bg-stone-950 h-[280px] sm:h-[340px] lg:h-[380px] flex items-end group mb-12 sm:mb-16">
+        <img
+          src="/images/char_dao.jpg"
+          alt="Năm Mẫu Hình Nhân Vật Sân Khấu Chèo"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.55] contrast-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/65 to-stone-950/15" />
+
+        <div className="relative z-10 w-full max-w-7xl 2xl:max-w-[1620px] mx-auto px-6 sm:px-10 lg:px-12 pb-6 sm:pb-8 space-y-2.5">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight drop-shadow-md">
             Năm Mẫu Hình Nhân Vật Sân Khấu
-          </h2>
-          <p className="text-base sm:text-lg text-stone-300 font-serif font-light mt-2 max-w-3xl leading-relaxed">
-            Đào, Kép, Hề, Lão, Mụ — Hệ thống năm mẫu nhân vật ước lệ chuẩn mực của kịch hát Chèo cổ truyền, khắc họa toàn diện thế thái nhân tình dưới mái đình làng Bắc Bộ.
+          </h1>
+          <p className="text-xs sm:text-sm lg:text-base text-stone-200 font-serif font-light leading-relaxed drop-shadow max-w-4xl">
+            <span className="float-left text-3xl sm:text-4xl font-serif font-bold text-amber-400 leading-none pr-2.5 pt-0.5">Đ</span>
+            ào, Kép, Hề, Lão, Mụ — Hệ thống năm mẫu nhân vật ước lệ chuẩn mực của kịch hát Chèo cổ truyền, khắc họa toàn diện thế thái nhân tình và đạo lý ứng xử dưới mái đình làng Bắc Bộ.
           </p>
+        </div>
+      </section>
+
+      {/* ── 2. LƯỚI THẺ NHÂN VẬT 5 CỘT ── */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-4 border-b border-stone-800/60 gap-4">
+        <div>
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+            Năm Tuyến Vai Mẫu Mực
+          </h2>
         </div>
       </div>
 

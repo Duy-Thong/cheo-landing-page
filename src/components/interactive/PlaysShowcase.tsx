@@ -356,80 +356,79 @@ export const PlaysShowcase: React.FC<PlaysShowcaseProps> = ({
   // =========================================================================
   return (
     <div className="space-y-12 sm:space-y-16 text-left animate-in fade-in duration-300">
-      {/* Mở đầu */}
-      <section className="max-w-3xl space-y-3 border-b border-stone-800/60 pb-8">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white tracking-tight">
-          Tứ Đại Kiệt Tác Sân Khấu Chèo
-        </h1>
-        <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed">
-          Bốn pho kịch bản mẫu mực quy định niêm luật về ngôn ngữ hát nói, vũ đạo ước lệ và triết lý nhân sinh của nghệ thuật kịch hát dân gian Việt Nam suốt nhiều thế kỷ.
-        </p>
+      {/* ── 1. CINEMA OVERLAY HERO BANNER (100VW FULL VIEWPORT WIDTH & COMPACT HEIGHT) ── */}
+      <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-10 sm:-mt-14 overflow-hidden shadow-2xl border-b border-stone-800 bg-stone-950 h-[280px] sm:h-[340px] lg:h-[380px] flex items-end group mb-12 sm:mb-16">
+        <img
+          src="/images/play_quan_am_thi_kinh.jpg"
+          alt="Tứ Đại Kiệt Tác Sân Khấu Chèo"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.55] contrast-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/65 to-stone-950/15" />
+
+        <div className="relative z-10 w-full max-w-7xl 2xl:max-w-[1620px] mx-auto px-6 sm:px-10 lg:px-12 pb-6 sm:pb-8 space-y-2.5">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight drop-shadow-md">
+            Tứ Đại Kiệt Tác Sân Khấu Chèo
+          </h1>
+          <p className="text-xs sm:text-sm lg:text-base text-stone-200 font-serif font-light leading-relaxed drop-shadow max-w-4xl">
+            <span className="float-left text-3xl sm:text-4xl font-serif font-bold text-amber-400 leading-none pr-2.5 pt-0.5">B</span>
+            ốn pho kịch bản mẫu mực quy định niêm luật về ngôn ngữ hát nói, vũ đạo ước lệ và triết lý nhân sinh của nghệ thuật kịch hát dân gian Việt Nam suốt nhiều thế kỷ.
+          </p>
+        </div>
       </section>
 
-      {/* Danh sách tác phẩm — Mỗi tác phẩm là một section mở, có tuyến nhân vật & link */}
-      <div className="space-y-16 sm:space-y-24">
-        {MASTERPIECES.map((play, idx) => {
-          const isEven = idx % 2 === 0
-          return (
+      {/* ── 2. LƯỚI POSTER KIỆT TÁC 4 CỘT (4-COLUMN MASTERPIECE POSTER GRID) ── */}
+      <section className="space-y-8">
+        <div className="flex items-center justify-between border-b border-stone-800/60 pb-4">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+            Bốn Pho Kịch Bản Mẫu Mực
+          </h2>
+          <span className="text-xs font-mono text-amber-500 uppercase tracking-widest font-semibold hidden sm:inline">
+            Cổ Bản Cổ Truyền
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {MASTERPIECES.map((play, idx) => (
             <article
               key={play.id}
-              className="border-b border-stone-800/60 pb-16 sm:pb-24 last:border-b-0 last:pb-0"
+              onClick={() => handleSelect(play)}
+              className="group cursor-pointer rounded-2xl overflow-hidden border border-stone-800 bg-stone-900/60 hover:border-amber-700/50 transition-all duration-500 flex flex-col shadow-xl"
             >
-              <div
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center ${
-                  isEven ? '' : 'lg:flex-row-reverse'
-                }`}
-              >
-                {/* Visual Poster */}
-                <div
-                  className={`relative ${
-                    isEven ? 'lg:col-span-6 lg:order-1' : 'lg:col-span-6 lg:order-2'
-                  }`}
-                >
-                  <div
-                    onClick={() => handleSelect(play)}
-                    className="group cursor-pointer relative rounded-2xl overflow-hidden aspect-[16/10] bg-stone-900 shadow-2xl"
-                  >
-                    <img
-                      src={play.image}
-                      alt={play.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent" />
-                    <div className="absolute top-4 right-4 text-3xl sm:text-4xl font-mono font-black text-white/20 select-none">
-                      0{idx + 1}
-                    </div>
-                  </div>
+              <div className="aspect-[3/4] w-full overflow-hidden relative bg-stone-950">
+                <img
+                  src={play.image}
+                  alt={play.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 contrast-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent" />
+                <div className="absolute top-3 right-3 text-2xl sm:text-3xl font-mono font-black text-amber-400/30 select-none">
+                  0{idx + 1}
                 </div>
 
-                {/* Nội dung giàu chiều sâu văn hóa */}
-                <div
-                  className={`space-y-4 ${
-                    isEven ? 'lg:col-span-6 lg:order-2' : 'lg:col-span-6 lg:order-1'
-                  }`}
-                >
-                  <div className="space-y-1">
-                    <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
-                      {play.epoch}
-                    </span>
-                    <h2
-                      onClick={() => handleSelect(play)}
-                      className="text-2xl sm:text-3xl font-serif font-bold text-white hover:text-amber-300 transition-colors tracking-tight leading-snug cursor-pointer"
-                    >
-                      {play.title}
-                    </h2>
-                  </div>
+                <div className="absolute bottom-3 left-4 right-4 space-y-1">
+                  <span className="text-[11px] font-mono text-amber-400 uppercase tracking-widest block">
+                    {play.epoch}
+                  </span>
+                  <h3 className="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors leading-snug">
+                    {play.title}
+                  </h3>
+                </div>
+              </div>
 
-                  {/* Đề từ triết lý ngắn gọn */}
-                  <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed">
-                    {play.tagline}
-                  </p>
+              <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                <p className="text-xs sm:text-sm text-stone-300 font-serif font-light leading-relaxed line-clamp-3">
+                  {play.tagline}
+                </p>
+
+                <div className="pt-2 border-t border-stone-800/60 flex items-center justify-between text-xs font-serif text-amber-400 font-medium">
+                  <span>Khám phá diễn tiến hồi kịch</span>
+                  <span className="group-hover:translate-x-1 transition-transform">➔</span>
                 </div>
               </div>
             </article>
-          )
-        })}
-      </div>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

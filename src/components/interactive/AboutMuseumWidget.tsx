@@ -14,14 +14,9 @@ export const AboutMuseumWidget: React.FC<AboutMuseumWidgetProps> = ({ onNavigate
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b border-stone-800/80 pb-14 sm:pb-20">
         {/* Cột trái: Tiêu đề lớn & Đoạn tự sự mở đầu */}
         <div className="lg:col-span-7 space-y-6">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-stone-100 tracking-tight leading-[1.15]">
-            Chiếu Chèo Ngàn Năm <br className="hidden sm:inline" />
-            <span className="text-amber-400 italic">Dưới Mái Đình Số</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.15]">
+            Chiếu Chèo Ngàn Năm Dưới Mái Đình Số
           </h1>
-
-          <p className="text-lg sm:text-xl text-amber-200/90 font-light italic leading-relaxed border-l-2 border-amber-500/60 pl-5">
-            Một không gian mở nơi ký ức dân gian châu thổ sông Hồng được gìn giữ bằng công nghệ, để tiếng trống hội làng không bao giờ tắt.
-          </p>
 
           <div className="space-y-4 text-stone-300 font-light text-base sm:text-lg leading-relaxed pt-2">
             <p className="first-letter:text-5xl sm:first-letter:text-6xl first-letter:font-bold first-letter:text-amber-400 first-letter:mr-3 first-letter:float-left first-letter:leading-none">

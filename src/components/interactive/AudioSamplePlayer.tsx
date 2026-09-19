@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ArrowLeft, Play, Pause, Volume2, Music, Sparkles } from 'lucide-react'
+import { ArrowLeft, Play, Pause, Music, Sparkles, ChevronRight } from 'lucide-react'
 import { cheoAudio } from '../../utils/cheoAudioSynthesizer'
 
 interface InstrumentItem {
@@ -23,6 +23,7 @@ interface Melody {
   character: string
   lyrics: string
   description: string
+  image: string
 }
 
 interface StageStep {
@@ -44,7 +45,8 @@ const MELODIES_DATA: Melody[] = [
     type: 'Làn điệu trữ tình & lúng liếng',
     character: 'Đào lẳng (Thị Mầu)',
     lyrics: 'Đào liễu có một mình, nọ ới duyên tầm... Rầy trông mai ngóng, giọt sương gieo nặng cành...',
-    description: 'Âm điệu tươi vui, nẩy hạt đong đưa, bộc lộ khát khao tình yêu tự do phá bỏ mọi rào giậu lễ giáo.'
+    description: 'Âm điệu tươi vui, nẩy hạt đong đưa, bộc lộ khát khao tình yêu tự do phá bỏ mọi rào giậu lễ giáo.',
+    image: '/images/sound_dan_nhac.jpg'
   },
   {
     id: 'quan-tu-vu-dich',
@@ -52,7 +54,8 @@ const MELODIES_DATA: Melody[] = [
     type: 'Làn điệu tự sự & bi ai',
     character: 'Đào thương (Thị Kính)',
     lyrics: 'Quân tử vu dịch, bất tri kỳ kỳ, há như chi hà... Nỗi niềm nhớ thương xa xôi ngàn trùng vạn dặm...',
-    description: 'Chuẩn mực của phong cách Đào thương, giai điệu chậm rãi nghẹn ngào diễn tả đức hy sinh và nỗi lòng son sắt.'
+    description: 'Chuẩn mực của phong cách Đào thương, giai điệu chậm rãi nghẹn ngào diễn tả đức hy sinh và nỗi lòng son sắt.',
+    image: '/images/cheo_history.jpg'
   },
   {
     id: 'sa-lech-chenh',
@@ -60,7 +63,8 @@ const MELODIES_DATA: Melody[] = [
     type: 'Làn điệu vũ đạo & giao duyên',
     character: 'Hội xuân trai gái',
     lyrics: 'Cách một con sông, chứ đôi bên bờ liễu... Thuyền ai lơ lửng, đợi ai trao lời non nước...',
-    description: 'Tiết tấu rộn ràng gắn với vũ đạo múa quạt lượn sóng trong những đêm hội làng vào xuân.'
+    description: 'Tiết tấu rộn ràng gắn với vũ đạo múa quạt lượn sóng trong những đêm hội làng vào xuân.',
+    image: '/images/cheo_characters.jpg'
   },
   {
     id: 'he-moi',
@@ -68,7 +72,8 @@ const MELODIES_DATA: Melody[] = [
     type: 'Làn điệu trào phúng & giải tỏa',
     character: 'Hề Chèo dân gian',
     lyrics: 'Tôi ra đây có phải xưng danh không nhỉ? Không xưng danh thì ai biết tôi là ai! Làng trên xóm dưới lắng tai mà nghe...',
-    description: 'Tiếng cười giòn tan châm biếm sâu cay thói hư tật xấu, mang lại sự hả hê và lạc quan cho người lao động.'
+    description: 'Tiếng cười giòn tan châm biếm sâu cay thói hư tật xấu, mang lại sự hả hê và lạc quan cho người lao động.',
+    image: '/images/backstage_art.jpg'
   }
 ]
 
@@ -214,17 +219,14 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
   const [playingInstrumentId, setPlayingInstrumentId] = useState<string | null>(null)
   const [playingStageStep, setPlayingStageStep] = useState<number | null>(null)
 
-  // Kiểm tra xem có đang ở trang chi tiết của một nhạc cụ cụ thể không
   const matchedInstrument = INSTRUMENTS_DATA.find(inst => currentPath?.endsWith(`/${inst.id}`))
 
-  // Dọn dẹp âm thanh khi component unmount
   useEffect(() => {
     return () => {
       cheoAudio.stopAll()
     }
   }, [])
 
-  // Xử lý phát âm sắc nhạc cụ Bát Âm
   const handleToggleInstrument = (instId: string, e?: React.MouseEvent) => {
     if (e) e.stopPropagation()
     if (playingInstrumentId === instId) {
@@ -241,7 +243,6 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
     }
   }
 
-  // Xử lý phát làn điệu trong phòng thẩm âm
   const handleToggleMelody = (melody: Melody) => {
     if (selectedMelody.id === melody.id && isPlayingMelody) {
       cheoAudio.stopAll()
@@ -258,7 +259,6 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
     }
   }
 
-  // Xử lý phát mẫu nhịp theo chặng tiết tấu
   const handleToggleStageSound = (step: number, instId: string) => {
     if (playingStageStep === step) {
       cheoAudio.stopAll()
@@ -276,40 +276,33 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
 
   // =========================================================================
   // TRƯỜNG HỢP 1: TRANG CHI TIẾT 1 NHẠC CỤ CỤ THỂ (/dan-nhac-bat-am/:id)
-  // Giao diện bảo tàng chuyên sâu: Có audio thật, văn phong tự sự, KHÔNG database
   // =========================================================================
   if (matchedInstrument) {
     const isPlayingThis = playingInstrumentId === matchedInstrument.id
     return (
-      <div className="space-y-8 sm:space-y-10 text-left animate-in fade-in duration-300">
-        {/* Nút quay lại danh sách Dàn Bát Âm */}
-        <div className="flex items-center justify-between pb-3 border-b border-stone-800/60">
+      <div className="w-full space-y-10 text-left animate-in fade-in duration-300">
+        <div className="flex items-center justify-between pb-4 border-b border-stone-800/60">
           <button
             onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh/dan-nhac-bat-am')}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer group"
           >
-            <ArrowLeft className="w-4 h-4 text-amber-500" />
+            <ArrowLeft className="w-4 h-4 text-amber-500 group-hover:-translate-x-1 transition-transform" />
             <span>Quay lại sáu nhạc khí Dàn Bát Âm</span>
           </button>
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold">
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-500/90 font-medium">
             {matchedInstrument.category}
           </span>
         </div>
 
-        {/* Giới thiệu nhạc cụ — Bố cục cân đối, gọn gàng, không choán hết màn hình */}
-        <header className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center border-b border-stone-800/60 pb-8">
-          <div className="md:col-span-8 space-y-3">
-            <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold block">
-              Nhạc Khí Cổ Truyền &bull; {matchedInstrument.category}
-            </span>
+        <header className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-stone-800/60 pb-10">
+          <div className="lg:col-span-8 space-y-4">
             <h1 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
               {matchedInstrument.name}
             </h1>
-            <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-stone-300 font-serif font-light leading-relaxed max-w-2xl">
               {matchedInstrument.lead}
             </p>
 
-            {/* Trình phát âm sắc trực tiếp ngay đầu trang */}
             <div className="pt-2 flex items-center gap-4 flex-wrap">
               <button
                 onClick={(e) => handleToggleInstrument(matchedInstrument.id, e)}
@@ -323,12 +316,6 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
                   <>
                     <Pause className="w-4 h-4 fill-current" />
                     <span>Đang vang âm...</span>
-                    <span className="inline-flex items-center gap-0.5 h-3 ml-1">
-                      <span className="w-1 bg-stone-950 animate-pulse h-2"></span>
-                      <span className="w-1 bg-stone-950 animate-pulse h-3 delay-75"></span>
-                      <span className="w-1 bg-stone-950 animate-pulse h-1.5 delay-150"></span>
-                      <span className="w-1 bg-stone-950 animate-pulse h-2.5 delay-100"></span>
-                    </span>
                   </>
                 ) : (
                   <>
@@ -345,9 +332,8 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
             </div>
           </div>
 
-          {/* Ảnh chụp tư liệu thực tế của nhạc cụ */}
-          <div className="md:col-span-4">
-            <div className="aspect-[4/3] max-h-60 rounded-2xl overflow-hidden shadow-xl border border-stone-800/80 bg-stone-900">
+          <div className="lg:col-span-4">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-stone-800 bg-stone-950">
               <img
                 src={matchedInstrument.image}
                 alt={matchedInstrument.name}
@@ -357,73 +343,54 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
           </div>
         </header>
 
-        {/* Thơ đề & Khẩu quyết dân gian */}
         <section className="py-4 border-b border-stone-800/60 text-center">
           <p className="font-serif italic text-amber-200/90 text-base sm:text-lg">
             &ldquo;{matchedInstrument.verse}&rdquo;
           </p>
         </section>
 
-        {/* Bốn chương khảo cứu chuyên sâu viết văn xuôi tự sự */}
         <div className="space-y-8 pt-2">
-          {/* Chương 1: Hồn cốt trong chiếu Chèo */}
           <section className="space-y-3">
-            <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
-              I. Hồn Cốt & Vị Thế Chiếu Chèo
-            </span>
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-white">
               Vị Thế Của {matchedInstrument.name} Trong Dàn Bát Âm
             </h2>
-            <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed">
+            <p className="text-base text-stone-300 font-serif font-light leading-relaxed">
               {matchedInstrument.history}
             </p>
           </section>
 
-          {/* Chương 2: Cấu tạo & Chế tác */}
           <section className="space-y-3 pt-6 border-t border-stone-800/40">
-            <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
-              II. Cấu Tạo & Nghệ Thuật Chế Tác
-            </span>
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-white">
               Vật Liệu Cổ Truyền & Thẩm Mỹ Dân Gian
             </h2>
-            <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed">
+            <p className="text-base text-stone-300 font-serif font-light leading-relaxed">
               {matchedInstrument.craftsmanship}
             </p>
           </section>
 
-          {/* Chương 3: Kỹ thuật diễn tấu */}
           <section className="space-y-3 pt-6 border-t border-stone-800/40">
-            <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
-              III. Kỹ Thuật Diễn Tấu & Ngón Nghề
-            </span>
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-white">
               Sự Biến Hóa Của Đôi Bàn Tay Người Nghệ Nhân
             </h2>
-            <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed">
+            <p className="text-base text-stone-300 font-serif font-light leading-relaxed">
               {matchedInstrument.technique}
             </p>
           </section>
 
-          {/* Chương 4: Đối thoại với đào kép */}
           <section className="space-y-3 pt-6 border-t border-stone-800/40">
-            <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
-              IV. Nhịp Thở Sân Đình & Tương Tác
-            </span>
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-white">
               Đối Thoại Giữa Âm Nhạc Và Diễn Xuất
             </h2>
-            <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed">
+            <p className="text-base text-stone-300 font-serif font-light leading-relaxed">
               {matchedInstrument.theatricalRole}
             </p>
           </section>
         </div>
 
-        {/* Footer điều hướng nhạc cụ tiếp theo */}
         <div className="pt-8 border-t border-stone-800/60 flex items-center justify-between">
           <button
             onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh/dan-nhac-bat-am')}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4 text-amber-500" />
             <span>Xem tất cả nhạc khí Bát Âm</span>
@@ -438,54 +405,42 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
 
   // =========================================================================
   // TRƯỜNG HỢP 2: TRANG DANH SÁCH 6 CARD NHẠC KHÍ (/dan-nhac-bat-am)
-  // Giao diện dạng Card trực quan có hình ảnh, bấm vào chuyển sang trang chi tiết
   // =========================================================================
   if (currentPath?.endsWith('/dan-nhac-bat-am')) {
     return (
-      <div className="space-y-8 sm:space-y-10 text-left animate-in fade-in duration-300">
-        {/* Điều hướng quay lại */}
-        <div className="flex items-center justify-between pb-3 border-b border-stone-800/60">
+      <div className="w-full space-y-10 text-left animate-in fade-in duration-300">
+        <div className="flex items-center justify-between pb-4 border-b border-stone-800/60">
           <button
             onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh')}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer group"
           >
-            <ArrowLeft className="w-4 h-4 text-amber-500" />
+            <ArrowLeft className="w-4 h-4 text-amber-500 group-hover:-translate-x-1 transition-transform" />
             <span>Quay lại tổng quan âm thanh & làn điệu</span>
           </button>
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold">
-            Chương 01 &bull; Dàn Nhạc Bát Âm
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-500/90 font-medium">
+            06 Nhạc Khí Linh Hồn
           </span>
         </div>
 
-        {/* Tiêu đề thanh thoát, không chiếm hết màn hình */}
-        <header className="space-y-2 pb-6 border-b border-stone-800/60">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-mono uppercase text-amber-400 tracking-widest font-semibold">
-              Triển Lãm Âm Sắc
-            </span>
-            <span className="text-stone-600">&bull;</span>
-            <span className="text-xs font-mono text-stone-400">06 Nhạc Khí Hồn Cốt</span>
-          </div>
-          <h1 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+        <header className="space-y-3 pb-8 border-b border-stone-800/60">
+          <h1 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
             Sáu Nhạc Khí Cốt Lõi Của Chiếu Chèo Sân Đình
           </h1>
-          <p className="text-sm sm:text-base text-stone-300 font-serif font-light max-w-3xl leading-relaxed">
-            Dàn nhạc Chèo không bao giờ chơi lấn át con người mà sinh ra để thở cùng hơi thở của đào kép trên manh chiếu. Bấm vào từng thẻ bên dưới để xem khảo cứu chi tiết và lắng nghe âm thanh độc bản của từng nhạc khí.
+          <p className="text-base sm:text-lg text-stone-300 font-serif font-light max-w-3xl leading-relaxed">
+            Dàn nhạc Chèo không bao giờ chơi lấn át con người mà sinh ra để thở cùng hơi thở của đào kép trên manh chiếu. Bấm vào từng nhạc khí bên dưới để xem khảo cứu chi tiết và lắng nghe âm thanh thực tế.
           </p>
         </header>
 
-        {/* LƯỚI 6 CARD NHẠC KHÍ CÓ ẢNH CHỤP TƯ LIỆU THẬT */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {INSTRUMENTS_DATA.map((inst, idx) => {
             const isPlayingThis = playingInstrumentId === inst.id
             return (
               <div
                 key={inst.id}
                 onClick={() => onNavigate?.(`/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/${inst.id}`)}
-                className="group cursor-pointer space-y-3.5 bg-stone-900/40 hover:bg-stone-900/80 p-4 rounded-2xl border border-stone-800/60 hover:border-amber-700/40 transition-all duration-300"
+                className="group cursor-pointer space-y-4 bg-stone-900/40 hover:bg-stone-900 p-5 rounded-2xl border border-stone-800/80 hover:border-amber-700/40 transition-all duration-300"
               >
-                {/* Ảnh nhạc cụ với Watermark số thứ tự */}
-                <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-stone-950 relative border border-stone-800/50">
+                <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-stone-950 relative border border-stone-800/60">
                   <img
                     src={inst.image}
                     alt={inst.name}
@@ -495,7 +450,6 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
                     0{idx + 1}
                   </div>
 
-                  {/* Nút nghe thử nhanh trên góc ảnh */}
                   <div className="absolute bottom-3 left-3">
                     <button
                       onClick={(e) => handleToggleInstrument(inst.id, e)}
@@ -520,13 +474,12 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
                   </div>
                 </div>
 
-                {/* Thông tin nhạc cụ */}
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <div className="flex items-baseline justify-between">
                     <h3 className="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors">
                       {inst.name}
                     </h3>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-amber-500/90 font-medium">
+                    <span className="text-[11px] font-mono text-amber-500/90 font-medium">
                       {inst.category}
                     </span>
                   </div>
@@ -535,10 +488,10 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
                     {inst.lead}
                   </p>
 
-                  <div className="pt-2 flex items-center justify-between text-[11px] text-stone-500 border-t border-stone-800/40">
-                    <span className="font-mono text-amber-300/80">{inst.soundPattern}</span>
-                    <span className="group-hover:text-amber-400 font-serif transition-colors">
-                      Khám phá chi tiết &rarr;
+                  <div className="pt-3 flex items-center justify-between text-xs text-stone-500 border-t border-stone-800/40">
+                    <span className="font-mono text-amber-400/80">{inst.soundPattern}</span>
+                    <span className="group-hover:text-amber-400 font-serif transition-colors flex items-center gap-1">
+                      Khảo cứu <ChevronRight className="w-3 h-3" />
                     </span>
                   </div>
                 </div>
@@ -547,12 +500,11 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
           })}
         </section>
 
-        {/* Triết lý hòa âm */}
-        <section className="pt-6 border-t border-stone-800/60 text-center max-w-2xl mx-auto space-y-2">
+        <section className="pt-8 border-t border-stone-800/60 text-center max-w-2xl mx-auto space-y-2">
           <p className="font-serif italic text-stone-400 text-sm sm:text-base leading-relaxed">
             &ldquo;Dàn nhạc Chèo không bao giờ chơi lấn át con người. Tiếng đàn, tiếng trống sinh ra là để thở cùng hơi thở của đào kép trên manh chiếu.&rdquo;
           </p>
-          <span className="text-xs font-mono text-amber-500/80 uppercase tracking-widest block">
+          <span className="text-xs font-serif text-amber-500/80 uppercase tracking-widest block">
             Quy chuẩn hòa thanh sân khấu Chèo cổ
           </span>
         </section>
@@ -562,60 +514,80 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
 
   // =========================================================================
   // TRƯỜNG HỢP 3: KHO TÀNG LÀN ĐIỆU (/lan-dieu)
+  // Giao diện triển lãm 12 cột: Split Hero, Phòng thẩm âm 2 cột, Hồi ca diễn, Callout, Gateways & Epilogue
   // =========================================================================
   if (currentPath?.endsWith('/lan-dieu')) {
     return (
-      <div className="space-y-8 sm:space-y-10 text-left animate-in fade-in duration-300">
-        <div className="flex items-center justify-between pb-3 border-b border-stone-800/60">
+      <div className="w-full text-left space-y-16 sm:space-y-24 animate-in fade-in duration-300">
+        {/* Điều hướng quay lại */}
+        <div className="flex items-center justify-between pb-4 border-b border-stone-800/60">
           <button
             onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh')}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer group"
           >
-            <ArrowLeft className="w-4 h-4 text-amber-500" />
+            <ArrowLeft className="w-4 h-4 text-amber-500 group-hover:-translate-x-1 transition-transform" />
             <span>Quay lại tổng quan âm thanh & làn điệu</span>
           </button>
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold">
-            Chương 02 &bull; Làn Điệu
-          </span>
         </div>
 
-        <header className="space-y-2 pb-6 border-b border-stone-800/60">
-          <div className="flex items-center justify-between flex-wrap gap-2">
-            <span className="text-xs font-mono uppercase text-amber-400 tracking-widest font-semibold block">
-              Giai Điệu & Giọng Hát
-            </span>
-            <div className="flex items-center gap-1.5 text-xs text-amber-400 font-mono">
-              <Volume2 className="w-3.5 h-3.5" />
-              <span>Mô phỏng âm sắc điệu thức cổ</span>
+        {/* ── 1. SPLIT-SCREEN HERO BANNER ── */}
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center border-b border-stone-800/60 pb-12 sm:pb-16">
+          <div className="lg:col-span-7 space-y-6">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.15]">
+              Kho Tàng Làn Điệu Chèo Cổ
+            </h1>
+
+            <p className="text-base sm:text-lg text-stone-300 font-serif font-light leading-relaxed">
+              <span className="float-left text-4xl sm:text-5xl font-serif font-bold text-amber-500 leading-none pr-3 pt-1">L</span>
+              àn điệu Chèo không chỉ là giai điệu hát xướng đơn thuần mà là tiếng lòng, triết lý sống và khát vọng của người lao động qua bao thế hệ. Từ điệu Đào Liễu lúng liếng trao duyên đến khúc Quân Tử Vu Dịch nghẹn ngào thương nhớ, mỗi làn điệu đều đượm thắm hơi thở ca dao đồng bằng sông Hồng.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-stone-800 bg-stone-950 relative group">
+              <img
+                src="/images/sound_dan_nhac.jpg"
+                alt="Kho Tàng Làn Điệu Chèo Cổ"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="text-xs font-serif text-amber-300/90 block">Bảo Tàng Chèo Số &bull; Khai Thư Âm Thanh</span>
+                <p className="text-sm font-serif text-white font-medium">Làn điệu Kinh Bắc cổ truyền</p>
+              </div>
             </div>
           </div>
-          <h1 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
-            Kho Tàng Hơn 200 Làn Điệu Chèo Cổ
-          </h1>
-          <p className="text-sm sm:text-base text-stone-300 font-serif font-light max-w-3xl leading-relaxed">
-            Từ tiếng hát nỉ non ai oán của thân phận nàng dâu nghèo đến nhịp phách rộn ràng lúng liếng của đêm hội xuân trao duyên. Bấm vào một làn điệu bên dưới để lắng nghe giai điệu và thưởng thức lời ca cổ truyền.
-          </p>
-        </header>
+        </section>
 
-        {/* Phòng thẩm âm tương tác */}
-        <section className="space-y-6">
-          <div className="flex flex-wrap gap-2.5 sm:gap-3">
+        {/* ── 2. PHÒNG THẨM ÂM TƯƠNG TÁC 2 CỘT ── */}
+        <section className="space-y-8">
+          <div className="border-b border-stone-800/60 pb-4">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+              Phòng Thẩm Âm Làn Điệu Kinh Điển
+            </h2>
+            <p className="text-sm text-stone-400 font-serif font-light mt-1">
+              Chọn một làn điệu mẫu mực bên dưới để lắng nghe giai điệu và thưởng thức lời ca
+            </p>
+          </div>
+
+          {/* Selector nút chọn làn điệu */}
+          <div className="flex flex-wrap gap-3">
             {MELODIES_DATA.map((melody) => {
               const isSelected = selectedMelody.id === melody.id
               return (
                 <button
                   key={melody.id}
                   onClick={() => handleToggleMelody(melody)}
-                  className={`px-4 py-2 rounded-full text-left transition-all cursor-pointer flex items-center gap-2.5 ${
+                  className={`px-5 py-2.5 rounded-full text-left transition-all cursor-pointer flex items-center gap-3 ${
                     isSelected
                       ? 'bg-amber-500 text-stone-950 font-bold shadow-lg shadow-amber-500/20'
-                      : 'bg-stone-900/60 hover:bg-stone-800 text-stone-300'
+                      : 'bg-stone-900/80 hover:bg-stone-800 text-stone-300 border border-stone-800'
                   }`}
                 >
-                  <Music className={`w-3.5 h-3.5 ${isSelected ? 'text-stone-950' : 'text-amber-500'}`} />
+                  <Music className={`w-4 h-4 ${isSelected ? 'text-stone-950' : 'text-amber-500'}`} />
                   <div>
-                    <span className="text-xs sm:text-sm font-serif block leading-snug">{melody.name}</span>
-                    <span className={`text-[10px] ${isSelected ? 'text-stone-900/80 font-normal' : 'text-stone-500'}`}>
+                    <span className="text-sm font-serif block leading-snug">{melody.name}</span>
+                    <span className={`text-[11px] ${isSelected ? 'text-stone-900/80 font-normal' : 'text-stone-500'}`}>
                       {melody.character}
                     </span>
                   </div>
@@ -624,35 +596,37 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
             })}
           </div>
 
-          {/* Player Controller */}
-          <div className="py-6 border-y border-stone-800/60 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <button
-              onClick={() => handleToggleMelody(selectedMelody)}
-              className="w-14 h-14 rounded-full bg-amber-500 text-stone-950 hover:scale-105 active:scale-95 transition-transform flex items-center justify-center shadow-xl shadow-amber-500/25 cursor-pointer shrink-0"
-              aria-label={isPlayingMelody ? 'Tạm dừng' : 'Phát âm thanh'}
-            >
-              {isPlayingMelody ? (
-                <Pause className="w-5 h-5 text-stone-950 fill-stone-950" />
-              ) : (
-                <Play className="w-5 h-5 text-stone-950 fill-stone-950 ml-0.5" />
-              )}
-            </button>
+          {/* Lưới 2 cột: Bộ điều khiển âm thanh + Ảnh diễn xướng trực quan */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-900/40 p-6 sm:p-8 rounded-3xl border border-stone-800/80">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={() => handleToggleMelody(selectedMelody)}
+                  className="w-16 h-16 rounded-full bg-amber-500 text-stone-950 hover:scale-105 active:scale-95 transition-transform flex items-center justify-center shadow-xl shadow-amber-500/25 cursor-pointer shrink-0"
+                  aria-label={isPlayingMelody ? 'Tạm dừng' : 'Phát âm thanh'}
+                >
+                  {isPlayingMelody ? (
+                    <Pause className="w-6 h-6 text-stone-950 fill-stone-950" />
+                  ) : (
+                    <Play className="w-6 h-6 text-stone-950 fill-stone-950 ml-0.5" />
+                  )}
+                </button>
 
-            <div className="flex-1 w-full space-y-3">
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                  {selectedMelody.name}
-                </h3>
-                <span className="text-xs font-serif text-amber-300/90">{selectedMelody.type}</span>
+                <div className="space-y-1">
+                  <h3 className="text-2xl font-serif font-bold text-white">
+                    {selectedMelody.name}
+                  </h3>
+                  <span className="text-xs font-serif text-amber-400">{selectedMelody.type}</span>
+                </div>
               </div>
 
-              {/* Animated Equalizer Wave */}
+              {/* Sóng âm nhạc */}
               <div className="flex items-center gap-1 h-6">
                 {Array.from({ length: 48 }).map((_, i) => (
                   <div
                     key={i}
                     className={`flex-1 rounded-full transition-all duration-300 ${
-                      isPlayingMelody ? 'bg-amber-400 animate-pulse' : 'bg-stone-800/60 h-1'
+                      isPlayingMelody ? 'bg-amber-400 animate-pulse' : 'bg-stone-800 h-1'
                     }`}
                     style={{
                       height: isPlayingMelody ? `${Math.max(15, (i * 23) % 100)}%` : '2px'
@@ -661,30 +635,132 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
                 ))}
               </div>
 
-              <div className="space-y-1 pt-1">
-                <p className="text-base sm:text-lg font-serif italic text-amber-200/95 leading-relaxed">
+              <div className="space-y-3 pt-2">
+                <p className="text-lg sm:text-xl font-serif italic text-amber-200/95 leading-relaxed border-l-2 border-amber-600/60 pl-4">
                   &ldquo;{selectedMelody.lyrics}&rdquo;
                 </p>
-                <p className="text-xs sm:text-sm text-stone-400 font-serif font-light leading-relaxed">
+                <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed">
                   {selectedMelody.description}
                 </p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-stone-800 bg-stone-950 relative">
+                <img
+                  src={selectedMelody.image}
+                  alt={selectedMelody.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute bottom-3 left-4 right-4">
+                  <span className="text-xs font-serif text-amber-300/90 block">Bối cảnh diễn xướng</span>
+                  <p className="text-xs font-serif text-stone-200">{selectedMelody.character}</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Kỹ thuật thanh nhạc */}
-        <section className="space-y-3 pt-4 border-t border-stone-800/60">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
-            Kỹ Thuật Ca Diễn
-          </span>
-          <h3 className="text-2xl font-serif font-bold text-white">
-            Nghệ Thuật Nhả Chữ: Nảy Hạt, Buông Bắt & Luyến Láy
-          </h3>
-          <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed max-w-3xl">
-            Người hát Chèo không ngân tự do theo cảm tính mà tuân thủ nghiêm ngặt kỹ thuật ém hơi, nảy hạt ở từng âm tiết. Câu hát cất lên phải vừa tròn vành rõ chữ, vừa đượm hồn ca dao và mở ra không gian văn hóa Kinh Bắc đặc trưng.
-          </p>
+        {/* ── 3. HỒI KHẢO CỨU NGHỆ THUẬT CA DIỄN (2 CỘT SO LE) ── */}
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center pt-4">
+          <div className="lg:col-span-6 lg:order-1">
+            <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border border-stone-800 bg-stone-950 relative">
+              <img
+                src="/images/cheo_instruments.jpg"
+                alt="Nghệ Thuật Hát Chèo"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="lg:col-span-6 space-y-4 lg:order-2">
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-white">
+              Nghệ Thuật Nhả Chữ: Nảy Hạt, Buông Bắt & Luyến Láy
+            </h2>
+            <p className="text-base sm:text-lg text-stone-300 font-serif font-light leading-relaxed">
+              <span className="float-left text-4xl sm:text-5xl font-serif font-bold text-amber-500 leading-none pr-3 pt-1">N</span>
+              ghệ sĩ hát Chèo không ngân tự do theo cảm tính mà tuân thủ nghiêm ngặt kỹ thuật ém hơi, nảy hạt ở từng âm tiết. Câu hát cất lên phải vừa tròn vành rõ chữ, vừa đượm hồn ca dao và mở ra không gian văn hóa Kinh Bắc đặc trưng.
+            </p>
+          </div>
         </section>
+
+        {/* ── 4. DẢI NGHỈ THỊ GIÁC TOÀN CẢNH (PANORAMIC VISUAL CALLOUT) ── */}
+        <section className="relative rounded-3xl overflow-hidden border border-amber-900/40 bg-gradient-to-r from-amber-950/40 via-stone-900 to-amber-950/40 p-8 sm:p-14 text-center space-y-4 shadow-2xl">
+          <Sparkles className="w-8 h-8 text-amber-500/80 mx-auto animate-pulse" />
+          <p className="text-lg sm:text-2xl font-serif italic text-amber-100 max-w-4xl mx-auto leading-relaxed">
+            &ldquo;Hát Chèo phải tròn vành rõ chữ, ém hơi nhả chữ sao cho đượm hồn ca dao Kinh Bắc.&rdquo;
+          </p>
+          <span className="text-xs font-serif text-amber-400/80 uppercase tracking-widest block">
+            Khẩu quyết truyền dạy của các nghệ nhân tiền bối
+          </span>
+        </section>
+
+        {/* ── 5. LƯỚI KHÁM PHÁ 3 CỘT (EXHIBITION GATEWAYS) ── */}
+        <section className="space-y-8 pt-4">
+          <div className="border-b border-stone-800/60 pb-4">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+              Các Không Gian Khảo Cứu Liên Quan
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+              onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh/dan-nhac-bat-am')}
+              className="group cursor-pointer space-y-3 bg-stone-900/40 hover:bg-stone-900 p-6 rounded-2xl border border-stone-800 hover:border-amber-700/40 transition-all duration-300"
+            >
+              <h3 className="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors">
+                Dàn Nhạc Bát Âm
+              </h3>
+              <p className="text-sm text-stone-400 font-serif font-light leading-relaxed">
+                Khám phá sáu nhạc khí linh hồn: trống đế, đàn nguyệt, đàn nhị, sáo trúc.
+              </p>
+              <span className="text-xs text-amber-500 font-serif block group-hover:translate-x-1 transition-transform">
+                Bắt đầu khám phá &rarr;
+              </span>
+            </div>
+
+            <div
+              onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh/tiet-tau')}
+              className="group cursor-pointer space-y-3 bg-stone-900/40 hover:bg-stone-900 p-6 rounded-2xl border border-stone-800 hover:border-amber-700/40 transition-all duration-300"
+            >
+              <h3 className="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors">
+                Tiết Tấu & Nhịp Trống
+              </h3>
+              <p className="text-sm text-stone-400 font-serif font-light leading-relaxed">
+                Bốn chặng phát triển kịch tính từ tiếng trống giục hội đến tiếng cười trào phúng.
+              </p>
+              <span className="text-xs text-amber-500 font-serif block group-hover:translate-x-1 transition-transform">
+                Bắt đầu khám phá &rarr;
+              </span>
+            </div>
+
+            <div
+              onClick={() => onNavigate?.('/kham-pha/san-khau/vai-dien')}
+              className="group cursor-pointer space-y-3 bg-stone-900/40 hover:bg-stone-900 p-6 rounded-2xl border border-stone-800 hover:border-amber-700/40 transition-all duration-300"
+            >
+              <h3 className="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors">
+                Mẫu Hình Vai Diễn
+              </h3>
+              <p className="text-sm text-stone-400 font-serif font-light leading-relaxed">
+                Khám phá năm mẫu hình nhân vật chuẩn mực: Đào, Kép, Lão, Mẫu và Hề Chèo.
+              </p>
+              <span className="text-xs text-amber-500 font-serif block group-hover:translate-x-1 transition-transform">
+                Bắt đầu khám phá &rarr;
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 6. LỜI KẾT THI VỊ (POETIC EPILOGUE) ── */}
+        <footer className="pt-8 border-t border-stone-800/60 text-center space-y-3 max-w-2xl mx-auto">
+          <p className="font-serif italic text-stone-400 text-sm sm:text-base leading-relaxed">
+            &ldquo;Tiếng hát nỉ non giữa xóm làng / Làn điệu cổ truyền gợi mênh mang / Người về gửi lại câu Chèo cũ / Đượm thắm tình quê mãi suốt đời.&rdquo;
+          </p>
+          <span className="text-xs font-serif text-amber-500/80 block uppercase tracking-widest">
+            Bảo Tàng Chèo Số &bull; Thẩm Âm Làn Điệu Kinh Bắc
+          </span>
+        </footer>
       </div>
     )
   }
@@ -694,79 +770,75 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
   // =========================================================================
   if (currentPath?.endsWith('/tiet-tau')) {
     return (
-      <div className="space-y-8 sm:space-y-10 text-left animate-in fade-in duration-300">
-        <div className="flex items-center justify-between pb-3 border-b border-stone-800/60">
+      <div className="w-full space-y-10 text-left animate-in fade-in duration-300">
+        <div className="flex items-center justify-between pb-4 border-b border-stone-800/60">
           <button
             onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh')}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer group"
           >
-            <ArrowLeft className="w-4 h-4 text-amber-500" />
+            <ArrowLeft className="w-4 h-4 text-amber-500 group-hover:-translate-x-1 transition-transform" />
             <span>Quay lại tổng quan âm thanh & làn điệu</span>
           </button>
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold">
-            Chương 03 &bull; Tiết Tấu
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-500/90 font-medium">
+            04 Chặng Tiết Tấu
           </span>
         </div>
 
-        <header className="space-y-2 pb-6 border-b border-stone-800/60">
-          <span className="text-xs font-mono uppercase text-amber-400 tracking-widest font-semibold block">
-            Quy Luật Kịch Tính
-          </span>
-          <h1 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+        <header className="space-y-3 pb-8 border-b border-stone-800/60">
+          <h1 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
             Bốn Chặng Tiết Tấu Của Đêm Diễn Chèo
           </h1>
-          <p className="text-sm sm:text-base text-stone-300 font-serif font-light max-w-3xl leading-relaxed">
+          <p className="text-base sm:text-lg text-stone-300 font-serif font-light max-w-3xl leading-relaxed">
             Tiết tấu Chèo biến ảo tài tình theo cảm xúc kịch bản: từ tiếng trống giục hội náo nức, lời hát xưng danh đĩnh đạc, khúc tự sự da diết cho đến tiếng cười trào lộng sảng khoái.
           </p>
         </header>
 
-        {/* 4 Chặng Tiết Tấu */}
         <section className="space-y-8">
           {STAGES_DATA.map((stage) => {
             const isPlayingThisStage = playingStageStep === stage.step
             return (
-              <div key={stage.step} className="space-y-3 pb-6 border-b border-stone-800/50 last:border-0">
-                <div className="flex flex-wrap items-center justify-between gap-2">
+              <div key={stage.step} className="space-y-4 pb-8 border-b border-stone-800/50 last:border-0">
+                <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-baseline gap-3">
-                    <span className="text-xs font-mono text-amber-500 font-bold">Chặng 0{stage.step}</span>
-                    <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
+                    <span className="text-sm font-mono text-amber-500 font-bold">Chặng 0{stage.step}</span>
+                    <h2 className="text-2xl font-serif font-bold text-white">
                       {stage.name}
-                    </h3>
-                    <span className="text-xs font-serif text-amber-300/90 hidden sm:inline">&bull; {stage.subtitle}</span>
+                    </h2>
+                    <span className="text-sm font-serif text-amber-300/90 hidden sm:inline">&bull; {stage.subtitle}</span>
                   </div>
 
                   <button
                     onClick={() => handleToggleStageSound(stage.step, stage.soundInstrumentId)}
-                    className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono transition-all cursor-pointer ${
+                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono transition-all cursor-pointer ${
                       isPlayingThisStage
                         ? 'bg-amber-500 text-stone-950 font-bold'
-                        : 'bg-stone-800/80 hover:bg-stone-800 text-amber-400 hover:text-amber-300 border border-amber-900/30'
+                        : 'bg-stone-800 hover:bg-stone-700 text-amber-400 border border-amber-800/40'
                     }`}
                   >
                     {isPlayingThisStage ? (
                       <>
-                        <Pause className="w-3 h-3 fill-current" />
+                        <Pause className="w-3.5 h-3.5 fill-current" />
                         <span>Đang vang nhịp</span>
                       </>
                     ) : (
                       <>
-                        <Play className="w-3 h-3 fill-current" />
+                        <Play className="w-3.5 h-3.5 fill-current" />
                         <span>Nghe mẫu nhịp</span>
                       </>
                     )}
                   </button>
                 </div>
 
-                <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed">
+                <p className="text-base text-stone-300 font-serif font-light leading-relaxed">
                   {stage.description}
                 </p>
 
-                <div className="flex flex-wrap items-center justify-between gap-3 pt-2 text-xs border-t border-stone-800/40">
-                  <p className="font-serif italic text-amber-200/90">
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-3 text-xs border-t border-stone-800/40">
+                  <p className="font-serif italic text-amber-200/90 text-sm">
                     &ldquo;{stage.verse}&rdquo;
                   </p>
-                  <div className="inline-flex items-center gap-1.5 font-mono text-stone-400 bg-stone-900/60 px-2.5 py-1 rounded-md border border-stone-800/60">
-                    <Sparkles className="w-3 h-3 text-amber-500" />
+                  <div className="inline-flex items-center gap-1.5 font-mono text-stone-400 bg-stone-900 px-3 py-1.5 rounded-md border border-stone-800">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-500" />
                     <span>{stage.rhythmSample}</span>
                   </div>
                 </div>
@@ -775,15 +847,11 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
           })}
         </section>
 
-        {/* Khảo cứu tiếng trống */}
         <section className="pt-6 border-t border-stone-800/60 space-y-3">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
-            Ngôn Ngữ Tiếng Trống
-          </span>
-          <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-            “Phi Trống Bất Thành Chèo”
-          </h3>
-          <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed max-w-3xl">
+          <h2 className="text-2xl font-serif font-bold text-white">
+            “Phi Trống Bất Thành Chèo” — Ngôn Ngữ Nhịp Phách Sân Đình
+          </h2>
+          <p className="text-base text-stone-300 font-serif font-light leading-relaxed max-w-3xl">
             Tiếng trống Chèo không chỉ giữ nhịp mà còn là tiếng nói phân minh công lý của người xem hội làng. Nhịp tang gõ dập biểu thị sự tán thưởng, tiếng tùng thúc giục chuyển màn, và tiếng cắc giòn tan chốt lại câu thoại xưng danh của nhân vật.
           </p>
         </section>
@@ -792,97 +860,225 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
   }
 
   // =========================================================================
-  // TRƯỜNG HỢP 5: GIAO DIỆN TỔNG QUAN HUB (/kham-pha/san-khau/am-thanh)
+  // TRƯỜNG HỢP 5: GIAO DIỆN TỔNG QUAN HỒI TỰ SỰ SO LE 12 CỘT (/kham-pha/san-khau/am-thanh)
   // =========================================================================
   return (
-    <div className="space-y-10 sm:space-y-12 text-left animate-in fade-in duration-300">
-      <header className="border-b border-stone-800/60 pb-6 space-y-2">
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold">
-            Sân Khấu &bull; Âm Nhạc & Làn Điệu
-          </span>
-          <span className="text-stone-600">&bull;</span>
-          <span className="text-xs font-mono text-stone-400">3 Không Gian Khảo Cứu</span>
-        </div>
-        <h1 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
-          Thanh Âm & Làn Điệu Chiếu Chèo Sân Đình
-        </h1>
-        <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed max-w-3xl">
-          Nghệ thuật Chèo truyền thống được nâng đỡ bởi sự kết hợp tinh tế giữa dàn nhạc Bát Âm cổ truyền, kho tàng hơn 200 làn điệu mẫu mực và quy luật tiết tấu 4 chặng kịch tính. Bấm vào một chuyên mục bên dưới để bước vào không gian thính phòng tương tác.
-        </p>
-      </header>
+    <div className="w-full text-left space-y-16 sm:space-y-24 animate-in fade-in duration-300">
+      {/* ── 1. CINEMA OVERLAY HERO BANNER (100VW FULL VIEWPORT WIDTH & COMPACT HEIGHT) ── */}
+      <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-10 sm:-mt-14 overflow-hidden shadow-2xl border-b border-stone-800 bg-stone-950 h-[280px] sm:h-[340px] lg:h-[380px] flex items-end group mb-12 sm:mb-16">
+        <img
+          src="/images/sound_dan_nhac.jpg"
+          alt="Dàn Nhạc Chèo Cổ"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.55] contrast-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/65 to-stone-950/15" />
 
-      {/* 3 Chương Trang Con */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
-        {[
-          {
-            path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am',
-            num: '01',
-            title: 'Dàn Nhạc Bát Âm',
-            subtitle: 'Trống đế, đàn nguyệt, đàn nhị, sáo trúc',
-            desc: 'Khám phá 6 nhạc cụ linh hồn nắm giữ tiết tấu và giai điệu qua bộ thẻ trực quan và các trang chi tiết chuyên khảo.',
-            tag: 'Nhạc Khí Chuẩn Mực'
-          },
-          {
-            path: '/kham-pha/san-khau/am-thanh/lan-dieu',
-            num: '02',
-            title: 'Kho Tàng Làn Điệu',
-            subtitle: 'Hơn 200 làn điệu mẫu mực',
-            desc: 'Phòng thẩm âm tương tác với các làn điệu kinh điển: Đào Liễu, Quân Tử Vu Dịch, Sa Lệch Chênh, Hề Mồi.',
-            tag: 'Phòng Thẩm Âm'
-          },
-          {
-            path: '/kham-pha/san-khau/am-thanh/tiet-tau',
-            num: '03',
-            title: 'Tiết Tấu & Nhịp Trống',
-            subtitle: 'Bốn chặng phát triển kịch tính',
-            desc: 'Quy luật tiết tấu từ tiếng trống mở màn giục giã hội làng đến hát xưng danh, cao trào bi kịch và tiếng cười trào lộng.',
-            tag: 'Ngôn Ngữ Nhịp Phách'
-          }
-        ].map((item) => (
-          <div
-            key={item.path}
-            onClick={() => onNavigate?.(item.path)}
-            className="group cursor-pointer space-y-3"
-          >
-            <div className="aspect-[16/10] w-full overflow-hidden rounded-2xl bg-stone-900 relative">
-              <img
-                src="/images/cheo_instruments.jpg"
-                alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute top-4 right-4 text-3xl font-mono font-black text-white/20 select-none">
-                {item.num}
+        <div className="relative z-10 w-full max-w-7xl 2xl:max-w-[1620px] mx-auto px-6 sm:px-10 lg:px-12 pb-6 sm:pb-8 space-y-2.5">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight drop-shadow-md">
+            Hồn Cốt Âm Thanh &amp; Làn Điệu Chiếu Chèo
+          </h1>
+          <p className="text-xs sm:text-sm lg:text-base text-stone-200 font-serif font-light leading-relaxed drop-shadow max-w-4xl">
+            <span className="float-left text-3xl sm:text-4xl font-serif font-bold text-amber-400 leading-none pr-2.5 pt-0.5">Â</span>
+            m nhạc Chèo không bao giờ trình diễn độc lập hay phô trương kỹ thuật, mà sinh ra để thở cùng từng nhịp thở của đào kép trên manh chiếu. Sự hòa quyện giữa dàn nhạc Bát Âm cổ truyền, kho tàng hơn 200 làn điệu phong phú và nhịp phách biến ảo tạo nên dòng chảy cảm xúc mãnh liệt xuyên suốt đêm diễn sân đình.
+          </p>
+        </div>
+      </section>
+
+      {/* ── 2. KHÔNG GIANG ÂM THANH TRIỂN LÃM ĐA DẠNG BỐ CỤC ── */}
+      <section className="space-y-20 sm:space-y-28">
+        {/* Hồi 1: Dàn Nhạc Bát Âm — Interactive Spotlight Card */}
+        <div className="rounded-3xl border border-stone-800 bg-stone-900/60 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7 space-y-5">
+              <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
+                Sáu Nhạc Khí Linh Hồn • Dàn Nhạc Cổ Truyền
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+                Dàn Nhạc Bát Âm Cổ Truyền
+              </h2>
+              <p className="text-base sm:text-lg text-stone-300 font-serif font-light leading-relaxed">
+                Trống đế, đàn nguyệt, đàn nhị, sáo trúc, trống cơm và thanh la mõ hòa thanh nắn nót, dẫn dắt cao trào bi kịch và mở lối cho lời ca đào kép trên manh chiếu sân đình.
+              </p>
+              <div className="pt-2">
+                <button
+                  onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh/dan-nhac-bat-am')}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-serif font-bold text-sm transition-all cursor-pointer shadow-lg shadow-amber-500/20"
+                >
+                  <span>Khám phá sáu nhạc khí &amp; nghe âm sắc</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
 
-            <div className="space-y-1">
-              <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
-                {item.tag}
-              </span>
-              <h3 className="text-xl sm:text-2xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-xs text-amber-200/90 font-serif">
-                {item.subtitle}
-              </p>
-              <p className="text-xs sm:text-sm text-stone-300 font-serif font-light leading-relaxed pt-1">
-                {item.desc}
-              </p>
+            <div className="lg:col-span-5">
+              <div
+                onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh/dan-nhac-bat-am')}
+                className="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border border-stone-800/80 bg-stone-950 relative cursor-pointer group"
+              >
+                <img
+                  src="/images/cheo_instruments.jpg"
+                  alt="Dàn Nhạc Bát Âm"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-xs font-serif text-amber-300/90 italic">
+                  Trống đế &bull; Đàn nguyệt &bull; Đàn nhị &bull; Sáo trúc &bull; Trống cơm &bull; Thanh la
+                </div>
+              </div>
             </div>
           </div>
-        ))}
+        </div>
+
+        {/* Hồi 2: Kho Tàng Làn Điệu — Panorama Overlapping Glass Card */}
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-800 bg-stone-950 min-h-[420px] sm:min-h-[460px] flex items-center p-6 sm:p-10 lg:p-14 group">
+          <img
+            src="/images/sound_dan_nhac.jpg"
+            alt="Kho Tàng Làn Điệu Chèo Cổ"
+            className="absolute inset-0 w-full h-full object-cover filter brightness-[0.55] contrast-105 group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/60 to-transparent" />
+
+          <div className="relative z-10 max-w-2xl bg-stone-900/85 backdrop-blur-md p-6 sm:p-10 rounded-2xl border border-stone-800/90 space-y-4 shadow-2xl">
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold block">
+              Hơn 200 Làn Điệu Mẫu Mực
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+              Kho Tàng Làn Điệu Chèo Cổ
+            </h2>
+            <p className="text-sm sm:text-base text-stone-200 font-serif font-light leading-relaxed">
+              Từ điệu Đào Liễu lúng liếng trao duyên đến khúc Quân Tử Vu Dịch ai oán nỉ non xé lòng. Kho tàng làn điệu Chèo là kết tinh của ca dao dân gian, tái hiện trọn vẹn những buồn vui và ước mơ của người lao động.
+            </p>
+            <div className="pt-2">
+              <button
+                onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh/lan-dieu')}
+                className="inline-flex items-center gap-2 text-sm font-serif font-medium text-amber-400 hover:text-amber-300 transition-colors cursor-pointer group"
+              >
+                <span>Vào phòng thẩm âm lắng nghe giai điệu</span>
+                <ChevronRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Hồi 3: Tiết Tấu & Nhịp Trống — 4-Stage Rhythm Flow Card */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center rounded-3xl border border-stone-800 bg-stone-900/40 p-6 sm:p-10">
+          <div className="lg:col-span-5 lg:order-2">
+            <div
+              onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh/tiet-tau')}
+              className="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border border-stone-800 bg-stone-950 relative cursor-pointer group"
+            >
+              <img
+                src="/images/inst_trong_de.jpg"
+                alt="Tiết Tấu & Nhịp Trống"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 space-y-5 lg:order-1">
+            <div className="space-y-2">
+              <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold block">
+                Ngôn Ngữ Nhịp Phách Sân Đình
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+                Tiết Tấu &amp; Nhịp Trống Sân Đình
+              </h2>
+            </div>
+
+            <p className="text-base sm:text-lg text-stone-300 font-serif font-light leading-relaxed">
+              Nhịp trống Chèo giữ vai trò điều phối toàn bộ nhịp thở sân khấu: từ tiếng trống cái dồn dập giục hội làng, lời hát xưng danh đĩnh đạc, khúc tự sự nỉ non đến tiếng cười trào phúng sảng khoái hả hê.
+            </p>
+
+            <div className="pt-3">
+              <button
+                onClick={() => onNavigate?.('/kham-pha/san-khau/am-thanh/tiet-tau')}
+                className="inline-flex items-center gap-2 text-sm font-serif font-medium text-amber-400 hover:text-amber-300 transition-colors cursor-pointer group"
+              >
+                <span>Trải nghiệm ngôn ngữ nhịp phách</span>
+                <ChevronRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Triết lý âm thanh */}
-      <section className="pt-6 border-t border-stone-800/60 text-center max-w-2xl mx-auto space-y-2">
-        <p className="font-serif italic text-stone-400 text-sm sm:text-base leading-relaxed">
-          &ldquo;Dàn nhạc Chèo không bao giờ chơi lấn át con người. Tiếng đàn, tiếng trống sinh ra là để thở cùng hơi thở của đào kép trên manh chiếu.&rdquo;
+      {/* ── 3. DẢI NGHỈ THỊ GIÁC TOÀN CẢNH (PANORAMIC VISUAL CALLOUT) ── */}
+      <section className="relative rounded-3xl overflow-hidden border border-amber-900/40 bg-gradient-to-r from-amber-950/40 via-stone-900 to-amber-950/40 p-8 sm:p-14 text-center space-y-4 shadow-2xl">
+        <Sparkles className="w-8 h-8 text-amber-500/80 mx-auto animate-pulse" />
+        <p className="text-lg sm:text-2xl font-serif italic text-amber-100 max-w-4xl mx-auto leading-relaxed">
+          &ldquo;Dàn nhạc Chèo không bao giờ chơi lấn át con người. Tiếng đàn, tiếng trống sinh ra là để nâng đỡ và thở cùng hơi thở của đào kép trên manh chiếu.&rdquo;
         </p>
-        <span className="text-xs font-mono text-amber-500/80 uppercase tracking-widest block">
+        <span className="text-xs font-serif text-amber-400/80 uppercase tracking-widest block">
           Triết lý hòa âm sân khấu Chèo cổ
         </span>
       </section>
+
+      {/* ── 4. LƯỚI KHÁM PHÁ 3 CỘT (EXHIBITION GATEWAYS) ── */}
+      <section className="space-y-8 pt-4">
+        <div className="border-b border-stone-800/60 pb-4">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+            Các Không Gian Khảo Cứu Liên Quan
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            onClick={() => onNavigate?.('/kham-pha/san-khau/trang-phuc')}
+            className="group cursor-pointer space-y-3 bg-stone-900/40 hover:bg-stone-900 p-6 rounded-2xl border border-stone-800 hover:border-amber-700/40 transition-all duration-300"
+          >
+            <h3 className="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors">
+              Trang Phục & Phục Sức
+            </h3>
+            <p className="text-sm text-stone-400 font-serif font-light leading-relaxed">
+              Khám phá áo tứ thân, yếm đào, nón quai thao và áo ngũ thân đĩnh đạc của Kép Chèo.
+            </p>
+            <span className="text-xs text-amber-500 font-serif block group-hover:translate-x-1 transition-transform">
+              Bắt đầu khám phá &rarr;
+            </span>
+          </div>
+
+          <div
+            onClick={() => onNavigate?.('/kham-pha/san-khau/vai-dien')}
+            className="group cursor-pointer space-y-3 bg-stone-900/40 hover:bg-stone-900 p-6 rounded-2xl border border-stone-800 hover:border-amber-700/40 transition-all duration-300"
+          >
+            <h3 className="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors">
+              Mẫu Hình Vai Diễn
+            </h3>
+            <p className="text-sm text-stone-400 font-serif font-light leading-relaxed">
+              Khám phá năm mẫu hình nhân vật chuẩn mực: Đào, Kép, Lão, Mẫu và Hề Chèo.
+            </p>
+            <span className="text-xs text-amber-500 font-serif block group-hover:translate-x-1 transition-transform">
+              Bắt đầu khám phá &rarr;
+            </span>
+          </div>
+
+          <div
+            onClick={() => onNavigate?.('/kham-pha/san-khau/vu-dao')}
+            className="group cursor-pointer space-y-3 bg-stone-900/40 hover:bg-stone-900 p-6 rounded-2xl border border-stone-800 hover:border-amber-700/40 transition-all duration-300"
+          >
+            <h3 className="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors">
+              Quy Ước Vũ Đạo & Cử Chỉ
+            </h3>
+            <p className="text-sm text-stone-400 font-serif font-light leading-relaxed">
+              Thưởng thức nghệ thuật múa quạt, điệu vắt tà và ngôn ngữ hình thể ước lệ cổ truyền.
+            </p>
+            <span className="text-xs text-amber-500 font-serif block group-hover:translate-x-1 transition-transform">
+              Bắt đầu khám phá &rarr;
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. LỜI KẾT THI VỊ (POETIC EPILOGUE) ── */}
+      <footer className="pt-8 border-t border-stone-800/60 text-center space-y-3 max-w-2xl mx-auto">
+        <p className="font-serif italic text-stone-400 text-sm sm:text-base leading-relaxed">
+          &ldquo;Tiếng trống đầu đình thúc hội xuân / Dây tơ nắn nót khúc ca tần / Làn điệu cổ truyền vang xóm sẻ / Hồn quê thắm đượm mãi ngàn năm.&rdquo;
+        </p>
+        <span className="text-xs font-serif text-amber-500/80 block uppercase tracking-widest">
+          Bảo Tàng Chèo Số &bull; Khai Thư Âm Thanh & Làn Điệu
+        </span>
+      </footer>
     </div>
   )
 }

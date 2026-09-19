@@ -10,14 +10,9 @@ export const GoalsWidget: React.FC = () => {
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b border-stone-800/80 pb-14 sm:pb-20">
         {/* Cột trái: Tiêu đề lớn & Tự sự mở đầu */}
         <div className="lg:col-span-7 space-y-6">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-stone-100 tracking-tight leading-[1.15]">
-            Không Để Tiếng Trống <br className="hidden sm:inline" />
-            <span className="text-amber-400 italic">Hội Làng Lùi Vào Dĩ Vãng</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.15]">
+            Không Để Tiếng Trống Hội Làng Lùi Vào Dĩ Vãng
           </h1>
-
-          <p className="text-lg sm:text-xl text-amber-200/90 font-light italic leading-relaxed border-l-2 border-amber-500/60 pl-5">
-            Vì sao giữa nhịp sống hiện đại, một di sản kịch hát ngàn năm cần được cất giữ và đánh thức bằng chính ngôn ngữ công nghệ của hôm nay?
-          </p>
 
           <div className="space-y-4 text-stone-300 font-light text-base sm:text-lg leading-relaxed pt-2">
             <p className="first-letter:text-5xl sm:first-letter:text-6xl first-letter:font-bold first-letter:text-amber-400 first-letter:mr-3 first-letter:float-left first-letter:leading-none">
@@ -82,15 +77,7 @@ export const GoalsWidget: React.FC = () => {
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-amber-950/20 border-l-2 border-amber-500/70 relative">
-            <Quote className="w-8 h-8 text-amber-500/20 absolute top-4 right-4" />
-            <blockquote className="italic text-amber-200 text-base sm:text-lg leading-relaxed">
-              “Làn điệu thì sách vở còn ghi, nhưng cái nảy hạt, cái lúng liếng thì sách nào chép xiết hở các cháu? Phải thu lại ngay khi chúng tôi còn thở, còn cất được tiếng ca...”
-            </blockquote>
-            <p className="text-xs text-stone-400 mt-3 not-italic">
-              — Cụ bà nghệ nhân làng Chèo Khuốc (Thái Bình), 89 tuổi
-            </p>
-          </div>
+
 
           <p className="text-stone-300 font-light text-base sm:text-lg leading-relaxed">
             Bảo tàng Chèo Số ra đời trước hết như một sự thôi thúc từ lương tâm: phải chạy đua với thời gian để ghi lại trung thực nhất từng vi âm thanh âm, từng góc máy chuyển động của các bậc tiền bối. Không chỉ ghi âm đơn thuần, dự án ứng dụng công nghệ số hóa phân tầng và ghi hình động tác để lưu giữ chuẩn mực từng ngón tay bắt quyết, từng bước đi chữ bát. Lưu giữ ở đây không phải để đóng băng di sản trong tủ kính, mà để dựng nên một hệ quy chiếu nguyên bản chân thực nhất cho mai sau.
@@ -132,15 +119,7 @@ export const GoalsWidget: React.FC = () => {
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-amber-950/20 border-l-2 border-amber-500/70 relative">
-            <Quote className="w-8 h-8 text-amber-500/20 absolute top-4 right-4" />
-            <blockquote className="italic text-amber-200 text-base sm:text-lg leading-relaxed">
-              “Khi hiểu được nỗi đau giấu sau nụ cười của anh Hề và ngọn lửa khát khao của Thị Mầu, tôi nhận ra Chèo còn nổi loạn và phóng khoáng hơn cả những câu chuyện hiện đại.”
-            </blockquote>
-            <p className="text-xs text-stone-400 mt-3 not-italic">
-              — Nguyễn Hoàng Mai, sinh viên thiết kế đồ họa tại Hà Nội
-            </p>
-          </div>
+
 
           <p className="text-stone-300 font-light text-base sm:text-lg leading-relaxed">
             Bằng việc ứng dụng đồ họa tương tác, công nghệ âm thanh đa tầng và trải nghiệm số trực quan, chúng tôi muốn trao cho người trẻ quyền được tự do chạm vào di sản. Chèo bước ra khỏi sự cổ kính xa xôi để trở thành nguồn cảm hứng tươi mới cho âm nhạc đương đại, hội họa, thiết kế thời trang và sân khấu thể nghiệm của thế hệ hôm nay.

@@ -185,45 +185,25 @@ export const TimelineWidget: React.FC<TimelineWidgetProps> = ({ onNavigate }) =>
   return (
     <article className="text-left space-y-20 sm:space-y-28 animate-in fade-in duration-500 w-full font-serif">
       {/* =========================================================================
-          1. SPLIT-SCREEN HERO BANNER (12 CỘT RỘNG MỞ)
+          1. WIDE LANDSCAPE CINEMA HERO BANNER (ẢNH NGANG PANORAMA KHỔ RỘNG)
       ========================================================================= */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b border-stone-800/80 pb-14 sm:pb-20">
-        {/* Cột trái: Tiêu đề lớn & Đoạn tự sự mở đầu */}
-        <div className="lg:col-span-7 space-y-6">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-stone-100 tracking-tight leading-[1.15]">
-            Mười Thế Kỷ Thăng Trầm <br className="hidden sm:inline" />
-            <span className="text-amber-400 italic">Hồn Thiêng Chiếu Chèo</span>
+      {/* ── 1. CINEMA OVERLAY HERO BANNER (100VW FULL VIEWPORT WIDTH & COMPACT HEIGHT) ── */}
+      <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-10 sm:-mt-14 overflow-hidden shadow-2xl border-b border-stone-800 bg-stone-950 h-[280px] sm:h-[340px] lg:h-[380px] flex items-end group mb-12 sm:mb-16">
+        <img
+          src="/images/cheo_hero.jpg"
+          alt="Không gian sân đình Chèo cổ truyền ngàn năm"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.55] contrast-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/65 to-stone-950/15" />
+
+        <div className="relative z-10 w-full max-w-7xl 2xl:max-w-[1620px] mx-auto px-6 sm:px-10 lg:px-12 pb-6 sm:pb-8 space-y-2.5">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight drop-shadow-md">
+            Mười Thế Kỷ Thăng Trầm Hồn Thiêng Chiếu Chèo
           </h1>
-
-          <p className="text-lg sm:text-xl text-amber-200/90 font-light italic leading-relaxed border-l-2 border-amber-500/60 pl-5">
-            Từ tiếng trống quân doanh Hoa Lư thuở dựng nước đến thánh đường sân khấu dân tộc và khát vọng ghi danh di sản nhân loại.
+          <p className="text-xs sm:text-sm lg:text-base text-stone-200 font-serif font-light leading-relaxed drop-shadow max-w-4xl">
+            <span className="float-left text-3xl sm:text-4xl font-serif font-bold text-amber-400 leading-none pr-2.5 pt-0.5">T</span>
+            rải qua hơn một ngàn năm lịch sử thăng trầm cùng vận mệnh non sông đất Việt, nghệ thuật Chèo đã bám rễ sâu xa vào từng tấc đất phù sa châu thổ sông Hồng. Đó không chỉ là câu hát giãi bày tâm sự của những người nông dân chân lấm tay bùn dưới bóng đa sân đình, mà còn là bản anh hùng ca mộc mạc lưu giữ linh hồn, cốt cách và bản lĩnh sinh tồn của cả một dân tộc.
           </p>
-
-          <div className="space-y-4 text-stone-300 font-light text-base sm:text-lg leading-relaxed pt-2">
-            <p className="first-letter:text-5xl sm:first-letter:text-6xl first-letter:font-bold first-letter:text-amber-400 first-letter:mr-3 first-letter:float-left first-letter:leading-none">
-              Trải qua hơn một ngàn năm lịch sử thăng trầm cùng vận mệnh non sông đất Việt, nghệ thuật Chèo đã bám rễ sâu xa vào từng tấc đất phù sa châu thổ sông Hồng. Đó không chỉ là câu hát giãi bày tâm sự của những người nông dân chân lấm tay bùn dưới bóng đa sân đình, mà còn là bản anh hùng ca mộc mạc lưu giữ linh hồn, cốt cách và bản lĩnh sinh tồn của cả một dân tộc.
-            </p>
-            <p className="text-stone-400 text-sm sm:text-base">
-              Hành trình mười thế kỷ của Chèo là cuộc thiên di vĩ đại: khởi nguyên từ tiếng trống lệnh hào hùng thời vua Đinh Tiên Hoàng, hòa mình vào lễ hội xuân làng xã, thăng hoa tột đỉnh với Tứ đại kiệt tác, rồi hiên ngang vượt qua khói lửa chiến khu Việt Bắc để bước vào kỷ nguyên số hóa hôm nay.
-            </p>
-          </div>
-        </div>
-
-        {/* Cột phải: Khung ảnh tư liệu khổ lớn */}
-        <div className="lg:col-span-5">
-          <figure className="relative rounded-3xl overflow-hidden border border-stone-800/90 bg-stone-950 shadow-2xl group">
-            <div className="aspect-[4/5] sm:aspect-[3/4] w-full overflow-hidden relative">
-              <img
-                src="/images/cheo_hero.jpg"
-                alt="Không gian sân đình Chèo cổ truyền ngàn năm"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 filter brightness-95 contrast-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/20 to-transparent" />
-            </div>
-            <figcaption className="p-5 sm:p-6 absolute bottom-0 inset-x-0 text-xs sm:text-sm text-stone-300 italic bg-stone-950/80 backdrop-blur-md border-t border-stone-800/60">
-              Chiếu Chèo sân đình châu thổ sông Hồng — Nơi lưu giữ ký ức văn hóa mười thế kỷ của dân tộc.
-            </figcaption>
-          </figure>
         </div>
       </section>
 

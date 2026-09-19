@@ -26,9 +26,9 @@ Tất cả các thay đổi giao diện (UI/UX) và nội dung trên toàn bộ 
 6. **Cấm liệt kê các hộp chữ khô khan không minh họa (No Dry Text Dumps)**:
    - Mọi phân loại vai diễn, mẫu hình biến thể, quy ước vũ đạo, làn điệu **bắt buộc phải có hình ảnh trực quan minh họa** (thần thái, trang phục, biểu cảm, đạo cụ) hoặc âm thanh thực tế.
    - Tuyệt đối không làm một danh sách các ô xám chỉ toàn chữ làm người xem đọc xong trôi tuột không đọng lại gì.
-7. **Cấm lạm dụng dấu trích dẫn (No Quote Abuse)**:
-   - Không bao bọc dấu ngoặc kép `“...”` quanh các phụ đề, lời bình hay đoạn giải nghĩa thông thường.
-   - Mỗi trang chỉ giữ tối đa 1 dải danh ngôn toàn cảnh (panoramic callout) lắng đọng của nghệ nhân tiền bối.
+7. **Cấm lạm dụng và spam trích dẫn (No Quote Abuse / No Inline Quote Box Spam)**:
+   - **Cấm chèn các hộp trích dẫn lặt vặt chen giữa các đoạn văn**: Không tạo các khung trích dẫn nhỏ (`border-l-2`, `bg-amber-950/20`) rải rác bên trong các bài tự sự làm đứt gãy mạch đọc và spam trích dẫn rời rạc.
+   - **Chỉ giữ 1 dải danh ngôn toàn cảnh**: Mỗi trang chỉ giữ tối đa 1 dải danh ngôn toàn cảnh (panoramic callout band) duy nhất nằm giữa hoặc cuối trang để tạo nhịp thở thị giác. Mọi lời kể của nghệ nhân hay trích dẫn phải được hòa nhập tự nhiên vào đoạn văn tự sự.
 8. **Cấm gán ảnh lung tung, sai ngữ cảnh (No Random Mismatched Assets)**:
    - Không được tùy tiện nhét ảnh không liên quan (ảnh ám xanh, ma-nơ-canh lạc điệu, ảnh sai cử chỉ) vào các thẻ quy ước vũ đạo hay biến thể vai mẫu.
    - Khi chưa có ảnh tư liệu đúng bối cảnh diễn xướng, **phải dùng 1 ảnh placeholder chuẩn di sản thống nhất** (hoặc khung archive đồng bộ) để sẵn sàng thay thế bằng ảnh thực tế sau này.
@@ -36,6 +36,14 @@ Tất cả các thay đổi giao diện (UI/UX) và nội dung trên toàn bộ 
    - Cấm xếp chồng liên tiếp: Tiêu đề phụ + Tiêu đề chính + Dòng `Bối cảnh: ...` + Nhiều đoạn văn giải thích + Hộp trích dẫn (bắt người xem phải đọc 4-5 lớp nội dung phân mảnh trên một mục).
    - Người xem đến để thưởng lãm không gian di sản, không phải làm bài thi phân tích văn bản hay đọc hồ sơ hành chính.
    - Trình bày tinh giản, súc tích: **1 Tiêu đề chính rõ ràng** + **1 đoạn văn tự sự cô đọng, giàu hình tượng (2-3 câu, tối đa 50-60 từ)** + **trực quan hóa bằng ảnh/âm thanh**. Không bôi thêm nhãn phụ, không nhét thêm câu trích dẫn rời rạc nếu đoạn văn đã nói đủ ý.
+10. **Cấm xả thuộc tính chi tiết vụn vặt lên thẻ/khối tự sự ở mặt trang tổng quan (No Detail Dump on Surface Cards)**:
+    - Trên mặt trang tổng quan hay danh sách thẻ bề mặt (overview list / surface cards / split grids), **tuyệt đối không đưa vào các dòng liệt kê thông số chi tiết** như: `Chất liệu cổ truyền: ...`, `Phụ kiện đặc trưng: ...`, `Cấu tạo: ...` hay các danh sách thuộc tính phụ gây rối mắt.
+    - Muốn xem chi tiết thì người dùng bấm mở **Modal Chi Tiết hoặc Trang Chi Tiết chuyên sâu**.
+    - Mặt trang tổng quan bắt buộc phải cực kỳ tinh gọn, thoáng đãng: **1 Ảnh tư liệu + 1 Tiêu đề chính + 1 Phụ đề ngắn + 1 Đoạn văn tự sự cô đọng (2-3 câu, tối đa 50-60 từ) + 1 Nút chuyển tiếp xem chi tiết**.
+11. **Cấm chồng chéo nhiều kiểu chữ/phụ đề dưới cùng một tiêu đề (No Typography Stacking Overload)**:
+    - Tuyệt đối không xếp chồng 4-5 kiểu chữ khác nhau trên cùng một khối tiêu đề: Tiêu đề chữ đứng + Tiêu đề phụ chữ nghiêng màu vàng + Khối trích dẫn nghiêng có viền gạch bên trái + Chữ Drop-Cap + Đoạn văn phụ.
+    - Chọn **ĐÚNG 1 TIÊU ĐỀ CHÍNH DUY NHẤT** (`h1`) rõ ràng, thống nhất một kiểu chữ (ví dụ: `font-serif font-bold text-white`), không ngắt dòng chèn thêm nhãn `span italic` màu mè hay đính kèm ngay một dòng trích dẫn nghiêng nghiêng có đường viền bên trái (`border-l-2`) làm rối mắt.
+    - Phía dưới tiêu đề chính chỉ đi thẳng vào **1 đoạn văn tự sự cô đọng, súc tích (2-3 câu)**.
 
 ## 3. Phân Tầng Trải Nghiệm & Modal Chi Tiết (Progressive Disclosure)
 - **Số lượng tinh chọn**: Trên mặt trang, chỉ hiển thị vừa phải từ 2 - 4 mục tiêu biểu, không bày biện tràn lan gây rối mắt.
@@ -48,7 +56,7 @@ Tất cả các thay đổi giao diện (UI/UX) và nội dung trên toàn bộ 
   - Trích đoạn đối thoại bất hủ của tích chèo cổ.
 
 ## 4. Kiến Trúc Bố Cục Trang Chuẩn
-- **Split-Screen Hero**: Tiêu đề lớn, lời đề từ in nghiêng, đoạn mở đầu có Drop-Cap + Ảnh nghệ thuật khổ lớn có chiều sâu bên cạnh.
+- **Full-Bleed Cinema Overlay Hero**: Khung banner tràn viền chiều ngang (`-mx-6 sm:-mx-10 lg:-mx-12`), phủ ảnh tư liệu lớn làm background kèm dải gradient tối (`bg-gradient-to-t from-stone-950 via-stone-950/70 to-transparent`). Tiêu đề chính `h1` và đoạn văn tự sự cô đọng có Drop-Cap được đặt NỔI TRỰC TIẾP ĐÈ LÊN MẶT ẢNH ở góc dưới/trái của banner.
 - **Hồi tự sự so le 2 cột (12 cột)**: Ảnh tư liệu và bài viết tự sự đảo bên nhịp nhàng qua từng chương.
 - **Dải nghỉ thị giác toàn cảnh (Panoramic Visual Callout)**: Dải danh ngôn nghệ nhân chạy ngang màn hình tạo nhịp thở.
 - **Lưới khám phá 3 cột**: Các lối dẫn chuyên đề trải rộng 3 cột thoáng đãng.
