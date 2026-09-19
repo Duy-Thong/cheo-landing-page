@@ -152,7 +152,7 @@ export const CHARACTERS_DATA: CharacterArchetype[] = [
     name: 'Đào',
     fullName: 'Đào — Mẫu Hình Người Nữ Trong Chiếu Chèo Sân Đình',
     category: 'Hình Mẫu Nữ Chuẩn Mực',
-    image: '/images/char_dao.jpg',
+    image: '/images/char_dao.png',
     representative: 'Thị Kính • Thị Mầu • Xúy Vân • Châu Long',
     tagline: 'Từ đức hạnh nhẫn nhục của Thị Kính đến khát vọng giải phóng bản ngã của Thị Mầu và bi kịch giằng xé của Xúy Vân.',
     famousQuote: 'Thầy như táo rụng sân đình, em như gái dở đi rình của chua... Nước trong leo lẻo con cá đớp mồi, chẳng giấu gì tôi đây ra mắt làng nước!',
@@ -168,7 +168,7 @@ export const CHARACTERS_DATA: CharacterArchetype[] = [
         role: 'Thị Kính, Châu Long, Trinh Thục',
         vocal: 'Giọng hát nghẹn ngào, nỉ non, âm sắc trầm đượm nước mắt (Sử Rầu, Ru Kệ, Hát Cách)',
         description: 'Mẫu phụ nữ hiền thục, đoan trang, chịu thương chịu khó. Gặp nhiều oan trái bất công nhưng luôn lấy chữ Nhẫn và lòng trắc ẩn để hóa giải hận thù, giữ vẹn tấm lòng trong sạch.',
-        image: '/images/char_dao.jpg',
+        image: '/images/char_dao.png',
         visualTrait: 'Áo tứ thân mộc mạc nền nã, nón quai thao thắt quai nhung, nét mặt u hoài nén giọt lệ sầu.',
         psychology: 'Hiện thân thiêng liêng cho đức hy sinh, lòng kiên trinh và sự cam chịu của người phụ nữ Việt Nam trước định kiến phong kiến hà khắc. Dù chịu oan khiên tột cùng, Thị Kính vẫn dùng chữ Nhẫn và từ bi để hóa giải thù hận, giữ vẹn tấm lòng trinh bạch.',
         costume: 'Áo tứ thân màu nâu trầm hoặc đen mộc, yếm trắng kín đáo, đầu vấn khăn đen, nón quai thao lớn buông sợi thao đen trang trọng.',
@@ -279,7 +279,7 @@ export const CHARACTERS_DATA: CharacterArchetype[] = [
         instrument: 'dan-nhi',
         instrumentName: 'Đàn Nhị',
         narrativeText: 'Tiếng đàn nhị nỉ non như từng đường cứa vào tâm can khi Thị Kính chịu hàm oan dứt áo xuất gia. Hát Sử Rầu là tiếng khóc nuốt ngược vào trong lồng ngực, từng nhịp nấc nghẹn làm lay động nỗi cảm thương sâu sắc trước thân phận người phụ nữ xưa.',
-        image: '/images/char_dao.jpg'
+        image: '/images/char_dao.png'
       },
       {
         name: 'Làn điệu Cấm Giá',
@@ -323,7 +323,7 @@ export const CHARACTERS_DATA: CharacterArchetype[] = [
     name: 'Kép',
     fullName: 'Kép — Mẫu Hình Đấng Nam Nhi Quân Tử',
     category: 'Hình Mẫu Nam Chuẩn Mực',
-    image: '/images/char_kep.jpg',
+    image: '/images/char_kep.png',
     representative: 'Lưu Bình • Thiện Sĩ • Trương Viên • Tuần Ty',
     tagline: 'Biểu tượng của chữ Nhân, chữ Nghĩa, phong thái nho nhã đĩnh đạc và tinh thần xả thân vì nghĩa lớn.',
     famousQuote: 'Chí làm trai dặm nghìn tang bồng bảng lảng, dốc lòng vàng quyết đền nợ nước ơn vua. Dẫu thác cũng thơm danh cùng sử sách!',
@@ -339,7 +339,7 @@ export const CHARACTERS_DATA: CharacterArchetype[] = [
         role: 'Lưu Bình, Thiện Sĩ, Trương Viên',
         vocal: 'Đĩnh đạc, ấm áp, âm vang thanh thoát (Hát Quân Tử, Hát Sa Lệch Kép)',
         description: 'Hình ảnh nho sĩ áo dài khăn xếp, đêm ngày miệt mài bên án thư đèn sách, một lòng giữ trọn đạo hiếu với mẹ cha và tình nghĩa son sắt với tri kỷ.',
-        image: '/images/char_kep.jpg',
+        image: '/images/char_kep.png',
         visualTrait: 'Áo the ngũ thân đen mộc, khăn xếp tề chỉnh, phong thái ung dung nho nhã thanh bạch.',
         psychology: 'Hiện thân mẫu mực của kẻ sĩ Bắc Hà: xem trọng đạo hiếu và nghĩa tình tri kỷ cao hơn tính mạng bản thân; nhẫn nại vượt qua thử thách để thành tài giúp ích cho đời.',
         costume: 'Áo dài ngũ thân the thâm, quần trắng ống rộng, đầu đội khăn xếp ngay ngắn, tay cầm quạt ngà hoặc cuốn thư.',
@@ -428,7 +428,7 @@ export const CHARACTERS_DATA: CharacterArchetype[] = [
         instrument: 'dan-nguyet',
         instrumentName: 'Đàn Nguyệt',
         narrativeText: 'Âm sắc đàn nguyệt khoan thai đĩnh đạc cất lên như bóng tùng bách giữa phong ba. Điệu hát là tiếng lòng của bậc trượng phu nuôi chí lớn lập thân đền nợ nước, trọn đời gìn giữ chữ Nhân và chữ Nghĩa.',
-        image: '/images/char_kep.jpg'
+        image: '/images/char_kep.png'
       },
       {
         name: 'Làn điệu Tình Thư Nhị Độ',
@@ -1081,13 +1081,12 @@ export const CharactersGallery: React.FC<CharactersGalleryProps> = ({
           </div>
 
           {/* LƯỚI THẺ TRỰC QUAN CÁC BIẾN THỂ VAI MẪU — CÓ ẢNH TƯ LIỆU & NÚT MỞ MODAL CHI TIẾT */}
-          <div className={`grid grid-cols-1 ${
-            selectedChar.subtypes.length === 4
+          <div className={`grid grid-cols-1 ${selectedChar.subtypes.length === 4
               ? 'sm:grid-cols-2 lg:grid-cols-4'
               : selectedChar.subtypes.length === 2
                 ? 'md:grid-cols-2'
                 : 'sm:grid-cols-2 lg:grid-cols-3'
-          } gap-6 2xl:gap-8`}>
+            } gap-6 2xl:gap-8`}>
             {selectedChar.subtypes.map((sub, idx) => (
               <div
                 key={sub.id || idx}
@@ -1226,11 +1225,10 @@ export const CharactersGallery: React.FC<CharactersGalleryProps> = ({
                   {/* Nút lắng nghe âm sắc thanh nhã */}
                   <button
                     onClick={() => handleToggleMelody(m)}
-                    className={`w-full py-3 px-5 rounded-2xl font-serif text-xs sm:text-sm font-medium flex items-center justify-center gap-3 transition-all cursor-pointer ${
-                      isPlaying
+                    className={`w-full py-3 px-5 rounded-2xl font-serif text-xs sm:text-sm font-medium flex items-center justify-center gap-3 transition-all cursor-pointer ${isPlaying
                         ? 'bg-amber-500 text-stone-950 shadow-lg shadow-amber-500/30'
                         : 'bg-stone-900/80 hover:bg-stone-850 text-amber-300 border border-stone-700/80 hover:border-amber-600/50'
-                    }`}
+                      }`}
                   >
                     {isPlaying ? (
                       <>
@@ -1442,11 +1440,10 @@ export const CharactersGallery: React.FC<CharactersGalleryProps> = ({
                     <div className="space-y-2">
                       <button
                         onClick={() => handleToggleSubtypeAudio(activeSubtype)}
-                        className={`w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-serif font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
-                          playingSubtypeAudio === activeSubtype.id
+                        className={`w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-serif font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${playingSubtypeAudio === activeSubtype.id
                             ? 'bg-amber-500 text-stone-950 shadow-lg shadow-amber-500/30'
                             : 'bg-stone-800/80 hover:bg-stone-750 text-amber-300 border border-stone-700'
-                        }`}
+                          }`}
                       >
                         {playingSubtypeAudio === activeSubtype.id ? (
                           <>

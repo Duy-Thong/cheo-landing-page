@@ -93,7 +93,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               icon: Users,
               title: 'Nhân Vật Ước Lệ',
               desc: 'Đào thương thanh cao, Kép phong nhã, Hề châm biếm sâu cay — những mẫu hình kinh điển soi bóng nhân tình thế thái.',
-              image: '/images/char_dao.jpg'
+              image: '/images/char_dao.png'
             },
             {
               path: '/kham-pha/san-khau/trang-phuc',

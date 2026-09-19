@@ -144,7 +144,7 @@ const FLOORS_DATA: Floor[] = [
         theme: 'Quy chuẩn tạo hình ước lệ',
         description: 'Giải mã 5 dạng nhân vật chuẩn mực: Đào, Kép, Hề, Lão và Mụ trong các tích cổ.',
         icon: Users,
-        image: '/images/char_dao.jpg',
+        image: '/images/char_dao.png',
         svgCoords: { x: 360, y: 280, width: 0, height: 0, isCircle: true, cx: 360, cy: 280, r: 92 }
       },
       {
