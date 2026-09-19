@@ -15,7 +15,7 @@ export interface RouteNode {
   childrenPaths?: string[]
   isHub?: boolean
   description: string
-  widgetType?: 'audio' | 'characters' | 'costumes' | 'ticket' | 'timeline' | 'feedback' | 'plays' | 'modern' | 'map' | 'archive' | 'about-museum' | 'field-story' | 'goals' | 'team' | 'overview' | 'default'
+  widgetType?: 'audio' | 'characters' | 'costumes' | 'ticket' | 'timeline' | 'feedback' | 'plays' | 'modern' | 'map' | 'archive' | 'about-museum' | 'field-story' | 'goals' | 'team' | 'overview' | 'cultural-values' | 'backstage' | 'default'
   tags: string[]
   // Structured Metadata Primitives (R4 Architecture)
   metaBadges?: RouteMetaBadge[]
@@ -349,6 +349,7 @@ export const SITEMAP_ROUTES: Record<string, RouteNode> = {
       { title: 'Tổng quan', path: '/kham-pha/tong-quan' },
       { title: 'Giá trị văn hóa', path: '/kham-pha/tong-quan/gia-tri-van-hoa' }
     ],
+    widgetType: 'cultural-values',
     description: 'Khám phá triết lý nhân sinh quan, tinh thần lạc quan, tiếng cười đả kích cường quyền và khát vọng công lý ẩn chứa sau mỗi tích Chèo.',
     tags: ['Triết lý nhân sinh', 'Tiếng cười dân gian', 'Giá trị nhân văn'],
     metaBadges: [
@@ -375,6 +376,7 @@ export const SITEMAP_ROUTES: Record<string, RouteNode> = {
       { title: 'Tổng quan', path: '/kham-pha/tong-quan' },
       { title: 'Phía sau sân khấu', path: '/kham-pha/tong-quan/phia-sau-san-khau' }
     ],
+    widgetType: 'backstage',
     description: 'Bước vào hậu trường tìm hiểu công phu luyện giọng, múa tay múa chân, nghệ thuật hóa trang mặt nhân vật và tâm niệm của người nghệ sĩ Chèo.',
     tags: ['Hậu trường', 'Hóa trang mặt', 'Luyện nghề'],
     metaBadges: [

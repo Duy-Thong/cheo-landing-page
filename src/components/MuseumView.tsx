@@ -4,9 +4,6 @@ import {
   Share2,
   Check,
   Landmark,
-  ChevronDown,
-  ChevronUp,
-  BookMarked
 } from 'lucide-react'
 import type { RouteNode } from '../data/sitemapRoutes'
 import { PAGE_DETAILS_MAP } from '../data/pageDetailsData'
@@ -25,6 +22,8 @@ import { FieldStoryWidget } from './interactive/FieldStoryWidget'
 import { GoalsWidget } from './interactive/GoalsWidget'
 import { TeamWidget } from './interactive/TeamWidget'
 import { OverviewHubWidget } from './interactive/OverviewHubWidget'
+import { CulturalValuesWidget } from './interactive/CulturalValuesWidget'
+import { BackstageArtWidget } from './interactive/BackstageArtWidget'
 import { EditorialHubWalkthrough } from './common/EditorialHubWalkthrough'
 
 interface MuseumViewProps {
@@ -34,11 +33,9 @@ interface MuseumViewProps {
 
 export const MuseumView: React.FC<MuseumViewProps> = ({ route, onNavigate }) => {
   const [copied, setCopied] = useState(false)
-  const [expandedSection, setExpandedSection] = useState<number | null>(null)
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-    setExpandedSection(null)
   }, [route.path])
 
   const handleShare = () => {
@@ -50,9 +47,6 @@ export const MuseumView: React.FC<MuseumViewProps> = ({ route, onNavigate }) => 
   const detailData = PAGE_DETAILS_MAP[route.id]
   const hasSections = !route.widgetType && !route.isHub && detailData?.sections && detailData.sections.length > 0
 
-  const toggleSection = (idx: number) => {
-    setExpandedSection(prev => (prev === idx ? null : idx))
-  }
 
   return (
     <div className="w-full min-h-screen text-[#e7e0d8] bg-[#0d0a08] pb-24 selection:bg-amber-500 selection:text-black">
@@ -119,105 +113,140 @@ export const MuseumView: React.FC<MuseumViewProps> = ({ route, onNavigate }) => 
         </div>
       </div>
 
-      {/* Main Exhibition Container — Spacious & Open */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-8 pt-8 sm:pt-12 space-y-14">
-        {/* Exhibition Header — Chỉ hiển thị khi trang không có widget và không phải Hub (vì Hub đã có banner dẫn dắt riêng) */}
+      {/* Main content */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-8 pt-10 sm:pt-14 pb-28">
+
+        {/* ── PAGE HEADER (leaf pages only) ── */}
         {!route.widgetType && !route.isHub && (
-          <header className="space-y-3 text-left border-b border-stone-800/60 pb-8">
-            <div className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold">
+          <header className="mb-14">
+            <div className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold mb-3">
               {route.category}
             </div>
-
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight leading-tight mb-5">
               {route.title}
             </h1>
-
-            <p className="text-base sm:text-lg text-stone-300 font-light leading-relaxed max-w-3xl">
+            {/* Lead — first sentence big */}
+            <p className="text-lg sm:text-xl text-stone-300 font-light leading-relaxed border-l-4 border-amber-600 pl-5">
               {route.description}
             </p>
           </header>
         )}
 
-        {/* ================= IF HUB PAGE: EDITORIAL STORYTELLING WALKTHROUGH ================= */}
-        {/* NO BORING 4-CARD GRIDS! Each chapter unfolds with large watermark numbers and narrative flow */}
+        {/* ── HUB PAGE ── */}
         {route.isHub && !route.widgetType && (
-          <EditorialHubWalkthrough
-            route={route}
-            onNavigate={onNavigate}
-          />
+          <EditorialHubWalkthrough route={route} onNavigate={onNavigate} />
         )}
 
-        {/* ================= INTERACTIVE ARTIFACT WIDGETS ================= */}
-        {route.widgetType === 'overview' && <OverviewHubWidget onNavigate={onNavigate} />}
-        {route.widgetType === 'audio' && <AudioSamplePlayer currentPath={route.path} onNavigate={onNavigate} />}
-        {route.widgetType === 'characters' && <CharactersGallery currentPath={route.path} onNavigate={onNavigate} />}
-        {route.widgetType === 'costumes' && <CostumesShowcase currentPath={route.path} onNavigate={onNavigate} />}
-        {route.widgetType === 'ticket' && <TicketBookingWidget />}
-        {route.widgetType === 'timeline' && <TimelineWidget />}
-        {route.widgetType === 'feedback' && <FeedbackWidget />}
-        {route.widgetType === 'plays' && <PlaysShowcase currentPath={route.path} onNavigate={onNavigate} />}
-        {route.widgetType === 'modern' && <ModernCheoShowcase />}
-        {route.widgetType === 'map' && <MuseumMapWidget />}
-        {route.widgetType === 'archive' && <ArchiveVaultWidget />}
+        {/* ── WIDGETS ── */}
+        {route.widgetType === 'overview'     && <OverviewHubWidget onNavigate={onNavigate} />}
+        {route.widgetType === 'audio'        && <AudioSamplePlayer currentPath={route.path} onNavigate={onNavigate} />}
+        {route.widgetType === 'characters'   && <CharactersGallery currentPath={route.path} onNavigate={onNavigate} />}
+        {route.widgetType === 'costumes'     && <CostumesShowcase  currentPath={route.path} onNavigate={onNavigate} />}
+        {route.widgetType === 'ticket'       && <TicketBookingWidget />}
+        {route.widgetType === 'timeline'     && <TimelineWidget />}
+        {route.widgetType === 'feedback'     && <FeedbackWidget />}
+        {route.widgetType === 'plays'        && <PlaysShowcase currentPath={route.path} onNavigate={onNavigate} />}
+        {route.widgetType === 'modern'       && <ModernCheoShowcase />}
+        {route.widgetType === 'map'          && <MuseumMapWidget />}
+        {route.widgetType === 'archive'      && <ArchiveVaultWidget />}
         {route.widgetType === 'about-museum' && <AboutMuseumWidget onNavigate={onNavigate} />}
-        {route.widgetType === 'field-story' && <FieldStoryWidget />}
-        {route.widgetType === 'goals' && <GoalsWidget />}
-        {route.widgetType === 'team' && <TeamWidget />}
+        {route.widgetType === 'field-story'  && <FieldStoryWidget />}
+        {route.widgetType === 'goals'        && <GoalsWidget />}
+        {route.widgetType === 'team'         && <TeamWidget />}
+        {route.widgetType === 'cultural-values' && <CulturalValuesWidget />}
+        {route.widgetType === 'backstage'    && <BackstageArtWidget />}
 
-        {/* ================= COLLAPSIBLE ACCORDION FOR DEEP RESEARCH ================= */}
-        {/* Clean, discreet, collapsed by default. No heavy modals, no "Mở Bài Chuyên Khảo" buttons */}
+        {/* ── EDITORIAL STORYTELLING (leaf pages with sections) ── */}
         {hasSections && (
-          <section className="pt-8 border-t border-stone-800/60 text-left space-y-4">
-            <div className="flex items-center gap-2 text-stone-400 text-xs font-serif uppercase tracking-wider">
-              <BookMarked className="w-4 h-4 text-amber-500" />
-              <span>Tư Liệu Khảo Cứu Bổ Trợ</span>
-            </div>
+          <div className="space-y-0">
+            {detailData.sections.map((sec, idx) => {
+              const isFirst = idx === 0
+              return (
+                <section
+                  key={idx}
+                  className={`relative grid grid-cols-[48px_1fr] sm:grid-cols-[72px_1fr] gap-4 sm:gap-8 py-10 ${
+                    idx !== 0 ? 'border-t border-stone-800/50' : ''
+                  }`}
+                >
+                  {/* Left col — chapter number */}
+                  <div className="pt-1 flex flex-col items-center gap-2">
+                    <span className={`font-serif font-black text-3xl sm:text-5xl leading-none select-none ${
+                      isFirst ? 'text-amber-500' : 'text-stone-700'
+                    }`}>
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                    {/* Vertical line below number */}
+                    <div className={`flex-1 w-px ${isFirst ? 'bg-amber-700/50' : 'bg-stone-800/60'}`} />
+                  </div>
 
-            <div className="divide-y divide-stone-800/60 border-y border-stone-800/60">
-              {detailData.sections.map((sec, idx) => {
-                const isExpanded = expandedSection === idx
-                return (
-                  <div key={idx} className="transition-colors">
-                    <button
-                      onClick={() => toggleSection(idx)}
-                      className="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-stone-800/30 transition-colors cursor-pointer"
-                    >
-                      <span className="font-serif font-semibold text-sm sm:text-base text-stone-200">
-                        {sec.heading}
-                      </span>
-                      <div className="flex items-center gap-2 shrink-0 text-amber-400 text-xs font-medium">
-                        <span>{isExpanded ? 'Thu gọn' : 'Đọc thêm'}</span>
-                        {isExpanded ? (
-                          <ChevronUp className="w-4 h-4 text-amber-400" />
-                        ) : (
-                          <ChevronDown className="w-4 h-4 text-stone-500" />
-                        )}
-                      </div>
-                    </button>
+                  {/* Right col — content */}
+                  <div className="space-y-4 min-w-0">
+                    <h2 className={`font-serif font-bold leading-snug ${
+                      isFirst
+                        ? 'text-xl sm:text-2xl text-amber-200'
+                        : 'text-lg sm:text-xl text-stone-200'
+                    }`}>
+                      {sec.heading}
+                    </h2>
 
-                    {isExpanded && (
-                      <div className="px-4 pb-5 sm:px-5 sm:pb-6 space-y-3 text-xs sm:text-sm text-stone-300 font-light leading-relaxed animate-in fade-in duration-200">
-                        {sec.paragraphs.map((p, pIdx) => (
-                          <p key={pIdx}>{p}</p>
+                    {/* Prose — first paragraph larger if it's first section */}
+                    <div className="space-y-3">
+                      {sec.paragraphs.map((p, pIdx) => (
+                        <p
+                          key={pIdx}
+                          className={`leading-relaxed font-light ${
+                            isFirst && pIdx === 0
+                              ? 'text-base sm:text-lg text-stone-200'
+                              : 'text-sm sm:text-base text-stone-400'
+                          }`}
+                        >
+                          {p}
+                        </p>
+                      ))}
+                    </div>
+
+                    {/* Bullets → inline tags, not a grid */}
+                    {sec.bullets && (
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {sec.bullets.map((b, bIdx) => (
+                          <span
+                            key={bIdx}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-stone-800/70 text-stone-300 border border-stone-700/50"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
+                            {b}
+                          </span>
                         ))}
-                        {sec.bullets && (
-                          <ul className="space-y-1.5 pt-2 pl-4 list-disc text-stone-400 text-xs">
-                            {sec.bullets.map((b, bIdx) => (
-                              <li key={bIdx}>{b}</li>
-                            ))}
-                          </ul>
-                        )}
                       </div>
                     )}
                   </div>
-                )
-              })}
-            </div>
-          </section>
+                </section>
+              )
+            })}
+
+            {/* ── FUN FACTS — pull-quote style ── */}
+            {detailData.funFacts && detailData.funFacts.length > 0 && (
+              <div className="mt-10 pt-10 border-t border-stone-800/50 space-y-5">
+                <p className="text-xs font-mono uppercase tracking-widest text-amber-600">
+                  Góc thú vị
+                </p>
+                <div className="space-y-4">
+                  {detailData.funFacts.map((fact, idx) => (
+                    <blockquote
+                      key={idx}
+                      className="border-l-2 border-amber-600/60 pl-5 text-sm sm:text-base text-stone-400 font-light leading-relaxed italic"
+                    >
+                      {fact}
+                    </blockquote>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         )}
 
-        {/* Footer Navigation */}
-        <div className="pt-8 border-t border-stone-800/60 flex flex-wrap items-center justify-between gap-4 text-xs text-stone-500">
+        {/* Footer */}
+        <div className="mt-16 pt-6 border-t border-stone-800/60 flex flex-wrap items-center justify-between gap-4 text-xs text-stone-500">
           <button
             onClick={() => onNavigate('/')}
             className="text-stone-400 hover:text-amber-300 flex items-center gap-1.5 transition-colors cursor-pointer"
@@ -225,8 +254,7 @@ export const MuseumView: React.FC<MuseumViewProps> = ({ route, onNavigate }) => 
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Về Sảnh Đón Tiếp</span>
           </button>
-
-          <span className="text-stone-600 font-serif">Bảo Tàng Chèo Số &bull; Gìn Giữ Tinh Hoa</span>
+          <span className="text-stone-600 font-serif">Bảo Tàng Chèo Số • Gìn Giữ Tinh Hoa</span>
         </div>
       </div>
     </div>

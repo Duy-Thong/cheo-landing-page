@@ -420,15 +420,61 @@ export const PAGE_DETAILS_MAP: Record<string, PageDetailContent> = {
     introduction: 'Chèo chứa đựng triết lý nhân sinh mộc mạc mà thâm thúy: tinh thần tương thân tương ái, trừng phạt kẻ ác, tôn vinh đức hi sinh và dùng nụ cười trào phúng để thanh lọc tâm hồn.',
     sections: [
       {
-        heading: 'Tiếng cười trào lộng dân gian',
+        heading: 'Tiếng cười trào lộng dân gian — Vũ khí của người nghèo',
         paragraphs: [
-          'Nhân vật Hề Chèo đại diện cho tiếng nói phê phán của nhân dân đối với quan lại tham nhũng, thói đạo đức giả của tầng lớp thống trị. Tiếng cười trong Chèo vừa chua cay vừa sảng khoái và chan chứa lòng trắc ẩn.'
+          'Nhân vật Hề Chèo đại diện cho tiếng nói phê phán của nhân dân đối với quan lại tham nhũng, thói đạo đức giả của tầng lớp thống trị. Tiếng cười trong Chèo vừa chua cay vừa sảng khoái và chan chứa lòng trắc ẩn.',
+          'Không phải ngẫu nhiên mà Hề Chèo luôn được yêu thích nhất trên chiếu diễn sân đình. Đây là nhân vật duy nhất được phép nói thật, phá bỏ quy ước, thậm chí "bình luận" trực tiếp với khán giả đang ngồi xem — một thứ tự do biểu đạt hiếm có trong xã hội phong kiến.',
+          'Có hai loại Hề tiêu biểu: Hề Gậy — chuyên nhận đòn thay thiên hạ mà vẫn tếu táo; và Hề Mồi — khéo léo dùng lời nói bóng gió để vạch trần sự thật. Tiếng cười Chèo không phá hoại mà chữa lành, không nhục mạ mà cảm thông.'
+        ],
+        bullets: [
+          'Hề Gậy: nhận đòn thay thiên hạ với nụ cười hào sảng',
+          'Hề Mồi: dùng ngôn từ bóng gió khéo léo vạch trần sự thật',
+          'Tiếng cười Chèo mang triết lý Phật giáo: bi hỉ xả, không oán hận'
         ]
       },
       {
-        heading: 'Đạo lý hiếu nghĩa & Thủy chung',
+        heading: 'Triết lý "Ở hiền gặp lành" — Nhân quả công bằng',
         paragraphs: [
-          'Các vở như Quan Âm Thị Kính, Lưu Bình Dương Lễ giáo dục con người về đức nhẫn nại, lòng vị tha và tình bạn son sắt chí tình.'
+          'Khác với bi kịch phương Tây thường kết thúc trong tuyệt vọng, Chèo hầu như luôn đề cao sự công bằng của đạo trời: kẻ ác bị trừng phạt, người hiền được đền bù. Thị Kính nhẫn chịu oan khuất suốt đời tu hành nhưng cuối cùng được phong Bồ Tát; Lưu Bình vượt hoạn nạn trở thành quan cao chức trọng.',
+          'Đây không phải ảo tưởng mà là lẽ sống thực tiễn của người nông dân Bắc Bộ: phải nhẫn nại, phải tin vào nhân quả, phải giữ vững đạo lý dù trời đất trở tay. Niềm tin ấy đã giúp cộng đồng làng xã vượt qua những biến cố nghiệt ngã nhất của lịch sử.'
+        ]
+      },
+      {
+        heading: 'Đạo lý hiếu nghĩa & Thủy chung — Gốc rễ văn minh lúa nước',
+        paragraphs: [
+          'Các vở như Quan Âm Thị Kính, Lưu Bình Dương Lễ giáo dục con người về đức nhẫn nại, lòng vị tha và tình bạn son sắt chí tình. Chèo là "trường đạo lý" bằng nghệ thuật của người Bắc Bộ: không thuyết giảng giáo điều mà để cảm xúc dẫn dắt hiểu biết.',
+          'Hình mẫu Châu Long trong Lưu Bình — Dương Lễ là biểu tượng cao đẹp về người phụ nữ Việt: hy sinh âm thầm vì nghĩa cả, trung thành tuyệt đối với chồng, kiên nhẫn chờ đợi không than trách. Đây không phải sự phục tùng mà là chủ động chọn lựa vì yêu thương và lòng tự trọng.'
+        ],
+        bullets: [
+          'Tứ đức: Công — Dung — Ngôn — Hạnh qua hình tượng Đào Chèo',
+          'Ngũ thường: Nhân Nghĩa Lễ Trí Tín qua hình tượng Kép Chèo',
+          'Tình bạn tri kỷ: lý tưởng sống vượt lên vật chất của người quân tử'
+        ]
+      },
+      {
+        heading: 'Khát vọng tự do và công lý — Giọng nói của người bị áp bức',
+        paragraphs: [
+          'Nhân vật Xúy Vân trong vở Kim Nhan đã "giả dại" như một cách phản kháng duy nhất có thể: khi không được ly hôn, không được tự do, nàng chọn cái "điên" để thoát khỏi sự giam hãm. Bi kịch này không phê phán Xúy Vân mà tố cáo một xã hội phi nhân không cho người phụ nữ quyền lựa chọn.',
+          'Tinh thần ấy tiếp tục trong suốt lịch sử Chèo: từ Thị Mầu lên chùa táo bạo tán tỉnh tiểu Kính Tâm, đến các vở hiện đại của NSND Tào Mạt dám nói lên những điều cấm kỵ — Chèo luôn là tiếng nói của những người bị lịch sử bỏ quên.'
+        ]
+      },
+      {
+        heading: 'Chèo và cố kết cộng đồng làng xã Bắc Bộ',
+        paragraphs: [
+          'Khác với sân khấu cung đình dành cho giới thượng lưu, Chèo là của nhân dân, diễn giữa sân đình cho nhân dân. Màn diễn không có tường ngăn cách: khán giả ngồi xung quanh chiếu diễn, tương tác trực tiếp — vỗ tay tán thưởng, cười ồ với Hề, thậm chí "thưởng tiền" khi đào kép hát hay.',
+          'Chiếu Chèo sân đình trong những hội làng mùa xuân (từ Tết đến Rằm tháng Giêng) là sợi dây gắn kết cả cộng đồng: không phân biệt giàu nghèo, già trẻ, tất cả cùng cười khóc với những số phận sân khấu phản chiếu đời thật của chính mình.'
+        ],
+        bullets: [
+          'Hội làng: không gian thiêng để Chèo trở về với cội nguồn',
+          'Chiếu tròn 3 phía khán giả: xóa bỏ rào cản nghệ sĩ — khán giả',
+          'Tục "thưởng hát": sự tri ân trực tiếp của dân gian với nghệ nhân'
+        ]
+      },
+      {
+        heading: 'Di sản sống — Chèo trong đời sống đương đại',
+        paragraphs: [
+          'Những giá trị mà Chèo mang lại — tinh thần nhân văn, tiếng cười lạc quan, khát vọng công lý — không bị cũ đi theo thời gian. Thế hệ trẻ ngày nay tìm đến Chèo như một cách khám phá bản sắc văn hóa, hiểu về tổ tiên và tìm lại chính mình trong nhịp sống hiện đại.',
+          'Bảo tàng Chèo Số ra đời từ niềm tin đó: số hóa không phải để "bảo quản trong tủ kính" mà để làm Chèo sống động và tiếp cận được với mọi người, mọi thế hệ, mọi biên giới địa lý.'
         ]
       }
     ],
@@ -455,15 +501,49 @@ export const PAGE_DETAILS_MAP: Record<string, PageDetailContent> = {
     introduction: 'Nơi khám phá quá trình khổ luyện của diễn viên Chèo: luyện thanh, tập điệu múa quạt, nghệ thuật vẽ mặt hóa trang và chuẩn bị đạo cụ biểu diễn.',
     sections: [
       {
-        heading: 'Khẩu quyết: "Nhất thanh, nhị sắc, tam tinh, tứ nghệ"',
+        heading: 'Khẩu quyết "Nhất thanh, nhị sắc, tam tinh, tứ nghệ" — Bốn trụ cột của người nghệ sĩ Chèo',
         paragraphs: [
-          'Để trở thành một nghệ sĩ Chèo tài hoa, người diễn viên phải trải qua nhiều năm tôi luyện: giọng hát phải ngọt và vang, dáng điệu phải uyển chuyển theo quy ước nghiêm ngặt của sân khấu cổ.'
+          'Đây là phương châm tối thượng mà mỗi diễn viên Chèo phải khắc cốt ghi tâm từ ngày đầu nhập môn. Thanh — giọng hát phải thuần khiết, ngọt ngào, phát âm chuẩn xác từng chữ; Sắc — dáng vẻ ngoại hình, nét mặt, ánh mắt phải truyền cảm xúc; Tinh — sự tinh tế, sâu sắc trong lý giải tâm lý nhân vật; Nghệ — kỹ thuật thuần thục toàn bộ hệ thống múa, hát, diễn.',
+          'Người thầy Chèo xưa thường nói: "Học mười năm chưa đủ để đứng chiếu, nhưng chỉ cần một đêm hát sai nhịp là đủ để mất danh". Đó là áp lực và niềm kiêu hãnh của nghề.'
+        ],
+        bullets: [
+          'Thanh: giọng hát nảy hạt, nhả chữ rõ ràng, ngân nga đúng điệu thức',
+          'Sắc: ánh mắt, nụ cười, nét mặt — "mắt là cửa sổ tâm hồn nhân vật"',
+          'Tinh: hiểu sâu tâm lý từng loại nhân vật, mỗi câu hát là một trạng thái',
+          'Nghệ: kỹ năng tổng hợp — múa tay, múa chân, múa quạt, múa nón'
         ]
       },
       {
-        heading: 'Đạo cụ Chèo: giản dị mà đa năng',
+        heading: 'Nghệ thuật hóa trang mặt nhân vật — Mã ngôn ngữ trực quan của Chèo cổ',
         paragraphs: [
-          'Một chiếc quạt mo có thể hóa thành chiếc gương soi, phong thư tình, mái chèo xuôi dòng hay vũ khí chiến đấu tùy theo diễn cảm của người nghệ sĩ.'
+          'Hóa trang Chèo không nhằm mục đích tạo ra vẻ ngoài "đẹp" hay "đúng với thực tế" mà là hệ thống ký hiệu ước lệ: khán giả xưa nhìn mặt nhân vật là biết ngay tính cách và số phận của họ.',
+          'Mặt Đào thương — hồng hào, lông mày cong nhẹ, khóe mắt buồn. Mặt Đào lẳng (Thị Mầu) — son môi đậm, mắt sắc sảo, lông mày cong cao táo bạo. Mặt Kép — nét thư sinh thanh tú. Mặt Hề — nét cong hài hước cường điệu. Mặt Lão nghiêm — trắng bệch hoặc đỏ tươi. Mặt Mụ ác — đen hoặc xanh đậm. Màu sắc cũng là ngôn ngữ: đỏ là trung thành, trắng là xảo quyệt, đen là hung hãn.'
+        ]
+      },
+      {
+        heading: 'Đạo cụ Chèo: giản dị mà đa năng — Nghệ thuật "biến vật thành hồn"',
+        paragraphs: [
+          'Một chiếc quạt mo có thể hóa thành chiếc gương soi, phong thư tình, mái chèo xuôi dòng hay vũ khí chiến đấu tùy theo diễn cảm của người nghệ sĩ. Điều này phản ánh tinh thần tối giản mà phong phú của sân khấu truyền thống: không phụ thuộc vào cảnh trí cầu kỳ mà phụ thuộc hoàn toàn vào tài năng diễn xuất.',
+          'Chiếc quạt (Đào múa), chiếc gậy tre (Hề gậy), bình vôi, chuỗi hạt, khăn vuông — mỗi đạo cụ đều mang ý nghĩa biểu tượng riêng. Bình vôi (phụ nữ giữ nhà), gậy tre (sức mạnh dân gian giản dị), nón ba tầm (vẻ duyên dáng che giấu), khăn vuông (tiếc thương và biệt ly).'
+        ],
+        bullets: [
+          'Quạt mo: đa năng nhất — gương, thư, mái chèo, vũ khí, tín vật tình yêu',
+          'Gậy tre: sức mạnh Hề Chèo — vừa đánh vừa chống, vừa đùa vừa thật',
+          'Nón ba tầm: múa nón — vũ điệu duyên dáng nhất của Đào Chèo'
+        ]
+      },
+      {
+        heading: 'Vũ đạo Chèo — Ngôn ngữ thân xác chuẩn mực hàng nghìn năm',
+        paragraphs: [
+          'Mỗi bộ phận cơ thể trong vũ đạo Chèo đều có quy ước riêng: bàn tay phải "búp măng" mềm mại; bước chân phải khép gối nhẹ nhàng; khi ngồi phải "ngồi chiếu" — thẳng lưng, hai gối chụm, hai tay đặt trên gối; mắt phải "liếc nhanh — nhìn lâu" tùy tình cảnh.',
+          'Riêng múa quạt của Đào Chèo là một nghệ thuật hoàn chỉnh, có thể kể một câu chuyện dài bằng cử động quạt đơn thuần: quạt mở (vui), quạt che mặt (xấu hổ), quạt hất ngược (giận dỗi), quạt trên đầu (đội nón ra đi). Học múa quạt đúng chuẩn có thể mất 3-5 năm.'
+        ]
+      },
+      {
+        heading: 'Hậu trường đêm diễn — Không gian tâm linh trước giờ G',
+        paragraphs: [
+          'Trước mỗi đêm diễn, các nghệ nhân Chèo cổ thường thực hiện lễ "xin phép Tổ": thắp hương trước bài vị Tổ nghề (bà Phạm Thị Trân), khấn xin cho buổi diễn thuận lợi và nhận được sự phù hộ để hát hay múa đẹp. Nét tâm linh này phản ánh lòng biết ơn sâu sắc với tiền nhân đã truyền lại nghề.',
+          'Tiếp đó là "mặc áo" — nghi thức thay trang phục diễn mang ý nghĩa chuyển hóa: từ con người đời thường biến thành nhân vật sân khấu. Nhiều nghệ nhân lớn tuổi chia sẻ: chỉ khi mặc xong trang phục và vẽ xong mặt, họ mới thực sự "thành" nhân vật mình đóng.'
         ]
       }
     ],
@@ -477,6 +557,11 @@ export const PAGE_DETAILS_MAP: Record<string, PageDetailContent> = {
       { label: 'Khẩu quyết', value: 'Nhất thanh nhị sắc tam tinh tứ nghệ' },
       { label: 'Đạo cụ chính', value: 'Chiếc quạt mo' },
       { label: 'Hóa trang', value: 'Lối vẽ biểu cảm' }
+    ],
+    funFacts: [
+      'Nghệ nhân múa quạt Chèo giỏi có thể biểu diễn hơn 30 động tác khác nhau chỉ với một chiếc quạt duy nhất.',
+      'Vẽ mặt hóa trang Chèo truyền thống dùng son phấn tự làm từ đất son, phấn mạch nha và màu thực vật — tuyệt đối không dùng hóa chất.',
+      'Bộ trang phục Đào Chèo đầy đủ gồm 7 lớp, nặng có thể lên tới 5-7 kg, đòi hỏi nghệ nhân phải luyện sức bền thể chất.'
     ],
     backstageData: BACKSTAGE_ARTISTRY_DATA,
   },
@@ -749,9 +834,39 @@ export const PAGE_DETAILS_MAP: Record<string, PageDetailContent> = {
     introduction: 'Tra cứu nhanh chóng theo tên vở diễn, làn điệu, nhân vật, nghệ nhân hoặc các chủ đề nghiên cứu chuyên sâu về Chèo.',
     sections: [
       {
-        heading: 'Dữ liệu được chuẩn hóa và gắn nhãn',
+        heading: 'Hệ thống tìm kiếm toàn văn thông minh',
         paragraphs: [
-          'Bạn có thể gõ từ khóa tự do như "Thị Mầu lên chùa", "làn điệu Sa Lệch", hoặc tên nghệ nhân NSND Thanh Ngoan để tìm kiếm toàn bộ âm thanh và video liên quan.'
+          'Bạn có thể gõ từ khóa tự do như "Thị Mầu lên chùa", "làn điệu Sa Lệch", hoặc tên nghệ nhân NSND Thanh Ngoan để tìm kiếm toàn bộ âm thanh và video liên quan.',
+          'Toàn bộ kho dữ liệu bảo tàng — từ 200+ làn điệu, 5 mẫu nhân vật, 6 nhạc cụ đến 4 vở Chèo kinh điển — đều được lập chỉ mục và tìm kiếm tức thì ngay trên trình duyệt, không cần kết nối máy chủ.'
+        ]
+      },
+      {
+        heading: 'Bộ lọc đa tiêu chí — Tìm đúng điều bạn muốn',
+        paragraphs: [
+          'Ngoài tìm kiếm từ khóa tự do, hệ thống cung cấp bộ lọc kết hợp để thu hẹp kết quả theo nhiều chiều:',
+          '• Theo thể loại nội dung: Làn điệu, Nhân vật, Nhạc cụ, Vở diễn, Phục trang, Tư liệu âm thanh.',
+          '• Theo thời kỳ lịch sử: Chèo cổ (trước 1951), Chèo cách mạng (1951-1975), Chèo đương đại (1975-nay).',
+          '• Theo vùng địa lý: Thái Bình (làng Khuốc), Ninh Bình (Yên Khánh), Nam Định (Nam Trực), Hà Nội và các tỉnh thành khác.',
+          '• Theo tính cách nhân vật: Đào thương, Đào lẳng, Kép văn, Kép võ, Hề gậy, Hề mồi, Lão, Mụ.'
+        ],
+        bullets: [
+          'Lọc đồng thời nhiều tiêu chí: ví dụ "Làn điệu + Thị Mầu + Thái Bình"',
+          'Sắp xếp kết quả theo độ phù hợp, theo thời đại, hoặc theo tên A-Z',
+          'Lưu bộ lọc yêu thích để truy xuất nhanh lần sau'
+        ]
+      },
+      {
+        heading: 'Gợi ý thông minh — Khám phá điều bạn chưa biết',
+        paragraphs: [
+          'Khi bạn tìm kiếm một chủ đề, hệ thống không chỉ hiển thị kết quả trực tiếp mà còn gợi ý các nội dung liên quan mà bạn có thể quan tâm: nhân vật liên quan, làn điệu thường hát trong hoàn cảnh đó, hay nghệ nhân nổi tiếng với vai diễn này.',
+          'Ví dụ: Tìm "Xúy Vân" sẽ dẫn đến làn điệu "Xúy Vân giả dại", vở "Kim Nhan", nhân vật Đào lẳng, và gợi ý xem clip NSND Thanh Ngoan biểu diễn trích đoạn kinh điển này.'
+        ]
+      },
+      {
+        heading: 'Kho dữ liệu được chuẩn hóa học thuật',
+        paragraphs: [
+          'Tất cả dữ liệu trong hệ thống được dán nhãn (tagged) theo tiêu chuẩn học thuật của Viện Văn hóa Nghệ thuật Quốc gia Việt Nam và các nhà nghiên cứu Chèo học hàng đầu như GS.NSND Trần Bảng.',
+          'Mỗi mục từ điều tra đều có nguồn trích dẫn rõ ràng: thuộc bộ sưu tập nào, ghi âm năm nào, do nghệ nhân nào thực hiện. Đảm bảo độ chính xác và độ tin cậy tuyệt đối cho mục đích nghiên cứu học thuật.'
         ]
       }
     ],
@@ -923,10 +1038,42 @@ export const PAGE_DETAILS_MAP: Record<string, PageDetailContent> = {
     introduction: 'Bảng tin các sự kiện văn hóa: tọa đàm di sản, workshop tập hát Chèo cho bạn trẻ và liên hoan Chèo toàn quốc.',
     sections: [
       {
-        heading: 'Sự kiện sắp diễn ra',
+        heading: 'Các sự kiện thường niên tiêu biểu',
         paragraphs: [
-          '• Workshop: "Thử tài làm Hề Chèo" - Chủ Nhật hàng tuần tại Rạp Kim Mã, Hà Nội.',
-          '• Tọa đàm: "Giải mã nụ cười Thị Mầu dưới góc nhìn tâm lý học hiện đại" - Thứ Bảy ngày 25/10.'
+          'Bảo tàng Chèo Số phối hợp với Nhà hát Chèo Việt Nam và các cơ quan văn hóa tổ chức chuỗi sự kiện quanh năm nhằm đưa Chèo đến gần hơn với công chúng, đặc biệt là giới trẻ học đường.',
+          '• Liên hoan Chèo Toàn quốc (tổ chức 2 năm/lần): Sân chơi cạnh tranh lành mạnh giữa các đoàn Chèo toàn quốc, tôn vinh những vở diễn, diễn viên xuất sắc nhất năm.',
+          '• Festival Chèo Mùa Xuân (Tháng Giêng âm lịch): Chuỗi 10 đêm diễn Chèo sân đình tại các làng chèo cổ Bắc Bộ — Khuốc (Thái Bình), Yên Khánh (Ninh Bình), Nam Trực (Nam Định).',
+          '• Tuần lễ Di sản Văn hóa Phi vật thể (Tháng 11): Tọa đàm khoa học, triển lãm ảnh, chiếu phim tư liệu và giao lưu cùng nghệ nhân.'
+        ]
+      },
+      {
+        heading: 'Workshop định kỳ — Trải nghiệm Chèo trực tiếp',
+        paragraphs: [
+          'Chuỗi workshop thực hành hàng tháng dành cho mọi lứa tuổi, không yêu cầu kinh nghiệm sân khấu. Người tham gia sẽ được hướng dẫn bởi các nghệ nhân lão thành và diễn viên chuyên nghiệp.',
+          '• Workshop "Thử tài Hề Chèo" (Chủ nhật hàng tuần, tại Rạp Kim Mã): Học 3 chiêu Hề cơ bản, tự hóa trang mặt và biểu diễn một trích đoạn ngắn trước khán giả.',
+          '• Workshop "Múa Quạt Đào Chèo" (Thứ Bảy, 2 lần/tháng): Nắm vững 5 động tác quạt cơ bản và ghép thành điệu múa ngắn theo nhạc Chèo.',
+          '• Workshop "Nhập môn Hát Chèo" (dành cho học sinh THCS, THPT): Học cách ngâm câu xưng danh, hiểu về thang âm ngũ cung và thử hát một câu Đào liễu.'
+        ],
+        bullets: [
+          'Đối tượng: Mở cho tất cả — từ 8 tuổi trở lên, không giới hạn kinh nghiệm',
+          'Số người: Tối đa 20 người/buổi để đảm bảo chất lượng hướng dẫn 1-1',
+          'Chi phí: 150.000đ/người — Miễn phí cho học sinh có thẻ học sinh hợp lệ'
+        ]
+      },
+      {
+        heading: 'Tọa đàm khoa học & Chuyên đề nghiên cứu',
+        paragraphs: [
+          'Chuỗi tọa đàm học thuật định kỳ kết nối giới nghiên cứu, nghệ nhân và công chúng trong các chủ đề chuyên sâu về Chèo và di sản nghệ thuật truyền thống.',
+          '• "Giải mã nụ cười Thị Mầu dưới góc nhìn tâm lý học hiện đại" — Diễn giả: TS. Nguyễn Thu Hà (Đại học Sư phạm Hà Nội). Phân tích tâm lý nhân vật Thị Mầu — biểu tượng tự do cá nhân trong xã hội phong kiến.',
+          '• "Âm nhạc Chèo và mối liên hệ với dân ca Bắc Bộ" — Diễn giả: GS.TS Tô Vũ (Viện Âm nhạc Việt Nam). Truy tìm nguồn gốc các làn điệu từ đồng dao, ca dao và hát quan họ.',
+          '• "Chèo trong thời đại số: Cơ hội và thách thức bảo tồn" — Bàn tròn với các chuyên gia công nghệ và nhà nghiên cứu văn hóa.'
+        ]
+      },
+      {
+        heading: 'Đăng ký nhận thông báo sự kiện',
+        paragraphs: [
+          'Để không bỏ lỡ bất kỳ sự kiện Chèo nào, bạn có thể đăng ký nhận bản tin điện tử hàng tháng qua email hoặc theo dõi fanpage chính thức của Bảo tàng Chèo Số.',
+          'Thành viên đăng ký nhận tin thường xuyên sẽ được ưu tiên đặt chỗ workshop và nhận vé ưu đãi cho các buổi diễn đặc biệt trong năm.'
         ]
       }
     ],
@@ -952,9 +1099,33 @@ export const PAGE_DETAILS_MAP: Record<string, PageDetailContent> = {
     introduction: 'Lịch biểu diễn cập nhật theo ngày của Nhà hát Chèo Việt Nam, Nhà hát Chèo Hà Nội, Nhà hát Chèo Ninh Bình và các đoàn Chèo Bắc Bộ.',
     sections: [
       {
-        heading: 'Đêm diễn Chèo cổ sân đình & Nhà hát lớn',
+        heading: 'Lịch diễn định kỳ tại các nhà hát Hà Nội',
         paragraphs: [
-          'Mỗi cuối tuần, các trích đoạn kinh điển như Xúy Vân giả dại, Thị Mầu lên chùa hay vở trọn vẹn Quan Âm Thị Kính đều được trình diễn phục vụ công chúng.'
+          'Mỗi cuối tuần, các trích đoạn kinh điển như Xúy Vân giả dại, Thị Mầu lên chùa hay vở trọn vẹn Quan Âm Thị Kính đều được trình diễn phục vụ công chúng.',
+          '• Nhà hát Chèo Việt Nam (71 Kim Mã): Tối thứ Sáu 20h — Vở diễn trọn vẹn; Tối Chủ nhật 18h — Các trích đoạn kinh điển dành cho gia đình.',
+          '• Nhà hát Chèo Hà Nội (Rạp Đại Nam, 89 Phố Huế): Tối thứ Bảy 19h30 — Chương trình tổng hợp các trích đoạn từ 4 vở Tứ đại kiệt tác.',
+          '• Sân Khấu Ngoài Trời (Công viên Thống Nhất): Chiều Chủ nhật 16h — Chiếu Chèo sân đình không gian mở, miễn phí cho học sinh, sinh viên.'
+        ],
+        bullets: [
+          'Vé thường: 150.000 - 400.000đ tuỳ hạng ghế và chương trình',
+          'Vé học sinh, sinh viên: Giảm 50% khi xuất trình thẻ học sinh/sinh viên hợp lệ',
+          'Vé nhóm (từ 10 người): Liên hệ phòng vé để được báo giá đặc biệt'
+        ]
+      },
+      {
+        heading: 'Các chương trình biểu diễn tại các tỉnh',
+        paragraphs: [
+          '• Nhà hát Chèo Ninh Bình: 3 buổi/tuần — Chuyên diễn các vở đặc sắc của Chèo vùng Ninh Bình với làn điệu đặc trưng luyến láy độc đáo.',
+          '• Nhà hát Chèo Thái Bình: 2 buổi/tuần — Bảo tồn nguyên bản phong cách Chèo làng Khuốc, một trong những trung tâm Chèo cổ nhất Bắc Bộ với 280 làn điệu.',
+          '• Nhà hát Chèo Nam Định: Biểu diễn vào các dịp lễ hội và cuối tháng — Đặc biệt nổi tiếng với phong cách hát Chèo vùng đồng bằng sông Hồng.',
+          '• Nhà hát Chèo Hải Phòng: Tháng 10 hàng năm — Liên hoan Chèo Hải Phòng thu hút các đoàn Chèo toàn quốc về biểu diễn giao lưu.'
+        ]
+      },
+      {
+        heading: 'Chiếu chèo làng — Trải nghiệm Chèo nguyên bản sân đình',
+        paragraphs: [
+          'Khác với Chèo nhà hát hiện đại, "chiếu chèo làng" tại các làng chèo cổ Bắc Bộ cho phép bạn chứng kiến Chèo trong không gian nguyên bản: sân đình, dưới tán cây cổ thụ, với khán giả ngồi quanh chiếu diễn theo lối dân gian truyền thống.',
+          'Làng Khuốc (xã Phong Châu, Đông Hưng, Thái Bình) là điểm đến không thể bỏ qua: 280 làn điệu Chèo vẫn được các nghệ nhân lão thành gìn giữ và truyền dạy hàng ngày. Mỗi dịp Tết Nguyên đán và các lễ hội làng đều có chiếu Chèo kéo dài nhiều đêm liên tiếp.'
         ]
       }
     ],
