@@ -115,7 +115,11 @@ const MASTER_ARTISTS: MasterArtist[] = [
   }
 ]
 
-export const ModernCheoShowcase: React.FC = () => {
+interface ModernCheoShowcaseProps {
+  onNavigate?: (path: string) => void
+}
+
+export const ModernCheoShowcase: React.FC<ModernCheoShowcaseProps> = ({ onNavigate: _onNavigate }) => {
   const [activeTab, setActiveTab] = useState<'timeline' | 'masterpieces' | 'artists'>('timeline')
   const [selectedMilestone, setSelectedMilestone] = useState<Milestone>(MODERN_MILESTONES[0])
 

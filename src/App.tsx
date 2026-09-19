@@ -107,7 +107,7 @@ export default function App() {
 
       {/* Editorial Museum Footer */}
       <footer className="border-t border-stone-800 bg-[#0e0b09] text-stone-400 text-xs mt-auto font-sans">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-left">
+        <div className="max-w-7xl 2xl:max-w-[1620px] mx-auto px-6 sm:px-10 lg:px-12 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-left">
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
@@ -226,8 +226,8 @@ export default function App() {
         </div>
 
         {/* Sub-bar */}
-        <div className="border-t border-stone-800/80 py-5 px-4 sm:px-8 text-[11px] text-stone-500">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="border-t border-stone-800/80 py-5 px-6 sm:px-10 lg:px-12 text-[11px] text-stone-500">
+          <div className="max-w-7xl 2xl:max-w-[1620px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
             <div>
               &copy; {new Date().getFullYear()} Bảo Tàng Chèo Số Việt Nam. Gìn giữ và lan tỏa tinh hoa văn hóa dân tộc.
             </div>

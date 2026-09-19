@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           : 'bg-[#120f0d] border-b border-stone-800/80 py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between gap-4">
+      <div className="max-w-7xl 2xl:max-w-[1620px] mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between gap-4">
         {/* Brand Logo & Name */}
         <div
           onClick={() => handleNav('/')}

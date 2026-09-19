@@ -49,10 +49,10 @@ export const MuseumView: React.FC<MuseumViewProps> = ({ route, onNavigate }) => 
 
 
   return (
-    <div className="w-full min-h-screen text-[#e7e0d8] bg-[#0d0a08] pb-24 selection:bg-amber-500 selection:text-black">
+    <div className="w-full min-h-screen text-[#e7e0d8] bg-[#0d0a08] bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(180,83,9,0.07),transparent_70%)] pb-24 selection:bg-amber-500 selection:text-black">
       {/* Editorial Breadcrumbs & Header Bar */}
-      <div className="sticky top-20 z-30 bg-[#0d0a08]/90 backdrop-blur-md border-b border-stone-800/60 px-4 sm:px-8 py-3.5">
-        <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div className="sticky top-20 z-30 bg-[#0d0a08]/90 backdrop-blur-md border-b border-stone-800/60 px-6 sm:px-10 lg:px-12 py-3.5">
+        <div className="max-w-7xl 2xl:max-w-[1620px] mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
           {/* Breadcrumb Trail */}
           <nav className="flex items-center flex-wrap gap-2 text-stone-400 font-sans">
             <button
@@ -114,7 +114,7 @@ export const MuseumView: React.FC<MuseumViewProps> = ({ route, onNavigate }) => 
       </div>
 
       {/* Main content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-8 pt-10 sm:pt-14 pb-28">
+      <div className="w-full max-w-7xl 2xl:max-w-[1620px] mx-auto px-6 sm:px-10 lg:px-12 pt-10 sm:pt-14 pb-28">
 
         {/* ── PAGE HEADER (leaf pages only) ── */}
         {!route.widgetType && !route.isHub && (
@@ -143,18 +143,18 @@ export const MuseumView: React.FC<MuseumViewProps> = ({ route, onNavigate }) => 
         {route.widgetType === 'characters'   && <CharactersGallery currentPath={route.path} onNavigate={onNavigate} />}
         {route.widgetType === 'costumes'     && <CostumesShowcase  currentPath={route.path} onNavigate={onNavigate} />}
         {route.widgetType === 'ticket'       && <TicketBookingWidget />}
-        {route.widgetType === 'timeline'     && <TimelineWidget />}
+        {route.widgetType === 'timeline'     && <TimelineWidget onNavigate={onNavigate} />}
         {route.widgetType === 'feedback'     && <FeedbackWidget />}
         {route.widgetType === 'plays'        && <PlaysShowcase currentPath={route.path} onNavigate={onNavigate} />}
-        {route.widgetType === 'modern'       && <ModernCheoShowcase />}
+        {route.widgetType === 'modern'       && <ModernCheoShowcase onNavigate={onNavigate} />}
         {route.widgetType === 'map'          && <MuseumMapWidget />}
         {route.widgetType === 'archive'      && <ArchiveVaultWidget />}
         {route.widgetType === 'about-museum' && <AboutMuseumWidget onNavigate={onNavigate} />}
         {route.widgetType === 'field-story'  && <FieldStoryWidget />}
         {route.widgetType === 'goals'        && <GoalsWidget />}
         {route.widgetType === 'team'         && <TeamWidget />}
-        {route.widgetType === 'cultural-values' && <CulturalValuesWidget />}
-        {route.widgetType === 'backstage'    && <BackstageArtWidget />}
+        {route.widgetType === 'cultural-values' && <CulturalValuesWidget onNavigate={onNavigate} />}
+        {route.widgetType === 'backstage'    && <BackstageArtWidget onNavigate={onNavigate} />}
 
         {/* ── EDITORIAL STORYTELLING (leaf pages with sections) ── */}
         {hasSections && (

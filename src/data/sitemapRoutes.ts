@@ -151,26 +151,26 @@ export const SITEMAP_ROUTES: Record<string, RouteNode> = {
     path: '/gioi-thieu/bao-tang-so-cheo',
     id: 'bao-tang-so-cheo',
     title: 'Bảo Tàng Số “Chèo”',
-    subtitle: 'Tầm nhìn số hóa di sản nghệ thuật',
+    subtitle: 'Chiếu chèo ngàn năm dưới mái đình số',
     category: 'Giới thiệu',
     breadcrumbs: [
       { title: 'Bảo Tàng Chèo Số', path: '/' },
       { title: 'Giới thiệu', path: '/gioi-thieu' },
       { title: 'Bảo tàng số “Chèo”', path: '/gioi-thieu/bao-tang-so-cheo' }
     ],
-    description: 'Ứng dụng công nghệ kỹ thuật số, âm thanh chuẩn mực và hệ thống tư liệu phong phú nhằm bảo tồn toàn vẹn các làn điệu, trang phục và tích Chèo cổ.',
+    description: 'Không gian mở nơi tinh hoa sân khấu truyền thống hội ngộ cùng công nghệ số hóa tương tác, để tiếng trống hội làng không bao giờ tắt.',
     widgetType: 'about-museum',
-    tags: ['Công nghệ số', 'Số hóa di sản', 'Bảo tàng số'],
+    tags: ['Bảo tàng mở', 'Âm thanh đa tầng', 'Di sản sống'],
     metaBadges: [
-      { label: 'Tầm Nhìn Di Sản', variant: 'sky' },
-      { label: 'Công Nghệ Web3D', variant: 'amber' },
-      { label: 'Chuẩn Âm Vòm', variant: 'emerald' }
+      { label: 'Chiếu Chèo Số', variant: 'red' },
+      { label: 'Tương Tác Sống', variant: 'amber' },
+      { label: 'Lan Tỏa Cội Nguồn', variant: 'emerald' }
     ],
-    featurePills: ['Số hóa 3D', 'Âm thanh 24-bit', 'Kho dữ liệu mở'],
+    featurePills: ['Bảo tàng mở', 'Kho âm thanh mộc', 'Di sản sống'],
     quickSpecs: [
-      { label: 'Nền tảng', value: 'Web tương tác' },
-      { label: 'Âm thanh', value: '24-bit studio' },
-      { label: 'Tư liệu', value: 'Kho mở cộng đồng' }
+      { label: 'Triết lý', value: 'Bảo tàng mở' },
+      { label: 'Âm thanh', value: 'Thu âm đa tầng mộc' },
+      { label: 'Tầm nhìn', value: 'Gìn giữ cho muôn đời sau' }
     ]
   },
   '/gioi-thieu/cau-chuyen-hinh-thanh': {
@@ -203,26 +203,26 @@ export const SITEMAP_ROUTES: Record<string, RouteNode> = {
     path: '/gioi-thieu/muc-tieu-va-y-nghia',
     id: 'muc-tieu-va-y-nghia',
     title: 'Mục Tiêu Và Ý Nghĩa',
-    subtitle: 'Bảo tồn chuẩn mực & tiếp cận thế hệ trẻ',
+    subtitle: 'Gìn giữ hồn cốt & đánh thức tự hào cội rễ',
     category: 'Giới thiệu',
     breadcrumbs: [
       { title: 'Bảo Tàng Chèo Số', path: '/' },
       { title: 'Giới thiệu', path: '/gioi-thieu' },
       { title: 'Mục tiêu và ý nghĩa', path: '/gioi-thieu/muc-tieu-va-y-nghia' }
     ],
-    description: 'Bảo tồn nguyên bản quy chuẩn múa hát Chèo, đưa Chèo tiếp cận gần gũi với thế hệ trẻ học đường và giới thiệu ra bạn bè quốc tế.',
+    description: 'Cứu vãn những làn điệu cổ trước nguy cơ thất truyền, mở rộng cánh cửa di sản cho thế hệ trẻ và đưa bản sắc sân đình Bắc Bộ vươn tầm thế giới.',
     widgetType: 'goals',
-    tags: ['Bảo tồn', 'Giáo dục di sản', 'Ý nghĩa'],
+    tags: ['Bảo tồn nguyên bản', 'Khơi nguồn tự hào', 'Hồ sơ UNESCO'],
     metaBadges: [
-      { label: 'Chuẩn Mực Cổ Truyền', variant: 'red' },
-      { label: 'Tiếp Cận Trẻ Hóa', variant: 'emerald' },
-      { label: 'Quảng Bá Quốc Tế', variant: 'sky' }
+      { label: 'Cứu Ký Ức Cổ', variant: 'red' },
+      { label: 'Cảm Hứng Thế Hệ Mới', variant: 'emerald' },
+      { label: 'Không Gian UNESCO', variant: 'sky' }
     ],
-    featurePills: ['Giáo dục di sản', 'Học đường', 'Giao lưu văn hóa'],
+    featurePills: ['Ký sự điền dã', 'Cầu nối thế hệ', 'Tầm nhìn toàn cầu'],
     quickSpecs: [
-      { label: 'Mục tiêu', value: 'Giữ nguyên quy chuẩn' },
-      { label: 'Đối tượng', value: 'Học đường & Quốc tế' },
-      { label: 'Đổi mới', value: 'Đồ họa tương tác' }
+      { label: 'Tâm nguyện', value: 'Gìn giữ hồn cốt' },
+      { label: 'Cầu nối', value: 'Thế hệ trẻ & Học đường' },
+      { label: 'Tầm vóc', value: 'Di sản nhân loại' }
     ]
   },
   '/gioi-thieu/doi-ngu-nhom-thuc-hien': {

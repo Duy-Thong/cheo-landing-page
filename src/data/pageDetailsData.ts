@@ -177,31 +177,27 @@ export const PAGE_DETAILS_MAP: Record<string, PageDetailContent> = {
     quote: {
       text: 'Đem chiếu chèo sân đình ngày xưa đặt lên không gian số của ngày mai.'
     },
-    heroBadge: 'Tổng Quan Dự Án',
-    introduction: 'Dự án ứng dụng công nghệ số hóa tiên tiến nhằm bảo tồn các làn điệu, phục trang, mặt nạ nhân vật và kịch bản Chèo cổ với chất lượng hiển thị và âm thanh tối ưu.',
+    heroBadge: 'Không Gian Văn Hóa',
+    introduction: 'Chiếu chèo ngàn năm dưới mái đình số — nơi ký ức dân gian châu thổ sông Hồng được gìn giữ bằng công nghệ, để tiếng trống hội làng không bao giờ tắt.',
     sections: [
       {
-        heading: 'Kiến trúc bảo tàng số',
+        heading: 'Một bảo tàng sống giữa kỷ nguyên số',
         paragraphs: [
-          'Nền tảng được thiết kế với cấu trúc phân tầng trực quan, tích hợp mô hình 3D tương tác, âm thanh vòm binaural và hệ thống dữ liệu liên kết giúp việc học tập, nghiên cứu trở nên sống động.'
-        ],
-        bullets: [
-          'Số hóa hàng nghìn giờ thu âm điệu Chèo cổ với nghệ nhân gạo cội',
-          'Mô hình 3D chi tiết từng hoa văn trên áo tứ thân, yếm đào, nón quai thao',
-          'Hệ thống trích đoạn video chuẩn nét cao kèm lời thoại nguyên bản'
+          'Không đóng khung di sản sau những lớp kính dày lạnh lẽo, Bảo tàng Chèo Số mở ra một không gian tương tác đa chiều để người xem được tự do lắng nghe, chạm vào và sống cùng nghệ thuật truyền thống.',
+          'Nơi ngón nghề nảy hạt của các bậc nghệ nhân lão thành hòa quyện cùng công nghệ âm thanh đa tầng và đồ họa 3D hiện đại, kết nối quá khứ ngàn năm với nhịp đập thế hệ trẻ.'
         ]
       }
     ],
-    tags: ['Công nghệ Web3D', 'Số hóa di sản', 'Âm thanh phòng thu'],
+    tags: ['Bảo tàng mở', 'Âm thanh đa tầng', 'Di sản sống'],
     structuredBadges: [
-      { label: 'Tầm Nhìn Di Sản', variant: 'sky' },
-      { label: 'Công Nghệ Web3D', variant: 'amber' },
-      { label: 'Chuẩn Âm Vòm', variant: 'emerald' }
+      { label: 'Chiếu Chèo Số', variant: 'red' },
+      { label: 'Tương Tác Sống', variant: 'amber' },
+      { label: 'Lan Tỏa Cội Nguồn', variant: 'emerald' }
     ],
     quickSpecs: [
-      { label: 'Nền tảng', value: 'Web tương tác' },
-      { label: 'Âm thanh', value: '24-bit studio' },
-      { label: 'Tư liệu', value: 'Kho mở cộng đồng' }
+      { label: 'Triết lý', value: 'Bảo tàng mở' },
+      { label: 'Âm thanh', value: 'Thu âm đa tầng mộc' },
+      { label: 'Tầm nhìn', value: 'Gìn giữ cho muôn đời sau' }
     ],
   },
 
@@ -245,27 +241,26 @@ export const PAGE_DETAILS_MAP: Record<string, PageDetailContent> = {
     parentTitle: 'Giới thiệu',
     breadcrumb: ['Bảo Tàng Chèo Số', 'Giới thiệu', 'Mục tiêu và ý nghĩa'],
     heroBadge: 'Ý Nghĩa Nhân Văn',
-    introduction: 'Định vị vai trò của Chèo trong bản sắc dân tộc Việt Nam, đồng thời xây dựng cầu nối giáo dục di sản cho học sinh, sinh viên và du khách quốc tế.',
+    introduction: 'Không để tiếng trống hội làng lùi vào dĩ vãng — cất giữ nguyên vẹn hồn cốt của cha ông và đánh thức niềm tự hào cội rễ trong trái tim thế hệ trẻ hôm nay.',
     sections: [
       {
-        heading: 'Ba mục tiêu chiến lược',
+        heading: 'Khát vọng gìn giữ và tiếp lửa di sản',
         paragraphs: [
-          '1. Bảo tồn nguyên trạng: Ghi lại trung thực nhất các chuẩn mực về hát, múa và tạo hình Chèo.',
-          '2. Phổ quát cộng đồng: Làm cho nghệ thuật Chèo dễ tiếp cận, dễ hiểu và thú vị hơn đối với thế hệ số (Gen Z & Alpha).',
-          '3. Mở rộng giao lưu: Đưa Chèo vào mạng lưới các bảo tàng sân khấu truyền thống toàn cầu.'
+          'Dự án ra đời từ lời kêu gọi của lương tâm trước nguy cơ thất truyền của các làn điệu cổ truyền, khi những nghệ nhân báu vật nhân văn sống dần tạ thế theo thời gian.',
+          'Bằng ngôn ngữ công nghệ số, chúng tôi mở ra không gian tương tác đa chiều để người trẻ được tự do chạm vào di sản, đồng thời đưa nghệ thuật Chèo đồng hành cùng hồ sơ UNESCO vươn tầm thế giới.'
         ]
       }
     ],
-    tags: ['Bảo tồn', 'Giáo dục di sản', 'Lan tỏa văn hóa'],
+    tags: ['Bảo tồn nguyên bản', 'Khơi nguồn tự hào', 'Hồ sơ UNESCO'],
     structuredBadges: [
-      { label: 'Chuẩn Mực Cổ Truyền', variant: 'red' },
-      { label: 'Tiếp Cận Trẻ Hóa', variant: 'emerald' },
-      { label: 'Quảng Bá Quốc Tế', variant: 'sky' }
+      { label: 'Cứu Ký Ức Cổ', variant: 'red' },
+      { label: 'Cảm Hứng Thế Hệ Mới', variant: 'emerald' },
+      { label: 'Không Gian UNESCO', variant: 'sky' }
     ],
     quickSpecs: [
-      { label: 'Mục tiêu', value: 'Giữ nguyên quy chuẩn' },
-      { label: 'Đối tượng', value: 'Học đường & Quốc tế' },
-      { label: 'Đổi mới', value: 'Đồ họa tương tác' }
+      { label: 'Tâm nguyện', value: 'Gìn giữ hồn cốt' },
+      { label: 'Cầu nối', value: 'Thế hệ trẻ & Học đường' },
+      { label: 'Tầm vóc', value: 'Di sản nhân loại' }
     ],
   },
 
