@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Sparkles } from 'lucide-react'
 
 interface PlayAct {
   actNum: string
@@ -242,111 +242,131 @@ export const PlaysShowcase: React.FC<PlaysShowcaseProps> = ({
   // =========================================================================
   if (selectedPlay) {
     return (
-      <div className="text-left animate-in fade-in duration-300 space-y-12 sm:space-y-16">
+      <div className="w-full text-left animate-in fade-in duration-300 space-y-16 sm:space-y-20">
         {/* Nút quay lại tinh giản */}
         <div className="flex items-center justify-between pb-3 border-b border-stone-800/60">
           <button
             onClick={handleBack}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer group"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm text-amber-400/90 hover:text-amber-300 font-serif transition-colors cursor-pointer group"
           >
             <ArrowLeft className="w-4 h-4 text-amber-500 group-hover:-translate-x-1 transition-transform" />
-            <span>Trở về danh sách tác phẩm</span>
+            <span>Trở về danh sách kiệt tác</span>
           </button>
-          <span className="text-xs font-mono uppercase tracking-wider text-amber-500/90 font-medium">
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-500/90 font-medium">
             {selectedPlay.epoch}
           </span>
         </div>
 
-        {/* Giới thiệu kiệt tác — Gọn gàng, thoáng đãng, không choán hết màn hình */}
-        <header className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center border-b border-stone-800/60 pb-8">
-          <div className="md:col-span-8 space-y-3">
-            <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold block">
-              {selectedPlay.origin}
-            </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+        {/* ── 1. CINEMA OVERLAY HERO BANNER (100VW FULL VIEWPORT WIDTH) ── */}
+        <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-10 sm:-mt-14 overflow-hidden shadow-2xl border-b border-stone-800 bg-stone-950 h-[280px] sm:h-[340px] lg:h-[380px] flex items-end group mb-12">
+          <img
+            src={selectedPlay.image}
+            alt={selectedPlay.title}
+            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.55] contrast-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/65 to-stone-950/15" />
+
+          <div className="relative z-10 w-full max-w-7xl 2xl:max-w-[1620px] mx-auto px-6 sm:px-10 lg:px-12 pb-6 sm:pb-8 space-y-2.5">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight drop-shadow-md">
               {selectedPlay.title}
             </h1>
-            <p className="text-sm sm:text-base text-stone-300 font-serif font-light max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm lg:text-base text-stone-200 font-serif font-light leading-relaxed drop-shadow max-w-4xl">
               {selectedPlay.tagline}
             </p>
           </div>
-          <div className="md:col-span-4">
-            <div className="aspect-[4/3] max-h-56 rounded-2xl overflow-hidden shadow-xl border border-stone-800/80 bg-stone-900">
-              <img
-                src={selectedPlay.image}
-                alt={selectedPlay.title}
-                className="w-full h-full object-cover filter brightness-90"
-              />
-            </div>
-          </div>
-        </header>
+        </section>
 
-        {/* Dẫn nhập tự sự liền mạch */}
-        <section className="max-w-3xl space-y-3 border-b border-stone-800/60 pb-8">
-          <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed">
-            {selectedPlay.coreOverview}
+        {/* ── 2. DẪN NHẬP TỰ SỰ KỊCH BẢN ── */}
+        <section className="rounded-3xl border border-stone-800 bg-stone-900/60 p-6 sm:p-10 shadow-2xl space-y-4">
+          <h2 className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold block">
+            Cốt Truyện &bull; {selectedPlay.origin}
+          </h2>
+          <p className="text-base sm:text-lg text-stone-200 font-serif font-light leading-relaxed">
+            <span className="float-left text-4xl sm:text-5xl font-serif font-bold text-amber-400 leading-none pr-3 pt-1">V</span>
+            {selectedPlay.coreOverview.substring(1)}
           </p>
         </section>
 
-        {/* 3 Hồi kịch diễn tiến — Bố cục chữ thoáng đãng, KHÔNG đóng khung hộp xám */}
-        <section className="space-y-10 max-w-3xl">
-          <h2 className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
-            Diễn Tiến Ba Hồi Kịch
-          </h2>
+        {/* ── 3. DIỄN TIẾN BA HỒI KỊCH ── */}
+        <section className="space-y-8">
+          <div className="border-b border-stone-800/60 pb-4">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+              Diễn Tiến Ba Hồi Kịch Cổ Truyền
+            </h2>
+          </div>
 
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {selectedPlay.acts.map((act) => (
-              <div key={act.actNum} className="space-y-2">
-                <div className="flex items-baseline gap-3">
-                  <span className="font-serif text-lg sm:text-xl font-bold text-amber-500 shrink-0">
-                    {act.actNum}.
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight">
+              <div
+                key={act.actNum}
+                className="rounded-2xl border border-stone-800 bg-stone-900/40 p-6 space-y-4 shadow-xl flex flex-col justify-between"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between border-b border-stone-800/60 pb-3">
+                    <span className="text-xs font-mono text-amber-500 font-bold uppercase tracking-widest">
+                      Hồi {act.actNum}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-white leading-snug">
                     {act.title}
                   </h3>
+                  <p className="text-xs sm:text-sm text-stone-300 font-serif font-light leading-relaxed">
+                    {act.synopsis}
+                  </p>
                 </div>
-                <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed pl-7 sm:pl-8">
-                  {act.synopsis}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── 4. DẢI NGHỈ THỊ GIÁC TOÀN CẢNH (PANORAMIC VISUAL CALLOUT) ── */}
+        <section className="relative rounded-3xl overflow-hidden border border-amber-900/40 bg-gradient-to-r from-amber-950/40 via-stone-900 to-amber-950/40 p-8 sm:p-14 text-center space-y-4 shadow-2xl">
+          <Sparkles className="w-8 h-8 text-amber-500/80 mx-auto animate-pulse" />
+          <p className="text-lg sm:text-2xl font-serif italic text-amber-100 max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
+            {selectedPlay.iconicVerse.lines}
+          </p>
+          <span className="text-xs font-serif text-amber-400/80 uppercase tracking-widest block">
+            {selectedPlay.iconicVerse.scene}
+          </span>
+        </section>
+
+        {/* ── 5. TUYẾN NHÂN VẬT HÌNH MẪU ── */}
+        <section className="space-y-6 pt-4 border-t border-stone-800/60">
+          <div className="flex items-center justify-between border-b border-stone-800/60 pb-3">
+            <h2 className="text-xl sm:text-2xl font-serif font-bold text-white">
+              Tuyến Nhân Vật Trung Tâm
+            </h2>
+            <span className="text-xs font-mono text-amber-400 uppercase tracking-widest">
+              Niêm Luật Sân Đình
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {selectedPlay.characters.map((c) => (
+              <div
+                key={c.name}
+                className="p-5 rounded-2xl bg-stone-900/50 border border-stone-800 space-y-2"
+              >
+                <h3 className="text-base font-serif font-bold text-white">
+                  {c.name}
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-300 font-serif font-light leading-relaxed">
+                  {c.archetype}
                 </p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Trích đoạn câu ca đắt giá — Thiết kế thoáng, không hộp xám */}
-        <section className="py-8 border-y border-stone-800/60 my-8 max-w-2xl space-y-2">
-          <p className="font-serif italic text-lg sm:text-xl text-amber-200/95 leading-relaxed whitespace-pre-line">
-            {selectedPlay.iconicVerse.lines}
-          </p>
-          <span className="text-xs font-mono text-stone-500 uppercase tracking-wider block pt-1">
-            {selectedPlay.iconicVerse.scene}
-          </span>
-        </section>
-
-        {/* Tuyến nhân vật trung tâm — Typography thuần túy, không thẻ card */}
-        <section className="space-y-4 pt-4 border-t border-stone-800/60 max-w-3xl">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
-            Hình Tượng Nhân Vật
-          </span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4 text-xs sm:text-sm font-serif">
-            {selectedPlay.characters.map((c) => (
-              <div key={c.name} className="space-y-1">
-                <span className="font-bold text-white block">{c.name}</span>
-                <span className="text-stone-400 font-light block leading-relaxed">{c.archetype}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Nhận định học thuật — Chữ ký ngắn gọn */}
-        <section className="pt-6 pb-6 border-t border-stone-800/60 max-w-2xl space-y-1.5">
-          <p className="font-serif italic text-sm text-stone-400 leading-relaxed">
+        {/* ── 6. NHẬN ĐỊNH HỌC THUẬT ── */}
+        <footer className="pt-6 pb-6 border-t border-stone-800/60 max-w-3xl mx-auto text-center space-y-2">
+          <p className="font-serif italic text-sm sm:text-base text-stone-300 leading-relaxed">
             &ldquo;{selectedPlay.scholarlyReview}&rdquo;
           </p>
-          <span className="text-xs font-mono text-amber-500/80 block">
-            — {selectedPlay.reviewer}
+          <span className="text-xs font-mono text-amber-500 block uppercase tracking-widest">
+            — {selectedPlay.reviewer} —
           </span>
-        </section>
+        </footer>
       </div>
     )
   }

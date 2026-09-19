@@ -415,89 +415,53 @@ export const AudioSamplePlayer: React.FC<AudioSamplePlayerProps> = ({
             className="inline-flex items-center gap-2 text-sm text-stone-400 hover:text-amber-400 font-serif transition-colors cursor-pointer group"
           >
             <ArrowLeft className="w-4 h-4 text-amber-500 group-hover:-translate-x-1 transition-transform" />
-            <span>Quay lại tổng quan âm thanh & làn điệu</span>
+            <span>Quay lại tổng quan âm thanh &amp; làn điệu</span>
           </button>
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-500/90 font-medium">
-            06 Nhạc Khí Linh Hồn
-          </span>
         </div>
-
         <header className="space-y-3 pb-8 border-b border-stone-800/60">
           <h1 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
             Sáu Nhạc Khí Cốt Lõi Của Chiếu Chèo Sân Đình
           </h1>
           <p className="text-base sm:text-lg text-stone-300 font-serif font-light max-w-3xl leading-relaxed">
-            Dàn nhạc Chèo không bao giờ chơi lấn át con người mà sinh ra để thở cùng hơi thở của đào kép trên manh chiếu. Bấm vào từng nhạc khí bên dưới để xem khảo cứu chi tiết và lắng nghe âm thanh thực tế.
+            Dàn nhạc Chèo không bao giờ trình diễn độc lập mà sinh ra để thở cùng hơi thở của đào kép trên manh chiếu. Bấm vào từng nhạc khí bên dưới để xem khảo cứu chi tiết và lắng nghe âm thanh thực tế.
           </p>
         </header>
 
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {INSTRUMENTS_DATA.map((inst, idx) => {
-            const isPlayingThis = playingInstrumentId === inst.id
-            return (
-              <div
-                key={inst.id}
-                onClick={() => onNavigate?.(`/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/${inst.id}`)}
-                className="group cursor-pointer space-y-4 bg-stone-900/40 hover:bg-stone-900 p-5 rounded-2xl border border-stone-800/80 hover:border-amber-700/40 transition-all duration-300"
-              >
-                <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-stone-950 relative border border-stone-800/60">
-                  <img
-                    src={inst.image}
-                    alt={inst.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute top-3 right-3 text-2xl font-mono font-black text-white/30 select-none">
-                    0{idx + 1}
-                  </div>
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {INSTRUMENTS_DATA.map((inst) => (
+            <div
+              key={inst.id}
+              onClick={() => onNavigate?.(`/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/${inst.id}`)}
+              className="group cursor-pointer rounded-2xl overflow-hidden border border-stone-800 bg-stone-900/60 hover:border-amber-700/50 transition-all duration-500 flex flex-col shadow-xl p-5 space-y-4"
+            >
+              <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-stone-950 border border-stone-800/60 relative">
+                <img
+                  src={inst.image}
+                  alt={inst.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
+                />
+              </div>
 
-                  <div className="absolute bottom-3 left-3">
-                    <button
-                      onClick={(e) => handleToggleInstrument(inst.id, e)}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono transition-all cursor-pointer shadow-lg backdrop-blur-md ${
-                        isPlayingThis
-                          ? 'bg-amber-500 text-stone-950 font-bold shadow-amber-500/30'
-                          : 'bg-black/70 hover:bg-black text-amber-300 border border-amber-500/30'
-                      }`}
-                    >
-                      {isPlayingThis ? (
-                        <>
-                          <Pause className="w-3 h-3 fill-current" />
-                          <span>Đang vang âm</span>
-                        </>
-                      ) : (
-                        <>
-                          <Play className="w-3 h-3 fill-current" />
-                          <span>Nghe âm</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex items-baseline justify-between">
-                    <h3 className="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors">
-                      {inst.name}
-                    </h3>
-                    <span className="text-[11px] font-mono text-amber-500/90 font-medium">
-                      {inst.category}
-                    </span>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-stone-400 font-serif font-light line-clamp-2 leading-relaxed">
+              <div className="flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-1.5">
+                  <h3 className="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors">
+                    {inst.name}
+                  </h3>
+                  <p className="text-xs font-serif text-amber-400 font-medium">
+                    {inst.category}
+                  </p>
+                  <p className="text-xs sm:text-sm text-stone-300 font-serif font-light line-clamp-3 leading-relaxed pt-1">
                     {inst.lead}
                   </p>
+                </div>
 
-                  <div className="pt-3 flex items-center justify-between text-xs text-stone-500 border-t border-stone-800/40">
-                    <span className="font-mono text-amber-400/80">{inst.soundPattern}</span>
-                    <span className="group-hover:text-amber-400 font-serif transition-colors flex items-center gap-1">
-                      Khảo cứu <ChevronRight className="w-3 h-3" />
-                    </span>
-                  </div>
+                <div className="pt-3 border-t border-stone-800/60 flex items-center justify-between text-xs font-serif text-amber-400 font-medium">
+                  <span>Khám phá &amp; nghe âm sắc</span>
+                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
-            )
-          })}
+            </div>
+          ))}
         </section>
 
         <section className="pt-8 border-t border-stone-800/60 text-center max-w-2xl mx-auto space-y-2">

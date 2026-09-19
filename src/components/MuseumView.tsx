@@ -147,7 +147,7 @@ export const MuseumView: React.FC<MuseumViewProps> = ({ route, onNavigate }) => 
         {route.widgetType === 'feedback'     && <FeedbackWidget />}
         {route.widgetType === 'plays'        && <PlaysShowcase currentPath={route.path} onNavigate={onNavigate} />}
         {route.widgetType === 'modern'       && <ModernCheoShowcase onNavigate={onNavigate} />}
-        {route.widgetType === 'map'          && <MuseumMapWidget />}
+        {route.widgetType === 'map'          && <MuseumMapWidget onNavigate={onNavigate} />}
         {route.widgetType === 'archive'      && <ArchiveVaultWidget />}
         {route.widgetType === 'about-museum' && <AboutMuseumWidget onNavigate={onNavigate} />}
         {route.widgetType === 'field-story'  && <FieldStoryWidget />}
