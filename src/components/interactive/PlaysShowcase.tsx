@@ -36,7 +36,7 @@ const MASTERPIECES: ChèoPlay[] = [
     title: 'Quan Âm Thị Kính',
     epoch: 'Thế kỷ XVII — Cổ bản khuyết danh',
     origin: 'Chiếng Chèo xứ Nam & xứ Đông',
-    image: '/images/cheo_costume.jpg',
+    image: '/images/play_quan_am_thi_kinh.jpg',
     tagline: 'Kiệt tác bi kịch về chữ "Nhẫn", lòng từ bi vô lượng và thân phận người phụ nữ dưới thời phong kiến.',
     coreOverview:
       'Vở chèo mẫu mực đỉnh cao của nghệ thuật kịch hát dân tộc. Tác phẩm kể về cuộc đời gian truân và tấm lòng bồ tát của nàng Thị Kính — người ba lần chịu hàm oan tày trời nhưng vẫn dùng tình thương để cứu rỗi trần gian.',
@@ -80,7 +80,7 @@ const MASTERPIECES: ChèoPlay[] = [
     title: 'Xúy Vân Giả Dại',
     epoch: 'Thế kỷ XVII — Trích vở cổ "Kim Nhan"',
     origin: 'Cổ bản kịch hát ước lệ đỉnh cao',
-    image: '/images/cheo_hero.jpg',
+    image: '/images/play_kim_nham.jpg',
     tagline: 'Tiếng thét đòi quyền sống và khát vọng tự do của người phụ nữ bị giam cầm trong cuộc hôn nhân sắp đặt.',
     coreOverview:
       'Đỉnh cao nghệ thuật diễn xuất nội tâm của sân khấu truyền thống Việt Nam. Vở diễn lột tả tấn bi kịch giằng xé của người phụ nữ tài hoa mượn cơn điên dại để phá bỏ vòng kim cô phong kiến.',
@@ -123,7 +123,7 @@ const MASTERPIECES: ChèoPlay[] = [
     title: 'Lưu Bình — Dương Lễ',
     epoch: 'Thế kỷ XVIII — Cổ bản Nam Bộ & Bắc Bộ',
     origin: 'Tích chèo đạo lý mẫu mực',
-    image: '/images/cheo_dinh_lang.jpg',
+    image: '/images/play_luu_binh_duong_le.jpg',
     tagline: 'Bản trường ca bất hủ về tình bằng hữu tri kỷ son sắt và đức hy sinh thầm lặng của nàng Châu Long.',
     coreOverview:
       'Tác phẩm tôn vinh tình bạn trong sáng, cao đẹp vượt qua hư danh trần thế, cùng bức tượng đài đức hạnh tuyệt mỹ của người phụ nữ Việt Nam qua nhân vật Châu Long.',
@@ -165,7 +165,7 @@ const MASTERPIECES: ChèoPlay[] = [
     title: 'Trương Viên',
     epoch: 'Thế kỷ XVI — Cổ xưa bậc nhất',
     origin: 'Cổ bản tích chèo dân gian',
-    image: '/images/cheo_kham_pha.jpg',
+    image: '/images/play_truong_vien.jpg',
     tagline: 'Bản hùng ca bi tráng về lòng hiếu thảo của người con dâu và tấm lòng thủy chung son sắt giữa thời loạn lạc.',
     coreOverview:
       'Một trong những vở chèo cổ xưa nhất còn giữ trọn vẹn văn bản. Tác phẩm lay động lòng người bởi những thử thách cùng cực mà con người sẵn sàng vượt qua để giữ trọn chữ Hiếu và chữ Tình.',
@@ -257,27 +257,29 @@ export const PlaysShowcase: React.FC<PlaysShowcaseProps> = ({
           </span>
         </div>
 
-        {/* Hero Panorama Vở Diễn */}
-        <div className="relative rounded-2xl overflow-hidden aspect-[21/9] min-h-[260px] sm:min-h-[340px] bg-stone-900 shadow-2xl">
-          <img
-            src={selectedPlay.image}
-            alt={selectedPlay.title}
-            className="w-full h-full object-cover filter brightness-90"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-transparent" />
-
-          <div className="absolute inset-0 p-6 sm:p-12 flex flex-col justify-end space-y-2 sm:space-y-3">
-            <span className="text-xs font-mono uppercase tracking-widest text-amber-400 block">
+        {/* Giới thiệu kiệt tác — Gọn gàng, thoáng đãng, không choán hết màn hình */}
+        <header className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center border-b border-stone-800/60 pb-8">
+          <div className="md:col-span-8 space-y-3">
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold block">
               {selectedPlay.origin}
             </span>
-            <h1 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
               {selectedPlay.title}
             </h1>
             <p className="text-sm sm:text-base text-stone-300 font-serif font-light max-w-2xl leading-relaxed">
               {selectedPlay.tagline}
             </p>
           </div>
-        </div>
+          <div className="md:col-span-4">
+            <div className="aspect-[4/3] max-h-56 rounded-2xl overflow-hidden shadow-xl border border-stone-800/80 bg-stone-900">
+              <img
+                src={selectedPlay.image}
+                alt={selectedPlay.title}
+                className="w-full h-full object-cover filter brightness-90"
+              />
+            </div>
+          </div>
+        </header>
 
         {/* Dẫn nhập tự sự liền mạch */}
         <section className="max-w-3xl space-y-3 border-b border-stone-800/60 pb-8">

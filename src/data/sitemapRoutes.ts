@@ -674,9 +674,125 @@ export const SITEMAP_ROUTES: Record<string, RouteNode> = {
       { title: 'Âm thanh', path: '/kham-pha/san-khau/am-thanh' },
       { title: 'Dàn Nhạc Bát Âm', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am' }
     ],
+    childrenPaths: [
+      '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/trong-de',
+      '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/dan-nguyet',
+      '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/dan-nhi',
+      '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/sao-truc',
+      '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/trong-com',
+      '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/thanh-la-mo'
+    ],
     widgetType: 'audio',
     description: 'Khám phá 6 nhạc khí cốt lõi: Trống đế chỉ huy, Đàn nguyệt, Đàn nhị, Sáo trúc, Trống cơm, Thanh la và Mõ.',
     tags: ['Trống đế', 'Đàn nguyệt', 'Đàn nhị', 'Sáo trúc', 'Bát âm']
+  },
+  '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/trong-de': {
+    path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/trong-de',
+    id: 'trong-de',
+    title: 'Trống Đế',
+    subtitle: 'Trưởng ban tiết tấu & Nhịp thở đêm diễn',
+    category: 'Nhạc Khí',
+    breadcrumbs: [
+      { title: 'Bảo Tàng Chèo Số', path: '/' },
+      { title: 'Khám phá', path: '/kham-pha' },
+      { title: 'Sân Khấu', path: '/kham-pha/san-khau' },
+      { title: 'Âm thanh', path: '/kham-pha/san-khau/am-thanh' },
+      { title: 'Dàn Nhạc Bát Âm', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am' },
+      { title: 'Trống Đế', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/trong-de' }
+    ],
+    widgetType: 'audio',
+    description: 'Vị chỉ huy vô hình dẫn dắt từng bước chân, ánh mắt và nhịp thở của đào kép trên manh chiếu.',
+    tags: ['Trống đế', 'Tiết tấu', 'Tùng cắc', 'Chỉ huy']
+  },
+  '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/dan-nguyet': {
+    path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/dan-nguyet',
+    id: 'dan-nguyet',
+    title: 'Đàn Nguyệt',
+    subtitle: 'Lãnh tấu giai điệu & Luyến láy làn hơi',
+    category: 'Nhạc Khí',
+    breadcrumbs: [
+      { title: 'Bảo Tàng Chèo Số', path: '/' },
+      { title: 'Khám phá', path: '/kham-pha' },
+      { title: 'Sân Khấu', path: '/kham-pha/san-khau' },
+      { title: 'Âm thanh', path: '/kham-pha/san-khau/am-thanh' },
+      { title: 'Dàn Nhạc Bát Âm', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am' },
+      { title: 'Đàn Nguyệt', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/dan-nguyet' }
+    ],
+    widgetType: 'audio',
+    description: 'Hai dây tơ gảy nên những cung bậc khoan thai, dìu dặt, uốn lượn nâng niu từng câu hát nhả chữ.',
+    tags: ['Đàn nguyệt', 'Nguyệt cầm', 'Giai điệu', 'Lãnh tấu']
+  },
+  '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/dan-nhi': {
+    path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/dan-nhi',
+    id: 'dan-nhi',
+    title: 'Đàn Nhị',
+    subtitle: 'Cung vĩ nỉ non & Biểu cảm nội tâm',
+    category: 'Nhạc Khí',
+    breadcrumbs: [
+      { title: 'Bảo Tàng Chèo Số', path: '/' },
+      { title: 'Khám phá', path: '/kham-pha' },
+      { title: 'Sân Khấu', path: '/kham-pha/san-khau' },
+      { title: 'Âm thanh', path: '/kham-pha/san-khau/am-thanh' },
+      { title: 'Dàn Nhạc Bát Âm', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am' },
+      { title: 'Đàn Nhị', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/dan-nhi' }
+    ],
+    widgetType: 'audio',
+    description: 'Cung vĩ lông ngựa miết trên hai dây tơ tạo nên thanh âm nỉ non da diết cho những thân phận oan khuất chìm nổi.',
+    tags: ['Đàn nhị', 'Đàn cò', 'Cung vĩ', 'Biểu cảm nội tâm']
+  },
+  '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/sao-truc': {
+    path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/sao-truc',
+    id: 'sao-truc',
+    title: 'Sáo Trúc',
+    subtitle: 'Thanh âm đồng nội vút cao thanh thoát',
+    category: 'Nhạc Khí',
+    breadcrumbs: [
+      { title: 'Bảo Tàng Chèo Số', path: '/' },
+      { title: 'Khám phá', path: '/kham-pha' },
+      { title: 'Sân Khấu', path: '/kham-pha/san-khau' },
+      { title: 'Âm thanh', path: '/kham-pha/san-khau/am-thanh' },
+      { title: 'Dàn Nhạc Bát Âm', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am' },
+      { title: 'Sáo Trúc', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/sao-truc' }
+    ],
+    widgetType: 'audio',
+    description: 'Ống trúc mộc mạc cất lên tiếng sáo vút cao thanh thoát, đưa hồn người nghe về với bóng tre làng và dòng sông quê hương.',
+    tags: ['Sáo trúc', 'Thổi sáo', 'Đồng nội', 'Kinh Bắc']
+  },
+  '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/trong-com': {
+    path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/trong-com',
+    id: 'trong-com',
+    title: 'Trống Cơm',
+    subtitle: 'Âm sắc lúa nước & Nhịp điệu giao duyên',
+    category: 'Nhạc Khí',
+    breadcrumbs: [
+      { title: 'Bảo Tàng Chèo Số', path: '/' },
+      { title: 'Khám phá', path: '/kham-pha' },
+      { title: 'Sân Khấu', path: '/kham-pha/san-khau' },
+      { title: 'Âm thanh', path: '/kham-pha/san-khau/am-thanh' },
+      { title: 'Dàn Nhạc Bát Âm', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am' },
+      { title: 'Trống Cơm', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/trong-com' }
+    ],
+    widgetType: 'audio',
+    description: 'Âm trầm ấm áp dán cơm nếp ấm, hòa nhịp rộn ràng gắn liền với văn minh lúa nước và các màn giao duyên trai gái.',
+    tags: ['Trống cơm', 'Tang tình', 'Lúa nước', 'Dân ca']
+  },
+  '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/thanh-la-mo': {
+    path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/thanh-la-mo',
+    id: 'thanh-la-mo',
+    title: 'Thanh La & Mõ',
+    subtitle: 'Tiết tấu trào lộng & Tiếng cười phân minh',
+    category: 'Nhạc Khí',
+    breadcrumbs: [
+      { title: 'Bảo Tàng Chèo Số', path: '/' },
+      { title: 'Khám phá', path: '/kham-pha' },
+      { title: 'Sân Khấu', path: '/kham-pha/san-khau' },
+      { title: 'Âm thanh', path: '/kham-pha/san-khau/am-thanh' },
+      { title: 'Dàn Nhạc Bát Âm', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am' },
+      { title: 'Thanh La & Mõ', path: '/kham-pha/san-khau/am-thanh/dan-nhac-bat-am/thanh-la-mo' }
+    ],
+    widgetType: 'audio',
+    description: 'Bộ đôi nhạc khí gõ dập phách ăn khớp châm biếm, tạo nên những tràng cười sảng khoái của các màn Hề Chèo.',
+    tags: ['Thanh la', 'Mõ tre', 'Hề chèo', 'Trào lộng']
   },
   '/kham-pha/san-khau/am-thanh/lan-dieu': {
     path: '/kham-pha/san-khau/am-thanh/lan-dieu',

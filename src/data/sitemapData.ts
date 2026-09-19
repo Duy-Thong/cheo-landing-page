@@ -176,9 +176,103 @@ export const SITEMAP_DATA: SitemapNode = {
                   subtitle: 'Làn điệu & Dàn nhạc dân tộc',
                   description: 'Dàn nhạc Chèo với tiếng Trống cơm, Trống đế, Đàn nguyệt, Nhị, Sáo trúc và hơn 200 làn điệu Chèo đặc sắc như Quân tử vu dịch, Luyện năm cung.',
                   category: 'stage',
-                  badge: 'Âm nhạc & Điệu hát',
+                  badge: '3 Chuyên đề',
                   icon: 'Music',
-                  highlights: ['Tiếng trống đế giòn giã', 'Đàn nhị, nguyệt, sáo trúc hòa âm', 'Các làn điệu cổ: Sa lệch, Cách cú, Hề mồi']
+                  highlights: ['Tiếng trống đế giòn giã', 'Đàn nhị, nguyệt, sáo trúc hòa âm', 'Các làn điệu cổ: Sa lệch, Cách cú, Hề mồi'],
+                  children: [
+                    {
+                      id: 'dan-nhac-bat-am',
+                      title: 'Dàn Nhạc Bát Âm',
+                      subtitle: '6 Nhạc khí cổ truyền chuẩn mực',
+                      description: 'Khám phá Trống đế chỉ huy, Đàn nguyệt, Đàn nhị, Sáo trúc, Trống cơm và Thanh la mõ.',
+                      category: 'stage',
+                      badge: '6 Nhạc khí',
+                      icon: 'Music',
+                      highlights: ['Trống đế chỉ huy', 'Đàn nguyệt & Đàn nhị', 'Quy tắc hòa âm'],
+                      children: [
+                        {
+                          id: 'trong-de',
+                          title: 'Trống Đế',
+                          subtitle: 'Trưởng ban tiết tấu',
+                          description: 'Chỉ huy nhịp thở của chiếu Chèo, gõ mặt tùng trầm và gõ tang cắc đanh giòn.',
+                          category: 'stage',
+                          badge: 'Tiết tấu',
+                          icon: 'Music',
+                          highlights: ['Gõ mặt & Gõ tang', 'Dùi lim', 'Chỉ huy đào kép']
+                        },
+                        {
+                          id: 'dan-nguyet',
+                          title: 'Đàn Nguyệt',
+                          subtitle: 'Lãnh tấu giai điệu',
+                          description: 'Hai dây tơ gảy khúc tự sự dìu dặt, luyến láy nâng niu từng câu hát nhả chữ.',
+                          category: 'stage',
+                          badge: 'Giai điệu',
+                          icon: 'Music',
+                          highlights: ['Hai dây tơ', 'Ngón nhấn ngón vuốt', 'Nâng đỡ giọng hát']
+                        },
+                        {
+                          id: 'dan-nhi',
+                          title: 'Đàn Nhị',
+                          subtitle: 'Biểu cảm nội tâm',
+                          description: 'Cung vĩ miết trên hai dây tơ nỉ non da diết như giọt nước mắt oan khiên thân phận.',
+                          category: 'stage',
+                          badge: 'Bi cảm',
+                          icon: 'Music',
+                          highlights: ['Cung vĩ lông ngựa', 'Thân bịt da rắn', 'Tiếng khóc ai oán']
+                        },
+                        {
+                          id: 'sao-truc',
+                          title: 'Sáo Trúc',
+                          subtitle: 'Thanh âm đồng nội',
+                          description: 'Ống trúc mộc mạc vút cao lơ lửng lưng trời mang hồn quê châu thổ Kinh Bắc.',
+                          category: 'stage',
+                          badge: 'Đồng nội',
+                          icon: 'Radio',
+                          highlights: ['Ống trúc tự nhiên', 'Rung vòm họng', 'Gió đồng Kinh Bắc']
+                        },
+                        {
+                          id: 'trong-com',
+                          title: 'Trống Cơm',
+                          subtitle: 'Âm sắc lúa nước',
+                          description: 'Dán cơm nếp ấm tạo âm trầm ngọt ngào, vỗ hai bàn tay hòa nhịp giao duyên.',
+                          category: 'stage',
+                          badge: 'Giao duyên',
+                          icon: 'Sparkles',
+                          highlights: ['Dán cơm nếp', 'Vỗ hai lòng tay', 'Tang tình rộn rã']
+                        },
+                        {
+                          id: 'thanh-la-mo',
+                          title: 'Thanh La & Mõ',
+                          subtitle: 'Tiết tấu trào lộng',
+                          description: 'Thanh la ngân xa kết hợp mõ gỗ đanh giòn, dập phách tạo tiếng cười vai Hề.',
+                          category: 'stage',
+                          badge: 'Trào lộng',
+                          icon: 'Smile',
+                          highlights: ['Thanh la đồng', 'Mõ gỗ đanh', 'Tiếng cười Hề Chèo']
+                        }
+                      ]
+                    },
+                    {
+                      id: 'lan-dieu',
+                      title: 'Kho Tàng Làn Điệu',
+                      subtitle: '200+ làn điệu mẫu mực',
+                      description: 'Phòng thẩm âm tương tác với Đào liễu, Quân tử vu dịch, Sa lệch chênh, Hề mồi.',
+                      category: 'stage',
+                      badge: 'Thẩm âm',
+                      icon: 'Radio',
+                      highlights: ['Đào liễu trữ tình', 'Quân tử vu dịch bi ai', 'Kỹ thuật nảy hạt buông bắt']
+                    },
+                    {
+                      id: 'tiet-tau',
+                      title: 'Tiết Tấu & Nhịp Trống',
+                      subtitle: '4 chặng phát triển kịch tính',
+                      description: 'Quy luật tiết tấu đêm diễn từ khởi nhạc mở màn, hát xưng danh đến trào lộng hề chèo.',
+                      category: 'stage',
+                      badge: 'Nhịp phách',
+                      icon: 'Sparkles',
+                      highlights: ['Mẫu nhịp trống tùng cắc', '4 Chặng đêm diễn', 'Phi trống bất thành Chèo']
+                    }
+                  ]
                 },
                 {
                   id: 'tac-pham-tieu-bieu',

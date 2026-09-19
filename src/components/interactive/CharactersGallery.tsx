@@ -50,7 +50,7 @@ export const CHARACTERS_DATA: CharacterArchetype[] = [
     name: 'Đào',
     fullName: 'Đào — Mẫu Hình Người Nữ Trong Chiếu Chèo Sân Đình',
     category: 'Hình Mẫu Nữ Chuẩn Mực',
-    image: '/images/cheo_costume.jpg',
+    image: '/images/char_dao.jpg',
     representative: 'Thị Kính • Thị Mầu • Xúy Vân • Châu Long',
     tagline: 'Từ đức hạnh nhẫn nhục của Thị Kính đến khát vọng giải phóng tình cảm cuồng nhiệt của Thị Mầu và bi kịch nội tâm giằng xé của Xúy Vân.',
     famousQuote: 'Thầy như táo rụng sân đình, em như gái dở đi rình của chua... Nước trong leo lẻo con cá đớp mồi, chẳng giấu gì tôi đây ra mắt làng nước!',
@@ -136,7 +136,7 @@ export const CHARACTERS_DATA: CharacterArchetype[] = [
     name: 'Kép',
     fullName: 'Kép — Mẫu Hình Đấng Nam Nhi Quân Tử',
     category: 'Hình Mẫu Nam Chuẩn Mực',
-    image: '/images/cheo_hero.jpg',
+    image: '/images/char_kep.jpg',
     representative: 'Lưu Bình • Thiện Sĩ • Trương Viên • Tuần Ty',
     tagline: 'Biểu tượng của chữ Nhân, chữ Nghĩa, phong thái nho nhã đĩnh đạc và tinh thần xả thân vì nghĩa lớn.',
     famousQuote: 'Chí làm trai dặm nghìn tang bồng bảng lảng, dốc lòng vàng quyết đền nợ nước ơn vua. Dẫu thác cũng thơm danh cùng sử sách!',
@@ -211,7 +211,7 @@ export const CHARACTERS_DATA: CharacterArchetype[] = [
     name: 'Hề',
     fullName: 'Hề — Linh Hồn Tiếng Cười Dân Gian Sân Đình',
     category: 'Nhân Vật Trào Phúng Dân Gian',
-    image: '/images/cheo_dinh_lang.jpg',
+    image: '/images/char_he.jpg',
     representative: 'Hề Cu Sứt • Hề Mồi • Hề Gậy • Hề Thầy Bói',
     tagline: 'Chiếc gương soi thói hư tật xấu, dùng tiếng cười sảng khoái của kẻ cùng khổ để hạ bệ uy quyền phong kiến mục ruỗng.',
     famousQuote: 'Ăn no ngủ kỹ rồi ra múa quạt, cười một trận cho sáng mắt trần gian! Thầy ăn hết nạc thì để con gặm xương, chứ đời thuở nhà ai măng cụt lại bảo là tre già bao giờ!',
@@ -286,7 +286,7 @@ export const CHARACTERS_DATA: CharacterArchetype[] = [
     name: 'Lão',
     fullName: 'Lão — Bậc Trưởng Thượng & Chiều Sâu Nhân Thế',
     category: 'Hình Mẫu Bậc Trưởng Lão',
-    image: '/images/cheo_kham_pha.jpg',
+    image: '/images/char_lao.jpg',
     representative: 'Mãng Ông • Lão Say Làng Khuốc • Trương Mẫu',
     tagline: 'Đại diện cho sự từng trải nhân thế, tiếng thở dài xót thương trước nỗi oan con cháu và triết lý an nhiên thấu suốt bụi trần.',
     famousQuote: 'Con ơi! Oan khổ thấu tận trời xanh nhưng bia miệng ngàn năm còn nhớ người trong sạch. Trời đất mênh mông một chén rượu cay, say để thấy rõ lòng người điên đảo!',
@@ -361,7 +361,7 @@ export const CHARACTERS_DATA: CharacterArchetype[] = [
     name: 'Mụ',
     fullName: 'Mụ — Tuyến Tính Cách Sắc Sảo & Xung Đột Kịch Tính',
     category: 'Hình Mẫu Tuyến Đối Kháng',
-    image: '/images/cheo_hero.jpg',
+    image: '/images/char_mu.jpg',
     representative: 'Sùng Bà (Quan Âm Thị Kính) • Mụ Quán • Mụ Mối (Kim Nham)',
     tagline: 'Cội nguồn của giông bão xung đột sân khấu, bộc lộ sự tha hóa của quyền lực gia trưởng phong kiến và thói thực dụng lọc lõi đời thường.',
     famousQuote: 'Dâu là con, rể là khách! Mày là con nhà bần hàn, chuột sa chĩnh gạo mà còn toan giết con bà để cướp cơ nghiệp à? Đồ con ong bầu, cút xéo khỏi mắt tao ngay!',
@@ -466,6 +466,15 @@ export const CharactersGallery: React.FC<CharactersGalleryProps> = ({
     }
   }
 
+  const handleImageFallback = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const target = e.currentTarget
+    if (target.src.endsWith('.jpg')) {
+      target.src = target.src.replace(/\.jpg$/, '.png')
+    } else if (target.src.endsWith('.png')) {
+      target.src = target.src.replace(/\.png$/, '.webp')
+    }
+  }
+
   // GIAO DIỆN CHI TIẾT 1 NHÂN VẬT — PHONG CÁCH CHUYÊN KHẢO BẢO TÀNG SỐ
   if (selectedChar) {
     return (
@@ -484,27 +493,34 @@ export const CharactersGallery: React.FC<CharactersGalleryProps> = ({
           </span>
         </div>
 
-        {/* Hero banner nhân vật */}
-        <div className="relative rounded-2xl overflow-hidden aspect-[21/9] min-h-[280px] sm:min-h-[380px] shadow-2xl">
-          <img
-            src={selectedChar.image}
-            alt={selectedChar.fullName}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-transparent" />
-
-          <div className="absolute inset-0 p-6 sm:p-12 flex flex-col justify-end">
-            <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold mb-2 block">
-              {selectedChar.category}
-            </span>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-tight">
+        {/* Giới thiệu nhân vật — Bố cục cân đối, gọn gàng, không chiếm trọn màn hình */}
+        <header className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center border-b border-stone-800/60 pb-8">
+          <div className="md:col-span-8 space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold block">
+                {selectedChar.category}
+              </span>
+              <span className="text-stone-600">&bull;</span>
+              <span className="text-xs font-mono text-stone-400">{selectedChar.badge}</span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
               {selectedChar.fullName}
             </h1>
-            <p className="text-sm sm:text-base text-stone-300 font-serif font-light max-w-3xl mt-3 leading-relaxed">
+            <p className="text-sm sm:text-base text-stone-300 font-serif font-light max-w-2xl leading-relaxed">
               {selectedChar.tagline}
             </p>
           </div>
-        </div>
+          <div className="md:col-span-4">
+            <div className="aspect-[4/3] max-h-56 rounded-2xl overflow-hidden shadow-xl border border-stone-800/80 bg-stone-900">
+              <img
+                src={selectedChar.image}
+                alt={selectedChar.fullName}
+                onError={handleImageFallback}
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+          </div>
+        </header>
 
         {/* Trích dẫn câu thoại kinh điển */}
         <section className="py-8 border-y border-stone-800/60 max-w-4xl mx-auto text-center space-y-3">
@@ -696,7 +712,8 @@ export const CharactersGallery: React.FC<CharactersGalleryProps> = ({
               <img
                 src={char.image}
                 alt={char.name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                onError={handleImageFallback}
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute top-4 right-4 text-3xl font-mono font-black text-white/20 select-none">
                 0{idx + 1}

@@ -18,7 +18,7 @@ const COSTUMES_DATA: CostumeArtifact[] = [
     id: 'ao-tu-than',
     name: 'Áo Tứ Thân & Yếm Đào',
     role: 'Phục trang chuẩn mực của Đào Chèo',
-    image: '/images/cheo_costume.jpg',
+    image: '/images/costume_ao_tu_than.jpg',
     description: 'Bốn tà áo tượng trưng cho tứ thân phụ mẫu (cha mẹ mình và cha mẹ chồng). Hai vạt trước buộc vạt chéo tượng trưng cho tình nghĩa vợ chồng son sắt gắn bó. Yếm đào lụa tơ tằm thắm đượm nét duyên dáng người con gái thôn quê.',
     materials: 'Lụa tơ tằm Vạn Phúc dệt tay, nhuộm củ nâu, nhuộm lá chàm tự nhiên',
     colorSignificance: 'Màu nâu trầm thể hiện sự tần tảo chịu thương chịu khó; sắc thắm yếm đào hé lộ khát vọng tình yêu đôi lứa.',
@@ -29,7 +29,7 @@ const COSTUMES_DATA: CostumeArtifact[] = [
     id: 'non-quai-thao',
     name: 'Nón Ba Tầm (Nón Quai Thao)',
     role: 'Đạo cụ múa & biểu cảm của Đào Chèo',
-    image: '/images/cheo_hero.jpg',
+    image: '/images/costume_non_quai_thao.jpg',
     description: 'Chiếc nón tròn phẳng rộng vành làm bằng lá cọ khâu chỉ guột. Nón không chỉ che nắng che mưa mà là đạo cụ diễn xuất che nửa khuôn mặt e ấp thẹn thùng, tạo khoảng cách ước lệ đầy duyên dáng.',
     materials: 'Lá gồi trắng phơi sương, sợi guột chuốt nhẵn, quai thao dệt bằng tơ tằm tết tua rua',
     colorSignificance: 'Màu trắng ngà của lá cọ đối lập với quai thao đen huyền, làm nổi bật khuôn mặt thanh tú của người diễn viên.',
@@ -40,7 +40,7 @@ const COSTUMES_DATA: CostumeArtifact[] = [
     id: 'ao-ngu-than-kep',
     name: 'Áo Ngũ Thân & Khăn Xếp',
     role: 'Trang phục đĩnh đạc của Kép Chèo',
-    image: '/images/cheo_dinh_lang.jpg',
+    image: '/images/costume_ao_ngu_than.jpg',
     description: 'Năm thân áo tượng trưng cho ngũ thường (Nhân - Lễ - Nghĩa - Trí - Tín). Thân áo thẳng thớm, cổ đứng kín đáo thể hiện phong thái đĩnh đạc, nho nhã của đấng nam nhi quân tử.',
     materials: 'Gấm hoa chìm hoặc the dệt sợi tơ, cúc đồng bọc vải thủ công',
     colorSignificance: 'Sắc xanh lam, tím than hoặc đen bóng biểu thị sự điềm đạm, khiêm nhường và trí tuệ thâm sâu.',
@@ -51,7 +51,7 @@ const COSTUMES_DATA: CostumeArtifact[] = [
     id: 'ao-ba-ba-he',
     name: 'Áo Cộc Hề Chèo & Gậy Tre',
     role: 'Trang phục trào lộng của Hề Sân Đình',
-    image: '/images/cheo_kham_pha.jpg',
+    image: '/images/costume_ao_ba_ba_he.jpg',
     description: 'Chiếc áo ngắn vá chằng vá đụp hoặc áo lửng cài lệch, ống quần xắn cao khập khiễng. Trang phục phản ánh thân phận dân nghèo tôi đòi nhưng chứa đựng sự tự do và tiếng cười châm biếm.',
     materials: 'Vải thô mộc nhuộm nâu gụ, sợi gai gai ráp',
     colorSignificance: 'Màu nâu đất mộc mạc gợi sự gắn bó máu thịt với đồng ruộng và giai cấp lao động bần hàn.',
@@ -111,24 +111,29 @@ export const CostumesShowcase: React.FC<CostumesShowcaseProps> = ({
           </span>
         </div>
 
-        {/* Hero banner phục trang */}
-        <div className="relative rounded-2xl overflow-hidden aspect-[21/9] min-h-[260px] sm:min-h-[340px]">
-          <img
-            src={selectedCostume.image}
-            alt={selectedCostume.name}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-transparent" />
-
-          <div className="absolute inset-0 p-6 sm:p-12 flex flex-col justify-end">
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight">
-              {selectedCostume.name}
-            </h2>
-            <p className="text-sm sm:text-base text-amber-200/90 font-serif mt-2">
+        {/* Giới thiệu phục trang — Gọn gàng, thoáng đãng, không choán hết màn hình */}
+        <header className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center border-b border-stone-800/60 pb-8">
+          <div className="md:col-span-8 space-y-3">
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold block">
               {selectedCostume.role}
+            </span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight">
+              {selectedCostume.name}
+            </h1>
+            <p className="text-sm sm:text-base text-stone-300 font-serif font-light max-w-2xl leading-relaxed">
+              {selectedCostume.description}
             </p>
           </div>
-        </div>
+          <div className="md:col-span-4">
+            <div className="aspect-[4/3] max-h-56 rounded-2xl overflow-hidden shadow-xl border border-stone-800/80 bg-stone-900">
+              <img
+                src={selectedCostume.image}
+                alt={selectedCostume.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </header>
 
         {/* Nội dung phục trang */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-14 pt-2">
