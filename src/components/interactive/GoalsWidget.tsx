@@ -29,7 +29,7 @@ export const GoalsWidget: React.FC = () => {
           <figure className="relative rounded-3xl overflow-hidden border border-stone-800/90 bg-stone-950 shadow-2xl group">
             <div className="aspect-[4/5] sm:aspect-[3/4] w-full overflow-hidden relative">
               <img
-                src="/images/cheo_kham_pha.jpg"
+                src="/images/gioi-thieu/goals.jpg"
                 alt="Chiếu chèo truyền thống giữa sân đình làng"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 filter brightness-95 contrast-105"
               />
@@ -51,7 +51,7 @@ export const GoalsWidget: React.FC = () => {
           <figure className="rounded-3xl overflow-hidden border border-stone-800/80 bg-stone-950 shadow-xl group">
             <div className="aspect-[4/3] sm:aspect-[4/3] w-full overflow-hidden relative">
               <img
-                src="/images/cheo_dinh_lang.jpg"
+                src="/images/gioi-thieu/field_story.jpg"
                 alt="Nghệ nhân truyền nghề bên manh chiếu cổ"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -131,7 +131,7 @@ export const GoalsWidget: React.FC = () => {
           <figure className="rounded-3xl overflow-hidden border border-stone-800/80 bg-stone-950 shadow-xl group">
             <div className="aspect-[4/3] sm:aspect-[4/3] w-full overflow-hidden relative">
               <img
-                src="/images/cheo_costume.jpg"
+                src="/images/gioi-thieu/costume.jpg"
                 alt="Họa tiết trang phục Chèo truyền thống"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -152,7 +152,7 @@ export const GoalsWidget: React.FC = () => {
           <figure className="rounded-3xl overflow-hidden border border-stone-800/80 bg-stone-950 shadow-xl group">
             <div className="aspect-[4/3] sm:aspect-[4/3] w-full overflow-hidden relative">
               <img
-                src="/images/cheo_hero.jpg"
+                src="/images/gioi-thieu/world.jpg"
                 alt="Nghệ thuật Chèo thăng hoa"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />

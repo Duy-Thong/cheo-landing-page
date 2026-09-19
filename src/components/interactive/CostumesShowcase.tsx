@@ -188,7 +188,7 @@ export const CostumesShowcase: React.FC<CostumesShowcaseProps> = ({
       {/* ── 1. CINEMA OVERLAY HERO BANNER (100VW FULL VIEWPORT WIDTH & COMPACT HEIGHT) ── */}
       <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-10 sm:-mt-14 overflow-hidden shadow-2xl border-b border-stone-800 bg-stone-950 h-[280px] sm:h-[340px] lg:h-[380px] flex items-end group mb-12 sm:mb-16">
         <img
-          src="/images/costume_ao_tu_than.jpg"
+          src="/images/kham-pha/san-khau/trang_phuc_hero.jpg"
           alt="Sắc Phục Chèo Cổ"
           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.55] contrast-105"
         />

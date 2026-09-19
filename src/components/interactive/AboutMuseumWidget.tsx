@@ -33,7 +33,7 @@ export const AboutMuseumWidget: React.FC<AboutMuseumWidgetProps> = ({ onNavigate
           <figure className="relative rounded-3xl overflow-hidden border border-stone-800/90 bg-stone-950 shadow-2xl group">
             <div className="aspect-[4/5] sm:aspect-[3/4] w-full overflow-hidden relative">
               <img
-                src="/images/cheo_gioi_thieu.jpg"
+                src="/images/gioi-thieu/hero.jpg"
                 alt="Không gian bảo tàng số Chèo cổ truyền"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 filter brightness-95 contrast-105"
               />
@@ -55,7 +55,7 @@ export const AboutMuseumWidget: React.FC<AboutMuseumWidgetProps> = ({ onNavigate
           <figure className="rounded-3xl overflow-hidden border border-stone-800/80 bg-stone-950 shadow-xl group">
             <div className="aspect-[4/3] sm:aspect-[4/3] w-full overflow-hidden relative">
               <img
-                src="/images/cheo_instruments.jpg"
+                src="/images/gioi-thieu/digital_sanctuary.jpg"
                 alt="Dàn nhạc cụ dân tộc trong không gian số"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -141,7 +141,7 @@ export const AboutMuseumWidget: React.FC<AboutMuseumWidgetProps> = ({ onNavigate
           <figure className="rounded-3xl overflow-hidden border border-stone-800/80 bg-stone-950 shadow-xl group">
             <div className="aspect-[4/3] sm:aspect-[4/3] w-full overflow-hidden relative">
               <img
-                src="/images/play_ganh_hat.jpg"
+                src="/images/gioi-thieu/ganh_hat.jpg"
                 alt="Gánh hát Chèo xưa và nay"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />

@@ -21,7 +21,7 @@ const FIELD_ENTRIES: FieldEntry[] = [
       'Chuyến điền dã đầu tiên đưa chúng tôi về làng Khuốc — nơi lưu giữ hơn 280 làn điệu Chèo cổ. Ngồi giữa manh chiếu cói trải bên thềm đình, nghe các cụ bà ngoài tám mươi cất giọng hát mộc không micro, chúng tôi bàng hoàng nhận ra: phần lớn ngón nghề nảy hạt, vuốt hơi và tiếng đế độc đáo chỉ tồn tại trong trí nhớ truyền miệng của các thế hệ nghệ nhân lão thành.',
     fieldQuote:
       'Làn điệu thì còn trong sách vở, nhưng cái nảy hạt, cái liếc mắt thì sách nào chép xiết hở các cháu?',
-    image: '/images/cheo_dinh_lang.jpg'
+    image: '/images/gioi-thieu/field_story.jpg'
   },
   {
     id: 'yen-khanh',
@@ -32,7 +32,7 @@ const FIELD_ENTRIES: FieldEntry[] = [
       'Chúng tôi mang theo thiết bị thu âm đa kênh về các ngôi đình rêu phong cố đô. Thử nghiệm thu âm trong phòng kín hoàn toàn thất bại vì mất đi cái hồn cốt của chiếu chèo. Tiếng đàn nhị réo rắt và tiếng trống đế chỉ thực sự sống động khi hòa cùng độ vang tự nhiên của gỗ mít, mái ngói cổ và tiếng gió đồng bằng thoảng qua thềm đình.',
     fieldQuote:
       'Trống Chèo không phải để phô trương, dùi cau gõ vào tang gỗ trầm đục chính là nhịp đập của đất, của lòng người.',
-    image: '/images/cheo_hero.jpg'
+    image: '/images/gioi-thieu/hero.jpg'
   },
   {
     id: 'phuc-dung-so',
@@ -43,7 +43,7 @@ const FIELD_ENTRIES: FieldEntry[] = [
       'Từ những trang kịch bản Nôm mục nát đến hàng trăm giờ thu âm thực địa, đội ngũ kỹ sư trẻ và các nhà nghiên cứu đã phục dựng từng mô hình 3D chiếc quạt nan, dải yếm thêu chỉ tơ và hệ thống ký âm mở. Mong muốn lớn nhất là biến những tinh hoa đang mờ dần trở thành một không gian sống động mà bất kỳ bạn trẻ nào cũng có thể tự do trải nghiệm.',
     fieldQuote:
       'Bảo tồn không phải là giữ gìn tro tàn, mà là tiếp tục thắp lên ngọn lửa truyền đời.',
-    image: '/images/cheo_instruments.jpg'
+    image: '/images/gioi-thieu/digital_sanctuary.jpg'
   }
 ]
 
@@ -57,7 +57,7 @@ export const FieldStoryWidget: React.FC<FieldStoryWidgetProps> = ({ onNavigate }
       {/* ── 1. CINEMA OVERLAY HERO BANNER (100VW FULL VIEWPORT WIDTH & COMPACT HEIGHT) ── */}
       <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-10 sm:-mt-14 overflow-hidden shadow-2xl border-b border-stone-800 bg-stone-950 h-[280px] sm:h-[340px] lg:h-[380px] flex items-end group mb-12 sm:mb-16">
         <img
-          src="/images/cheo_dinh_lang.jpg"
+          src="/images/gioi-thieu/field_story.jpg"
           alt="Những Bước Chân Gõ Cửa Làng Chèo Cổ"
           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.55] contrast-105"
         />

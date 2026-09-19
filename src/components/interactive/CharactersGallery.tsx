@@ -1565,7 +1565,7 @@ export const CharactersGallery: React.FC<CharactersGalleryProps> = ({
       {/* ── 1. CINEMA OVERLAY HERO BANNER (100VW FULL VIEWPORT WIDTH & COMPACT HEIGHT) ── */}
       <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-10 sm:-mt-14 overflow-hidden shadow-2xl border-b border-stone-800 bg-stone-950 h-[280px] sm:h-[340px] lg:h-[380px] flex items-end group mb-12 sm:mb-16">
         <img
-          src="/images/char_dao.jpg"
+          src="/images/kham-pha/san-khau/nhan_vat_hero.jpg"
           alt="Năm Mẫu Hình Nhân Vật Sân Khấu Chèo"
           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.55] contrast-105"
         />

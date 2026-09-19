@@ -41,7 +41,7 @@ const HUB_METADATA: Record<string, HubMeta> = {
     title: 'Không Gian Sân Khấu Chèo',
     epigraph: 'Chiếu hoa trải giữa sân đình, tiếng trống đế gióng giả mở màn cho một thế giới ước lệ nhiệm màu.',
     leadText: 'Bốn trụ cột nghệ thuật — Nhân vật ước lệ, Phục trang ngũ sắc, Dàn nhạc Bát âm và Tích trò kinh điển — hòa quyện chặt chẽ trên manh chiếu cói mộc mạc. Không cần bục cao rèm lộng, Chèo kéo người xem và người diễn lại gần nhau trong một trường thẩm mỹ dân gian độc nhất vô nhị.',
-    heroImage: '/images/cheo_hero.jpg',
+    heroImage: '/images/kham-pha/san-khau/hero.jpg',
     heroCaption: 'Toàn cảnh diễn xướng Chèo cổ truyền — Nơi thanh âm, sắc màu và điệu múa hòa quyện giữa lòng hội làng.',
     panoramicQuote: {
       text: 'Chèo là nghệ thuật tổng hợp độc nhất vô nhị: hát để nói, múa để đi, diễn để gợi mở — tất cả quy về cái Tâm và cái Tình của con người Việt Nam.',
@@ -97,7 +97,7 @@ const EDITORIAL_ENRICHMENTS: Record<string, ChapterEnrichment> = {
     quote: 'Mầu ơi là Mầu! Nước giếng trong leo lẻo, con cá đớp đớp... Người đâu mà đẹp như trăng rằm thế!',
     quoteAuthor: 'Trích tích trò cổ Quan Âm Thị Kính',
     buttonText: 'Bước Vào Gian Nhân Vật',
-    image: '/images/char_dao.jpg',
+    image: '/images/kham-pha/san-khau/nhan_vat_hero.jpg',
     imageCaption: 'Tạo hình Đào thương thanh cao — Đỉnh cao biểu cảm ước lệ của sân khấu Chèo cổ.'
   },
   '/kham-pha/san-khau/trang-phuc': {
@@ -106,7 +106,7 @@ const EDITORIAL_ENRICHMENTS: Record<string, ChapterEnrichment> = {
     quote: 'Nào đâu cái yếm lụa sồi / Cái dây lưng đũi nhuộm hồi sang xuân...',
     quoteAuthor: 'Nhà thơ Nguyễn Bính',
     buttonText: 'Chiêm Ngưỡng Gian Phục Trang',
-    image: '/images/costume_ao_tu_than.jpg',
+    image: '/images/kham-pha/san-khau/trang_phuc_hero.jpg',
     imageCaption: 'Áo tứ thân và dải yếm thắm — Biểu tượng vẻ đẹp đoan trang của người phụ nữ Kinh Bắc.'
   },
   '/kham-pha/san-khau/am-thanh': {
@@ -115,7 +115,7 @@ const EDITORIAL_ENRICHMENTS: Record<string, ChapterEnrichment> = {
     quote: 'Trống Chèo gióng giả đầu đình / Làng trên xóm dưới đượm tình nước non.',
     quoteAuthor: 'Dân ca đồng bằng Bắc Bộ',
     buttonText: 'Vào Thính Phòng Làn Điệu',
-    image: '/images/sound_dan_nhac.jpg',
+    image: '/images/kham-pha/san-khau/am_thanh_hero.jpg',
     imageCaption: 'Dàn nhạc Bát âm cổ truyền — Hòa tấu thanh âm mộc mạc ngàn năm của làng quê Việt.'
   },
   '/kham-pha/san-khau/tac-pham-tieu-bieu': {
@@ -124,7 +124,7 @@ const EDITORIAL_ENRICHMENTS: Record<string, ChapterEnrichment> = {
     quote: 'Nỗi oan Thị Kính thấu trời xanh / Lòng son dạ sắt trọn chữ tình non nước.',
     quoteAuthor: 'Trích kịch bản Nôm cổ Quan Âm Thị Kính',
     buttonText: 'Khám Phá Kiệt Tác Tích Trò',
-    image: '/images/play_quan_am_thi_kinh.jpg',
+    image: '/images/kham-pha/san-khau/tac_pham_hero.jpg',
     imageCaption: 'Thị Kính bế con Thị Mầu trước cửa tam quan — Bi kịch và tấm lòng từ bi vô lượng.'
   },
 

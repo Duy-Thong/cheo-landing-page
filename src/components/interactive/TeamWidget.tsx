@@ -73,14 +73,23 @@ const MASTERS: TeamMember[] = [
 export const TeamWidget: React.FC = () => {
   return (
     <div className="text-left space-y-16 animate-in fade-in duration-300">
-      {/* ================= DẪN NHẬP MỞ ĐẦU ================= */}
-      <section className="space-y-3 max-w-2xl pb-8 border-b border-stone-800/60">
-        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
-          Những Người Gìn Giữ & Tiếp Bước Ngọn Lửa Chèo
-        </h2>
-        <p className="text-sm sm:text-base text-stone-300 font-serif font-light leading-relaxed">
-          Nơi hội tụ của những bậc thầy Chèo học uyên bác, các nghệ nhân dân gian cả đời gắn bó với manh chiếu hội làng, cùng thế hệ trẻ tâm huyết ứng dụng công nghệ để bảo tồn hồn cốt dân tộc.
-        </p>
+      {/* ── 1. CINEMA OVERLAY HERO BANNER (100VW FULL VIEWPORT WIDTH & COMPACT HEIGHT) ── */}
+      <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-10 sm:-mt-14 overflow-hidden shadow-2xl border-b border-stone-800 bg-stone-950 h-[280px] sm:h-[340px] lg:h-[380px] flex items-end group mb-12 sm:mb-16">
+        <img
+          src="/images/gioi-thieu/team.jpg"
+          alt="Hội đồng di sản và các nghệ nhân Chèo"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.55] contrast-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/65 to-stone-950/15" />
+
+        <div className="relative z-10 max-w-7xl 2xl:max-w-[1620px] w-full mx-auto px-6 sm:px-10 lg:px-12 pb-8 sm:pb-12 space-y-3">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight drop-shadow-md">
+            Những Người Gìn Giữ Ngọn Lửa Chèo
+          </h1>
+          <p className="text-sm sm:text-base text-stone-300 font-serif font-light max-w-3xl leading-relaxed first-letter:text-3xl first-letter:font-bold first-letter:text-amber-400 drop-shadow">
+            Nơi hội tụ của những bậc thầy Chèo học uyên bác, các nghệ nhân dân gian cả đời gắn bó với manh chiếu hội làng, cùng thế hệ trẻ tâm huyết ứng dụng công nghệ để bảo tồn hồn cốt dân tộc.
+          </p>
+        </div>
       </section>
 
       {/* 1. Hội Đồng Cố Vấn Khoa Học */}
