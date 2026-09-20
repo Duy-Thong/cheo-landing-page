@@ -7,6 +7,7 @@ import {
   Mail,
   ArrowUp
 } from 'lucide-react'
+import { Analytics } from '@vercel/analytics/react'
 import { Navbar } from './components/Navbar'
 import { HomePage } from './components/HomePage'
 import { MuseumView } from './components/MuseumView'
@@ -44,6 +45,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#120f0d] text-[#e7e0d8] flex flex-col selection:bg-[#991b1b] selection:text-white relative font-sans">
+      <Analytics />
       {/* Universal Museum Navbar */}
       <Navbar
         currentPath={currentPath}
